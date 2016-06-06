@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "oovent-mvc", "oovent-mvc\oo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "oovent-models", "oovent-models\oovent-models.csproj", "{2F1CFB24-F447-4DF1-958D-70D87DFE8FD6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "paralib-dal", "..\paralib-net\paralib-net\paralib-dal\paralib-dal.csproj", "{BE7E9259-7ABD-440F-B58A-2A2D6A5F525E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "paralib-dal", "..\paralib-net\paralib-dal\paralib-dal.csproj", "{BE7E9259-7ABD-440F-B58A-2A2D6A5F525E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
