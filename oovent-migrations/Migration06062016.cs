@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using FluentMigrator;
 
 namespace Oovent.Migrations
@@ -10,6 +6,25 @@ namespace Oovent.Migrations
     [Migration(06062016)]
     public class Migration06062016 : Migration
     {
+
+        public override void Down()
+        {
+            Delete.Table("event_entity_relationships");
+            Delete.Table("event_relationship_types");
+            Delete.Table("events");
+            Delete.Table("event_types");
+            Delete.Table("entity_urls");
+            Delete.Table("urls");
+            Delete.Table("url_types");
+            Delete.Table("entity_user_info");
+            Delete.Table("entity_tags");
+            Delete.Table("entities");
+            Delete.Table("entity_type_allowed_child_types");
+            Delete.Table("entity_types");
+            Delete.Table("tags");
+        }
+
+
         public override void Up()
         {
             Create.Table("tags")
@@ -128,21 +143,7 @@ namespace Oovent.Migrations
                 .Row(new { id = "6", name = "Created By" })
                 .Row(new { id = "7", name = "Located At" });            
         }
-        public override void Down()
-        {
-            Delete.Table("event_entity_relationships");
-            Delete.Table("event_relationship_types");
-            Delete.Table("events");
-            Delete.Table("event_types");
-            Delete.Table("entity_urls");
-            Delete.Table("urls");
-            Delete.Table("url_types");
-            Delete.Table("entity_user_info");
-            Delete.Table("entity_tags");
-            Delete.Table("entities");
-            Delete.Table("entity_type_allowed_child_types");
-            Delete.Table("entity_types");
-            Delete.Table("tags");
-        }
+
+
     }
 }
