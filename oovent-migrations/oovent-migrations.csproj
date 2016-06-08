@@ -44,8 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="060620160001-InitialSchema.cs" />
     <Compile Include="060820160001-LoggingSupport.cs" />
-    <Compile Include="Migration06062016.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

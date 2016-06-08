@@ -1,6 +1,6 @@
 ﻿using System;
 using FluentMigrator;
-using com.paralib.migrations;
+using com.paralib.migrations.Logging;
 
 namespace Oovent.Migrations
 {
@@ -9,12 +9,12 @@ namespace Oovent.Migrations
     {
         public override void Down()
         {
-            Logging.Down(this);
+            MvcLogging.Down(this);
         }
 
         public override void Up()
         {
-            Logging.Up(this);
+            MvcLogging.Up(this);
         }
     }
 }

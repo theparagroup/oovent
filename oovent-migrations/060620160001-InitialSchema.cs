@@ -3,8 +3,8 @@ using FluentMigrator;
 
 namespace Oovent.Migrations
 {
-    [Migration(06062016)]
-    public class Migration06062016 : Migration
+    [Migration(060620160001)]
+    public class InitialSchema : Migration
     {
 
         public override void Down()
