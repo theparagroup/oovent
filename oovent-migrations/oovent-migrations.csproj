@@ -57,6 +57,10 @@
       <Project>{101e2741-5a3d-460b-bdf4-f5e5bd27cf1c}</Project>
       <Name>paralib-common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\paralib-net\paralib-dal\paralib-dal.csproj">
+      <Project>{be7e9259-7abd-440f-b58a-2a2d6a5f525e}</Project>
+      <Name>paralib-dal</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\paralib-net\paralib-migrations\paralib-migrations.csproj">
       <Project>{9fb29601-877a-4b69-bbc9-a40673ec1bec}</Project>
       <Name>paralib-migrations</Name>
