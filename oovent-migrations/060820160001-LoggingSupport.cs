@@ -1,6 +1,6 @@
 ﻿using System;
 using FluentMigrator;
-using com.paralib.migrations.Logging;
+using com.paralib.Migrations.Logging;
 
 namespace Oovent.Migrations
 {
