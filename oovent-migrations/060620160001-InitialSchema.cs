@@ -89,7 +89,7 @@ namespace Oovent.Migrations
                 .WithColumn("description").AsParaType(ParaTypes.Key).NotNullable()
                 .WithColumn("start").AsParaType(ParaTypes.DateTime).NotNullable()
                 .WithColumn("end").AsParaType(ParaTypes.DateTime).NotNullable()
-                .WithColumn("ordinal").AsParaType(ParaTypes.Integer).NotNullable()
+                .WithColumn("ordinal").AsParaType(ParaTypes.Int32).NotNullable()
                 .WithColumn("m").AsParaType(ParaTypes.Bool).NotNullable()
                 .WithColumn("t").AsParaType(ParaTypes.Bool).NotNullable()
                 .WithColumn("w").AsParaType(ParaTypes.Bool).NotNullable()
