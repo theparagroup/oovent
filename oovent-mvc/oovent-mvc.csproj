@@ -103,7 +103,9 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\DummyEvent\DummyEvent.cshtml" />
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\Main\EnterEvent.cshtml" />
     <Content Include="Views\Main\Login.cshtml" />
     <Content Include="Static\Libraries\jquery-2-1-4\jquery-2.1.4.min.map" />
