@@ -9,12 +9,12 @@ namespace Oovent.Migrations
     {
         public override void Down()
         {
-            Delete.StandardLogTable();
+            //Delete.StandardLogTable();
         }
 
         public override void Up()
         {
-            Create.StandardLogTable();
+            //Create.StandardLogTable();
         }
     }
 }
