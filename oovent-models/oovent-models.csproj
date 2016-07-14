@@ -30,7 +30,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\paralib-net-dependencies\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\paralib-net-dependencies\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -40,13 +48,77 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DummyEvent.cs" />
+    <Compile Include="Ef\DbContext.cs" />
+    <Compile Include="Ef\EfEntity.cs" />
+    <Compile Include="Ef\EfEntityTag.cs" />
+    <Compile Include="Ef\EfEntityType.cs" />
+    <Compile Include="Ef\EfEntityTypeAllowedChildType.cs" />
+    <Compile Include="Ef\EfEntityUrl.cs" />
+    <Compile Include="Ef\EfEntityUserInfo.cs" />
+    <Compile Include="Ef\EfEntityUserInfoEntityRelationship.cs" />
+    <Compile Include="Ef\EfEvent.cs" />
+    <Compile Include="Ef\EfEventEntityRelationship.cs" />
+    <Compile Include="Ef\EfEventRelationshipType.cs" />
+    <Compile Include="Ef\EfEventType.cs" />
+    <Compile Include="Ef\EfTag.cs" />
+    <Compile Include="Ef\EfUrl.cs" />
+    <Compile Include="Ef\EfUrlType.cs" />
+    <Compile Include="Entity.cs" />
+    <Compile Include="EntityTag.cs" />
+    <Compile Include="EntityType.cs" />
+    <Compile Include="EntityTypeAllowedChildType.cs" />
+    <Compile Include="EntityUrl.cs" />
+    <Compile Include="EntityUserInfo.cs" />
+    <Compile Include="EntityUserInfoEntityRelationship.cs" />
+    <Compile Include="Event.cs" />
+    <Compile Include="EventEntityRelationship.cs" />
+    <Compile Include="EventRelationshipType.cs" />
+    <Compile Include="EventType.cs" />
+    <Compile Include="Logic\Entity.cs" />
+    <Compile Include="Logic\EntityTag.cs" />
+    <Compile Include="Logic\EntityType.cs" />
+    <Compile Include="Logic\EntityTypeAllowedChildType.cs" />
+    <Compile Include="Logic\EntityUrl.cs" />
+    <Compile Include="Logic\EntityUserInfo.cs" />
+    <Compile Include="Logic\EntityUserInfoEntityRelationship.cs" />
+    <Compile Include="Logic\Event.cs" />
+    <Compile Include="Logic\EventEntityRelationship.cs" />
+    <Compile Include="Logic\EventRelationshipType.cs" />
+    <Compile Include="Logic\EventType.cs" />
+    <Compile Include="Logic\Tag.cs" />
+    <Compile Include="Logic\Url.cs" />
+    <Compile Include="Logic\UrlType.cs" />
+    <Compile Include="Metadata\Entity.cs" />
+    <Compile Include="Metadata\EntityTag.cs" />
+    <Compile Include="Metadata\EntityType.cs" />
+    <Compile Include="Metadata\EntityTypeAllowedChildType.cs" />
+    <Compile Include="Metadata\EntityUrl.cs" />
+    <Compile Include="Metadata\EntityUserInfo.cs" />
+    <Compile Include="Metadata\EntityUserInfoEntityRelationship.cs" />
+    <Compile Include="Metadata\Event.cs" />
+    <Compile Include="Metadata\EventEntityRelationship.cs" />
+    <Compile Include="Metadata\EventRelationshipType.cs" />
+    <Compile Include="Metadata\EventType.cs" />
+    <Compile Include="Metadata\Tag.cs" />
+    <Compile Include="Metadata\Url.cs" />
+    <Compile Include="Metadata\UrlType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tag.cs" />
+    <Compile Include="Url.cs" />
+    <Compile Include="UrlType.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\paralib-net\paralib-common\paralib-common.csproj">
+      <Project>{101e2741-5a3d-460b-bdf4-f5e5bd27cf1c}</Project>
+      <Name>paralib-common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\paralib-net\paralib-dal\paralib-dal.csproj">
       <Project>{be7e9259-7abd-440f-b58a-2a2d6a5f525e}</Project>
       <Name>paralib-dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\paralib-net\paralib-migrations\paralib-migrations.csproj">
+      <Project>{9fb29601-877a-4b69-bbc9-a40673ec1bec}</Project>
+      <Name>paralib-migrations</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

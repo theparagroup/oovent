@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Oovent.Models.Ef;
 
 namespace Oovent.Mvc.Controllers
 {
@@ -24,8 +25,30 @@ namespace Oovent.Mvc.Controllers
         }
 
         [Route("register")]
+        [HttpGet]
         public ActionResult Register()
         {
+            return View();
+        }
+
+        [Route("register")]
+        [HttpPost]
+        public ActionResult Register(VmRegister vmRegister)
+        {
+            if (ModelState.IsValid)
+            {
+                using (var Db = new DbContext())
+                {
+                    EfEntityUserInfo eui = new EfEntityUserInfo();
+                    eui.Email = vmRegister.Email;
+                    eui.Password = vmRegister.Password;
+
+                    Db.EntityUserInfo.Add(eui);
+                    Db.SaveChanges();
+
+                    return View();
+                }
+            }
             return View();
         }
     }

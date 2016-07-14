@@ -43,6 +43,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
       <HintPath>..\..\paralib-net-dependencies\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -137,6 +138,10 @@
     <ProjectReference Include="..\..\paralib-net\paralib-migrations\paralib-migrations.csproj">
       <Project>{9fb29601-877a-4b69-bbc9-a40673ec1bec}</Project>
       <Name>paralib-migrations</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\paralib-net\paralib-mvc\paralib-mvc.csproj">
+      <Project>{9067ff6e-8819-4cb3-9e50-197c11a0633f}</Project>
+      <Name>paralib-mvc</Name>
     </ProjectReference>
     <ProjectReference Include="..\oovent-models\oovent-models.csproj">
       <Project>{2f1cfb24-f447-4df1-958d-70d87dfe8fd6}</Project>
