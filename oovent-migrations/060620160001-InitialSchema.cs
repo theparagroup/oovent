@@ -45,7 +45,7 @@ namespace Oovent.Migrations
 
             Create.Table("entities")
                 .WithColumn("id").AsParaType(ParaTypes.Key).NotNullable().Identity().PrimaryKey()
-                .WithColumn("parent_entity_id").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("entities", "id")
+                .WithColumn("parent_entity_id").AsParaType(ParaTypes.Key).Nullable().ForeignKey("entities", "id")
                 .WithColumn("entity_type_id").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("entity_types", "id")
                 .WithColumn("name").AsParaType(ParaTypes.Name).NotNullable();
 
@@ -84,9 +84,9 @@ namespace Oovent.Migrations
 
             Create.Table("events")
                 .WithColumn("id").AsParaType(ParaTypes.Key).NotNullable().Identity().PrimaryKey()
-                .WithColumn("parent_event_id").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("events", "id")
+                .WithColumn("parent_event_id").AsParaType(ParaTypes.Key).Nullable().ForeignKey("events", "id")
                 .WithColumn("event_type_id").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("event_types", "id")
-                .WithColumn("description").AsParaType(ParaTypes.Key).NotNullable()
+                .WithColumn("description").AsParaType(ParaTypes.Description).NotNullable()
                 .WithColumn("start").AsParaType(ParaTypes.DateTime).NotNullable()
                 .WithColumn("end").AsParaType(ParaTypes.DateTime).NotNullable()
                 .WithColumn("ordinal").AsParaType(ParaTypes.Int32).NotNullable()

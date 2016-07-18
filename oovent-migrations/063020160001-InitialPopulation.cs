@@ -5,6 +5,7 @@ using com.paralib.DataAnnotations;
 
 namespace Oovent.Migrations
 {
+    [Migration(060620160002)]
     public class InitialPopulation : Migration
     {
         public override void Down()
