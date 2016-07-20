@@ -45,7 +45,7 @@ namespace Oovent.Migrations
                 .Row(new { id = "1", name = "Weekly" })
                 .Row(new { id = "2", name = "Monthly" });
 
-            Insert.IntoTable("event_relationship_types")
+            Insert.IntoTable("event_entity_relationship_types")
                 .Row(new { id = "0", name = "Organized By" })
                 .Row(new { id = "1", name = "Featuring" })
                 .Row(new { id = "2", name = "Sponsored By" })

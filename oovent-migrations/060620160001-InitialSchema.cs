@@ -10,19 +10,24 @@ namespace Oovent.Migrations
     {
         public override void Down()
         {
-            Delete.Table("event_entity_relationships");
-            Delete.Table("event_relationship_types");
-            Delete.Table("events");
-            Delete.Table("event_types");
+            Delete.Table("entity_user_info");
+
             Delete.Table("entity_urls");
             Delete.Table("urls");
             Delete.Table("url_types");
-            Delete.Table("entity_user_info_entity_relationships");
-            Delete.Table("entity_user_info");
+
+            Delete.Table("event_entity_relationships");
+            Delete.Table("event_entity_relationship_types");
+            Delete.Table("events");
+            Delete.Table("event_types");
+
             Delete.Table("entity_tags");
+            Delete.Table("entity_entity_relationships");
+            Delete.Table("entity_entity_relationship_types");
             Delete.Table("entities");            
             Delete.Table("entity_type_allowed_child_types");
             Delete.Table("entity_types");
+
             Delete.Table("tags");
         }
 
@@ -30,7 +35,7 @@ namespace Oovent.Migrations
         {
             Create.Table("tags")
                 .WithColumn("id").AsParaType(ParaTypes.Key).NotNullable().Identity().PrimaryKey()
-                .WithColumn("parent_tag_id").AsParaType(ParaTypes.Key).Nullable()
+                .WithColumn("parent_tag_id").AsParaType(ParaTypes.Key).Nullable().ForeignKey("tags", "id")
                 .WithColumn("name").AsParaType(ParaTypes.Name).NotNullable();
 
             Create.Table("entity_types")
@@ -49,34 +54,20 @@ namespace Oovent.Migrations
                 .WithColumn("entity_type_id").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("entity_types", "id")
                 .WithColumn("name").AsParaType(ParaTypes.Name).NotNullable();
 
+            Create.Table("entity_entity_relationship_types")
+                .WithColumn("id").AsParaType(ParaTypes.Key).NotNullable().PrimaryKey()
+                .WithColumn("name").AsParaType(ParaTypes.Name).NotNullable();
+
+            Create.Table("entity_entity_relationships")
+                .WithColumn("id").AsParaType(ParaTypes.Key).NotNullable().Identity().PrimaryKey()
+                .WithColumn("entity1_id").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("entities", "id")
+                .WithColumn("entity_entity_relationship_type_id").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("entity_entity_relationship_types", "id")
+                .WithColumn("entity2_id").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("entities", "id");
+
             Create.Table("entity_tags")
                 .WithColumn("id").AsParaType(ParaTypes.Key).NotNullable().Identity().PrimaryKey()
                 .WithColumn("entity_id").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("entities", "id")
                 .WithColumn("tag_id").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("tags", "id");
-
-            Create.Table("entity_user_info")
-                .WithColumn("id").AsParaType(ParaTypes.Key).NotNullable().Identity().PrimaryKey()
-                .WithColumn("email").AsParaType(ParaTypes.Email).NotNullable()
-                .WithColumn("password").AsParaType(ParaTypes.Password).NotNullable();
-
-            Create.Table("entity_user_info_entity_relationships")
-                .WithColumn("id").AsParaType(ParaTypes.Key).NotNullable().Identity().PrimaryKey()
-                .WithColumn("entity_id").AsParaType(ParaTypes.Key).ForeignKey("entities", "id")
-                .WithColumn("entity_user_info").AsParaType(ParaTypes.Key).ForeignKey("entity_user_info", "id");
-
-            Create.Table("url_types")
-                .WithColumn("id").AsParaType(ParaTypes.Key).NotNullable().PrimaryKey()
-                .WithColumn("name").AsParaType(ParaTypes.Name).NotNullable();
-
-            Create.Table("urls")
-                .WithColumn("id").AsParaType(ParaTypes.Key).NotNullable().Identity().PrimaryKey()
-                .WithColumn("url").AsParaType(ParaTypes.Url).NotNullable()
-                .WithColumn("url_type_id").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("url_types", "id");
-
-            Create.Table("entity_urls")
-                .WithColumn("id").AsParaType(ParaTypes.Key).NotNullable().Identity().PrimaryKey()
-                .WithColumn("entity_id").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("entities", "id")
-                .WithColumn("url_id").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("urls", "id");
 
             Create.Table("event_types")
                 .WithColumn("id").AsParaType(ParaTypes.Key).NotNullable().PrimaryKey()
@@ -98,15 +89,37 @@ namespace Oovent.Migrations
                 .WithColumn("s").AsParaType(ParaTypes.Bool).NotNullable()
                 .WithColumn("su").AsParaType(ParaTypes.Bool).NotNullable();
 
-            Create.Table("event_relationship_types")
+            Create.Table("event_entity_relationship_types")
                 .WithColumn("id").AsParaType(ParaTypes.Key).NotNullable().PrimaryKey()
                 .WithColumn("name").AsParaType(ParaTypes.Name).NotNullable();
 
             Create.Table("event_entity_relationships")
                 .WithColumn("id").AsParaType(ParaTypes.Key).NotNullable().Identity().PrimaryKey()
                 .WithColumn("event_id").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("events", "id")
-                .WithColumn("event_relationship_type_id").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("event_relationship_types", "id")
-                .WithColumn("entity_id").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("entities", "id");          
+                .WithColumn("event_entity_relationship_type_id").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("event_entity_relationship_types", "id")
+                .WithColumn("entity_id").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("entities", "id");
+
+            Create.Table("url_types")
+                .WithColumn("id").AsParaType(ParaTypes.Key).NotNullable().PrimaryKey()
+                .WithColumn("name").AsParaType(ParaTypes.Name).NotNullable();
+
+            Create.Table("urls")
+                .WithColumn("id").AsParaType(ParaTypes.Key).NotNullable().Identity().PrimaryKey()
+                .WithColumn("url").AsParaType(ParaTypes.Url).NotNullable()
+                .WithColumn("url_type_id").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("url_types", "id");
+
+            Create.Table("entity_urls")
+                .WithColumn("id").AsParaType(ParaTypes.Key).NotNullable().Identity().PrimaryKey()
+                .WithColumn("entity_id").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("entities", "id")
+                .WithColumn("url_id").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("urls", "id");
+
+            Create.Table("entity_user_info")
+                .WithColumn("id").AsParaType(ParaTypes.Key).PrimaryKey().Identity().ForeignKey("entities", "id")
+                .WithColumn("email").AsParaType(ParaTypes.Email).NotNullable()
+                .WithColumn("password").AsParaType(ParaTypes.Password).NotNullable();
+
+
         }
+
     }
 }
