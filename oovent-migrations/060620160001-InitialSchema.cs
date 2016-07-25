@@ -86,6 +86,7 @@ namespace Oovent.Migrations
                 .WithColumn("id").AsParaType(ParaTypes.Key).NotNullable().Identity().PrimaryKey()
                 .WithColumn("parent_event_id").AsParaType(ParaTypes.Key).Nullable().ForeignKey("events", "id")
                 .WithColumn("event_type_id").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("event_types", "id")
+                .WithColumn("title").AsParaType(ParaTypes.Description).NotNullable()
                 .WithColumn("description").AsParaType(ParaTypes.Description).NotNullable()
                 .WithColumn("start").AsParaType(ParaTypes.DateTime).NotNullable()
                 .WithColumn("end").AsParaType(ParaTypes.DateTime).NotNullable()
