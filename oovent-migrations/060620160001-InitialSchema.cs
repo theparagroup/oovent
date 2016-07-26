@@ -24,7 +24,6 @@ namespace Oovent.Migrations
 
             Delete.Table("entity_tags");
             Delete.Table("entity_entity_relationships");
-            Delete.Table("entity_entity_relationship_types");
             Delete.Table("entities");            
             Delete.Table("entity_type_allowed_child_types");
             Delete.Table("entity_types");
@@ -54,16 +53,6 @@ namespace Oovent.Migrations
                 .WithColumn("parent_entity_id").AsParaType(ParaTypes.Key).Nullable().ForeignKey("entities", "id")
                 .WithColumn("entity_type_id").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("entity_types", "id")
                 .WithColumn("name").AsParaType(ParaTypes.Name).NotNullable();
-
-            Create.Table("entity_entity_relationship_types")
-                .WithColumn("id").AsParaType(ParaTypes.Key).NotNullable().PrimaryKey()
-                .WithColumn("name").AsParaType(ParaTypes.Name).NotNullable();
-
-            Create.Table("entity_entity_relationships")
-                .WithColumn("id").AsParaType(ParaTypes.Key).NotNullable().Identity().PrimaryKey()
-                .WithColumn("entity1_id").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("entities", "id")
-                .WithColumn("entity_entity_relationship_type_id").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("entity_entity_relationship_types", "id")
-                .WithColumn("entity2_id").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("entities", "id");
 
             Create.Table("entity_tags")
                 .WithColumn("id").AsParaType(ParaTypes.Key).NotNullable().Identity().PrimaryKey()
@@ -110,11 +99,11 @@ namespace Oovent.Migrations
                 .WithColumn("event_entity_relationship_type_id").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("event_entity_relationship_types", "id")
                 .WithColumn("entity_id_b").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("entities", "id");
 
-            Create.Table("entity_entity_relationships")
+            Create.Table("event_event_relationships")
                 .WithColumn("id").AsParaType(ParaTypes.Key).NotNullable().Identity().PrimaryKey()
-                .WithColumn("entity_id_a").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("entities", "id")
+                .WithColumn("event_id_a").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("entities", "id")
                 .WithColumn("event_entity_relationship_type_id").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("event_entity_relationship_types", "id")
-                .WithColumn("entity_id_b").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("entities", "id");
+                .WithColumn("evebnt_id_b").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("entities", "id");
 
             Create.Table("url_types")
                 .WithColumn("id").AsParaType(ParaTypes.Key).NotNullable().PrimaryKey()
