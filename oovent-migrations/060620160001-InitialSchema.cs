@@ -17,14 +17,24 @@ namespace Oovent.Migrations
             Delete.Table("urls");
             Delete.Table("url_types");
 
+            Delete.Table("event_type_entity_type_tags");
+
             Delete.Table("event_entity_relationships");
             Delete.Table("event_entity_relationship_types");
+
+            Delete.Table("entity_entity_relationships");
+            Delete.Table("entity_entity_relationship_types");
+
+            Delete.Table("event_event_relationships");
+            Delete.Table("event_event_relationship_types");
+
             Delete.Table("events");
             Delete.Table("event_types");
 
             Delete.Table("entity_tags");
-            Delete.Table("entity_entity_relationships");
-            Delete.Table("entities");            
+
+            Delete.Table("entities");
+
             Delete.Table("entity_type_allowed_child_types");
             Delete.Table("entity_types");
 
@@ -93,17 +103,37 @@ namespace Oovent.Migrations
                 .WithColumn("event_entity_relationship_type_id").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("event_entity_relationship_types", "id")
                 .WithColumn("entity_id").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("entities", "id");
 
+            Create.Table("entity_entity_relationship_types")
+                .WithColumn("id").AsParaType(ParaTypes.Key).NotNullable().PrimaryKey()
+                .WithColumn("name").AsParaType(ParaTypes.Name).NotNullable();
+
             Create.Table("entity_entity_relationships")
                 .WithColumn("id").AsParaType(ParaTypes.Key).NotNullable().Identity().PrimaryKey()
                 .WithColumn("entity_id_a").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("entities", "id")
-                .WithColumn("event_entity_relationship_type_id").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("event_entity_relationship_types", "id")
+                .WithColumn("entity_entity_relationship_type_id").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("entity_entity_relationship_types", "id")
                 .WithColumn("entity_id_b").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("entities", "id");
+
+            Create.Table("event_event_relationship_types")
+                .WithColumn("id").AsParaType(ParaTypes.Key).NotNullable().PrimaryKey()
+                .WithColumn("name").AsParaType(ParaTypes.Name).NotNullable();
 
             Create.Table("event_event_relationships")
                 .WithColumn("id").AsParaType(ParaTypes.Key).NotNullable().Identity().PrimaryKey()
-                .WithColumn("event_id_a").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("entities", "id")
-                .WithColumn("event_entity_relationship_type_id").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("event_entity_relationship_types", "id")
-                .WithColumn("evebnt_id_b").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("entities", "id");
+                .WithColumn("event_id_a").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("events", "id")
+                .WithColumn("event_event_relationship_type_id").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("event_event_relationship_types", "id")
+                .WithColumn("event_id_b").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("events", "id");
+
+            Create.Table("event_type_entity_type_tags")
+                .WithColumn("id").AsParaType(ParaTypes.Key).PrimaryKey().Identity()
+                .WithColumn("event_type_id").AsParaType(ParaTypes.Key).ForeignKey("event_types", "id")
+                .WithColumn("entity_type_id").AsParaType(ParaTypes.Key).ForeignKey("entity_types", "id")
+                .WithColumn("tag_id").AsParaType(ParaTypes.Key).ForeignKey("tags", "id");
+
+            Create.Index("uidx_event_type_entity_type_tags").OnTable("event_type_entity_type_tags")
+                .OnColumn("event_type_id").Unique()
+                .OnColumn("entity_type_id").Unique()
+                .OnColumn("tag_id").Unique();
+
 
             Create.Table("url_types")
                 .WithColumn("id").AsParaType(ParaTypes.Key).NotNullable().PrimaryKey()
