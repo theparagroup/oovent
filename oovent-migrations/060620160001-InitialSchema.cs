@@ -17,13 +17,14 @@ namespace Oovent.Migrations
             Delete.Table("urls");
             Delete.Table("url_types");
 
+            Delete.Table("event_event_relationships");
+            Delete.Table("entity_entity_relationships");
             Delete.Table("event_entity_relationships");
             Delete.Table("event_entity_relationship_types");
             Delete.Table("events");
             Delete.Table("event_types");
 
-            Delete.Table("entity_tags");
-            Delete.Table("entity_entity_relationships");
+            Delete.Table("entity_tags");            
             Delete.Table("entities");            
             Delete.Table("entity_type_allowed_child_types");
             Delete.Table("entity_types");
