@@ -19,14 +19,14 @@ namespace Oovent.Migrations
 
             Delete.Table("event_type_entity_type_tags");
 
-            Delete.Table("event_entity_relationships");
-            Delete.Table("event_entity_relationship_types");
+            Delete.Table("event_event_relationships");
+            Delete.Table("event_event_relationship_types");
 
             Delete.Table("entity_entity_relationships");
             Delete.Table("entity_entity_relationship_types");
 
-            Delete.Table("event_event_relationships");
-            Delete.Table("event_event_relationship_types");
+            Delete.Table("event_entity_relationships");
+            Delete.Table("event_entity_relationship_types");
 
             Delete.Table("events");
             Delete.Table("event_types");
