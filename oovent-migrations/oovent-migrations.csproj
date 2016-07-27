@@ -56,6 +56,9 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="migrate.bat" />
+    <None Include="paralib.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\paralib-net\paralib-common\paralib-common.csproj">

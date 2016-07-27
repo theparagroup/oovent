@@ -44,12 +44,14 @@ namespace Oovent.Migrations
         public override void Up()
         {
             Create.Table("tags")
-                .WithColumn("id").AsParaType(ParaTypes.Key).NotNullable().Identity().PrimaryKey()
+                .WithColumn("id").AsParaType(ParaTypes.Key).PrimaryKey().Identity()
                 .WithColumn("parent_tag_id").AsParaType(ParaTypes.Key).Nullable().ForeignKey("tags", "id")
-                .WithColumn("name").AsParaType(ParaTypes.Name).NotNullable();
+                .WithColumn("name").AsParaType(ParaTypes.Name)
+                .WithColumn("ordinal").AsParaType(ParaTypes.Int32);
 
             Create.Table("entity_types")
                 .WithColumn("id").AsParaType(ParaTypes.Key).NotNullable().PrimaryKey()
+                .WithColumn("parent_entity_type_id").AsParaType(ParaTypes.Key).Nullable().ForeignKey("entity_types", "id")
                 .WithColumn("name").AsParaType(ParaTypes.Name).NotNullable()
                 .WithColumn("top_level_tag_id").AsParaType(ParaTypes.Key).Nullable();
 
@@ -131,8 +133,7 @@ namespace Oovent.Migrations
 
             Create.Index("uidx_event_type_entity_type_tags").OnTable("event_type_entity_type_tags")
                 .OnColumn("event_type_id").Unique()
-                .OnColumn("entity_type_id").Unique()
-                .OnColumn("tag_id").Unique();
+                .OnColumn("entity_type_id").Unique();
 
 
             Create.Table("url_types")
