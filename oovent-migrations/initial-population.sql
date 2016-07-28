@@ -1,3 +1,8 @@
+DELETE FROM entity_entity_relationship_types;
+DELETE FROM event_entity_relationship_types;
+DELETE FROM url_types;
+DELETE FROM entity_types;
+
 INSERT INTO entity_types (id, name) VALUES (1, 'User');
 INSERT INTO entity_types (id, parent_entity_type_id, name) VALUES (2, 1, 'Ooventer');
 INSERT INTO entity_types (id, name) VALUES (3, 'What');
@@ -16,10 +21,6 @@ INSERT INTO event_entity_relationship_types(id, name) VALUES (1, 'Happening');
 INSERT INTO event_entity_relationship_types(id, name) VALUES (2, 'Special');
 INSERT INTO event_entity_relationship_types(id, name) VALUES (3, 'Food Truck');
 INSERT INTO event_entity_relationship_types(id, name) VALUES (4, 'Data Entry');
-
-INSERT INTO event_entity_relationship_types(id, name) VALUES (1, 'Created By');
-INSERT INTO event_entity_relationship_types(id, name) VALUES (2, 'Located At');
-INSERT INTO event_entity_relationship_types(id, name) VALUES (3, 'Featuring');
 
 INSERT INTO entity_entity_relationship_types(id, name) VALUES (1, 'Added By');
 INSERT INTO entity_entity_relationship_types(id, name) VALUES (2, 'Located At');
