@@ -49,7 +49,6 @@
   <ItemGroup>
     <Compile Include="060620160001-InitialSchema.cs" />
     <Compile Include="060820160001-LoggingSupport.cs" />
-    <Compile Include="063020160001-InitialPopulation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
