@@ -6,7 +6,7 @@ namespace Oovent.Models.Ef
 {
 	public class EfEntityTypeAllowedChildType:EntityTypeAllowedChildType
 	{
-		public virtual EfEntityType ParentEntityType { get; set;}
 		public virtual EfEntityType ChildEntityType { get; set;}
+		public virtual EfEntityType ParentEntityType { get; set;}
 	}
 }

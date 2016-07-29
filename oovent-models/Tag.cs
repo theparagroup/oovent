@@ -7,5 +7,6 @@ namespace Oovent.Models
 		public int Id { get; set;}
 		public int? ParentTagId { get; set;}
 		public string Name { get; set;}
+		public int Ordinal { get; set;}
 	}
 }

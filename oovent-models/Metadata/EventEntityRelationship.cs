@@ -27,9 +27,9 @@ namespace Oovent.Models.Metadata
 		[Required(ErrorMessage="Event Id is required")]
 		public object EventId;
 
-		[Display(Name="Event Relationship Type Id")]
-		[Required(ErrorMessage="Event Relationship Type Id is required")]
-		public object EventRelationshipTypeId;
+		[Display(Name="Event Entity Relationship Type Id")]
+		[Required(ErrorMessage="Event Entity Relationship Type Id is required")]
+		public object EventEntityRelationshipTypeId;
 
 		[Display(Name="Entity Id")]
 		[Required(ErrorMessage="Entity Id is required")]

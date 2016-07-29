@@ -1,0 +1,13 @@
+﻿@model IEnumerable<RowEvents>
+@using Oovent.Mvc.Areas.Admin.Models.Even
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>List</h2>
+
+<div class="row oovent-event-list-body">
+    @Html.RenderTable<RowJob>(Model, t => { });
+</div>

@@ -7,6 +7,7 @@ namespace Oovent.Models.Ef
 	public class EfUrl:Url
 	{
 		public virtual EfUrlType UrlType { get; set;}
+		public virtual List<EfEventUrl> EventUrls { get; set;}
 		public virtual List<EfEntityUrl> EntityUrls { get; set;}
 	}
 }

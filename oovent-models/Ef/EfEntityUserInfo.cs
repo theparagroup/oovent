@@ -6,6 +6,6 @@ namespace Oovent.Models.Ef
 {
 	public class EfEntityUserInfo:EntityUserInfo
 	{
-		public virtual List<EfEntityUserInfoEntityRelationship> EntityUserInfoEntityRelationships { get; set;}
+		public virtual int Id { get; set;}
 	}
 }

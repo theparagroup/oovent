@@ -30,5 +30,9 @@ namespace Oovent.Models.Metadata
 		[Required(ErrorMessage="Name is required")]
 		[StringLength(64)]
 		public object Name;
+
+		[Display(Name="Ordinal")]
+		[Required(ErrorMessage="Ordinal is required")]
+		public object Ordinal;
 	}
 }

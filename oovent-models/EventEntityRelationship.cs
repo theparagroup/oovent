@@ -6,7 +6,7 @@ namespace Oovent.Models
 	{
 		public int Id { get; set;}
 		public int EventId { get; set;}
-		public int EventRelationshipTypeId { get; set;}
+		public int EventEntityRelationshipTypeId { get; set;}
 		public int EntityId { get; set;}
 	}
 }

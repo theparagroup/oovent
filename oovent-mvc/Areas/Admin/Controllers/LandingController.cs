@@ -13,5 +13,15 @@ namespace Oovent.Mvc.Areas.Admin.Controllers
         {
             return View();
         }
+
+        public ActionResult MyEvents()
+        {
+            return View();
+        }
+
+        public ActionResult MySchedule()
+        {
+            return View();
+        }
     }
 }

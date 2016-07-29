@@ -703,3 +703,9 @@
     background: #0080ff;
     color: #fff;
 }
+
+.oovent-dashboard-header,
+.oovent-dashboard-body
+{
+    text-align: center;
+}

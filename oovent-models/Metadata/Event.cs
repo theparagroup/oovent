@@ -24,16 +24,33 @@ namespace Oovent.Models.Metadata
 		public object Id;
 
 		[Display(Name="Parent Event Id")]
-		[Required(ErrorMessage="Parent Event Id is required")]
 		public object ParentEventId;
 
 		[Display(Name="Event Type Id")]
 		[Required(ErrorMessage="Event Type Id is required")]
 		public object EventTypeId;
 
+		[Display(Name="Title")]
+		[Required(ErrorMessage="Title is required")]
+		[StringLength(128)]
+		public object Title;
+
 		[Display(Name="Description")]
 		[Required(ErrorMessage="Description is required")]
+		[StringLength(1024)]
 		public object Description;
+
+		[Display(Name="Phone")]
+		[StringLength(13)]
+		public object Phone;
+
+		[Display(Name="Email")]
+		[StringLength(254)]
+		public object Email;
+
+		[Display(Name="Price")]
+		[StringLength(10)]
+		public object Price;
 
 		[Display(Name="Start")]
 		[Required(ErrorMessage="Start is required")]

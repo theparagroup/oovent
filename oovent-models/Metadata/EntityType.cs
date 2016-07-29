@@ -23,6 +23,9 @@ namespace Oovent.Models.Metadata
 		[Required(ErrorMessage="Id is required")]
 		public object Id;
 
+		[Display(Name="Parent Entity Type Id")]
+		public object ParentEntityTypeId;
+
 		[Display(Name="Name")]
 		[Required(ErrorMessage="Name is required")]
 		[StringLength(64)]

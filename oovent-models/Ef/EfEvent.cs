@@ -8,7 +8,9 @@ namespace Oovent.Models.Ef
 	{
 		public virtual EfEventType EventType { get; set;}
 		public virtual EfEvent ParentEvent { get; set;}
-		public virtual List<EfEventEntityRelationship> EventEntityRelationships { get; set;}
 		public virtual List<EfEvent> Events { get; set;}
+		public virtual List<EfEventEventRelationship> EventEventRelationships { get; set;}
+		public virtual List<EfEventUrl> EventUrls { get; set;}
+		public virtual List<EfEventEntityRelationship> EventEntityRelationships { get; set;}
 	}
 }
