@@ -23,10 +23,10 @@ namespace Oovent.Models.Metadata
 		[Required(ErrorMessage="Id is required")]
 		public object Id;
 
-		[Display(Name="Url")]
-		[Required(ErrorMessage="Url is required")]
+		[Display(Name="Address")]
+		[Required(ErrorMessage="Address is required")]
 		[StringLength(2000)]
-		public object Url;
+		public object Address;
 
 		[Display(Name="Url Type Id")]
 		[Required(ErrorMessage="Url Type Id is required")]

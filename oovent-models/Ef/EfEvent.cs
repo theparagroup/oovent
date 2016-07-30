@@ -12,5 +12,6 @@ namespace Oovent.Models.Ef
 		public virtual List<EfEventEventRelationship> EventEventRelationships { get; set;}
 		public virtual List<EfEventUrl> EventUrls { get; set;}
 		public virtual List<EfEventEntityRelationship> EventEntityRelationships { get; set;}
+		public virtual List<EfEventEventRelationship> EventEventRelationships { get; set;}
 	}
 }

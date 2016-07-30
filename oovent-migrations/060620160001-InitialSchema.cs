@@ -142,7 +142,7 @@ namespace Oovent.Migrations
 
             Create.Table("urls")
                 .WithColumn("id").AsParaType(ParaTypes.Key).NotNullable().Identity().PrimaryKey()
-                .WithColumn("url").AsParaType(ParaTypes.Url).NotNullable()
+                .WithColumn("address").AsParaType(ParaTypes.Url).NotNullable()
                 .WithColumn("url_type_id").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("url_types", "id");
 
             Create.Table("entity_urls")
