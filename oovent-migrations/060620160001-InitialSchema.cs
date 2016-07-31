@@ -111,9 +111,9 @@ namespace Oovent.Migrations
 
             Create.Table("entity_entity_relationships")
                 .WithColumn("id").AsParaType(ParaTypes.Key).NotNullable().Identity().PrimaryKey()
-                .WithColumn("entity_id_a").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("entities", "id")
+                .WithColumn("entity_a_id").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("entities", "id")
                 .WithColumn("entity_entity_relationship_type_id").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("entity_entity_relationship_types", "id")
-                .WithColumn("entity_id_b").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("entities", "id");
+                .WithColumn("entity_b_id").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("entities", "id");
 
             Create.Table("event_event_relationship_types")
                 .WithColumn("id").AsParaType(ParaTypes.Key).NotNullable().PrimaryKey()
@@ -121,9 +121,9 @@ namespace Oovent.Migrations
 
             Create.Table("event_event_relationships")
                 .WithColumn("id").AsParaType(ParaTypes.Key).NotNullable().Identity().PrimaryKey()
-                .WithColumn("event_id_a").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("events", "id")
+                .WithColumn("event_a_id").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("events", "id")
                 .WithColumn("event_event_relationship_type_id").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("event_event_relationship_types", "id")
-                .WithColumn("event_id_b").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("events", "id");
+                .WithColumn("event_b_id").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("events", "id");
 
             Create.Table("event_type_entity_type_tags")
                 .WithColumn("id").AsParaType(ParaTypes.Key).PrimaryKey().Identity()
@@ -156,7 +156,7 @@ namespace Oovent.Migrations
                 .WithColumn("url_id").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("urls", "id");
 
             Create.Table("entity_user_info")
-                .WithColumn("id").AsParaType(ParaTypes.Key).PrimaryKey().Identity().ForeignKey("entities", "id")
+                .WithColumn("entity_id").AsParaType(ParaTypes.Key).PrimaryKey().Identity().ForeignKey("entities", "id")
                 .WithColumn("email").AsParaType(ParaTypes.Email).NotNullable()
                 .WithColumn("password").AsParaType(ParaTypes.Password).NotNullable();
         }

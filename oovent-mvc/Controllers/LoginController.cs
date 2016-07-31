@@ -47,7 +47,7 @@ namespace Oovent.Mvc.Controllers
                         using (DbContext db = new DbContext())
                         {
                             var query = from e in db.Entities
-                                        where e.Id == user.Id  && e.EntityTypeId == 2                                   
+                                        where e.Id == user.EntityId  && e.EntityTypeId == 2                                   
                                         select e;
                             
                             if (query.Count() > 0)

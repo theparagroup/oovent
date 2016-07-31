@@ -1,13 +1,17 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using Oovent.Models;
 
 namespace Oovent.Models.Ef
 {
 	public class EfEntityEntityRelationship:EntityEntityRelationship
 	{
-		public virtual EfEntity EntityIdA { get; set;}
-		public virtual EfEntity EntityIdB { get; set;}
+		[ForeignKey("EntityAId")]
+		public virtual EfEntity EntityA { get; set;}
+		[ForeignKey("EntityBId")]
+		public virtual EfEntity EntityB { get; set;}
+		[ForeignKey("EntityEntityRelationshipTypeId")]
 		public virtual EfEntityEntityRelationshipType EntityEntityRelationshipType { get; set;}
 	}
 }

@@ -19,9 +19,9 @@ namespace Oovent.Models.Metadata
 	{
 
 		[Key, Column(Order = 0)]
-		[Display(Name="Id")]
-		[Required(ErrorMessage="Id is required")]
-		public object Id;
+		[Display(Name="Entity Id")]
+		[Required(ErrorMessage="Entity Id is required")]
+		public object EntityId;
 
 		[Display(Name="Email")]
 		[Required(ErrorMessage="Email is required")]

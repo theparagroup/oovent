@@ -23,16 +23,16 @@ namespace Oovent.Models.Metadata
 		[Required(ErrorMessage="Id is required")]
 		public object Id;
 
-		[Display(Name="Entity Id A")]
-		[Required(ErrorMessage="Entity Id A is required")]
-		public object EntityIdA;
+		[Display(Name="Entity A Id")]
+		[Required(ErrorMessage="Entity A Id is required")]
+		public object EntityAId;
 
 		[Display(Name="Entity Entity Relationship Type Id")]
 		[Required(ErrorMessage="Entity Entity Relationship Type Id is required")]
 		public object EntityEntityRelationshipTypeId;
 
-		[Display(Name="Entity Id B")]
-		[Required(ErrorMessage="Entity Id B is required")]
-		public object EntityIdB;
+		[Display(Name="Entity B Id")]
+		[Required(ErrorMessage="Entity B Id is required")]
+		public object EntityBId;
 	}
 }
