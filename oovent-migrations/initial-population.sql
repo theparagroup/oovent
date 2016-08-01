@@ -1,7 +1,11 @@
+DELETE FROM entity_user_info;
+DELETE FROM entities;
+DELETE FROM entity_types;
+DELETE FROM event_types;
 DELETE FROM entity_entity_relationship_types;
 DELETE FROM event_entity_relationship_types;
 DELETE FROM url_types;
-DELETE FROM entity_types;
+
 
 INSERT INTO entity_types (id, name) VALUES (1, 'User');
 INSERT INTO entity_types (id, parent_entity_type_id, name) VALUES (2, 1, 'Ooventer');
