@@ -17,11 +17,14 @@ INSERT INTO url_types(id, name) VALUES (5, 'Tumblr');
 INSERT INTO url_types(id, name) VALUES (6, 'Instagram');
 INSERT INTO url_types(id, name) VALUES (7, 'Other');
 
-INSERT INTO event_entity_relationship_types(id, name) VALUES (1, 'Happening');
-INSERT INTO event_entity_relationship_types(id, name) VALUES (2, 'Special');
-INSERT INTO event_entity_relationship_types(id, name) VALUES (3, 'Food Truck');
-INSERT INTO event_entity_relationship_types(id, name) VALUES (4, 'Data Entry');
+INSERT INTO event_types(id, name) VALUES (1, 'Happening');
+INSERT INTO event_types(id, name) VALUES (2, 'Special');
+INSERT INTO event_types(id, name) VALUES (3, 'Food Truck');
+INSERT INTO event_types(id, name) VALUES (4, 'Data Entry');
 
-INSERT INTO entity_entity_relationship_types(id, name) VALUES (1, 'Added By');
-INSERT INTO entity_entity_relationship_types(id, name) VALUES (2, 'Located At');
-INSERT INTO entity_entity_relationship_types(id, name) VALUES (3, 'Featuring');
+INSERT INTO event_entity_relationship_types(id, name) VALUES (1, '{Happening/Special} has a {What}');
+INSERT INTO event_entity_relationship_types(id, name) VALUES (2, '{Happening/Special} has a {Who}');
+INSERT INTO event_entity_relationship_types(id, name) VALUES (3, '{Happening/Special} was created by {Ooventer}');
+INSERT INTO event_entity_relationship_types(id, name) VALUES (4, '{Happening/Special} has a {Source}');
+INSERT INTO event_entity_relationship_types(id, name) VALUES (5, '{Data/Entry} has a {Source}');
+INSERT INTO event_entity_relationship_types(id, name) VALUES (6, '{Data/Entry} has an {Ooventer}');

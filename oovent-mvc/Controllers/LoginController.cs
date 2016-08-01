@@ -11,7 +11,7 @@ using System.Collections.Generic;
 
 namespace Oovent.Mvc.Controllers
 {
-    public class LoginController : Controller
+    public class LoginController : SiteController
     {
         [Route("login")]
         [HttpGet]
@@ -54,14 +54,18 @@ namespace Oovent.Mvc.Controllers
                             {
                                 roles.Add("admin");
                             }                            
-                        }
+                        }                        
 
                         ParaPrinciple paraPrinciple = new ParaPrinciple(user.Email, roles.ToArray());
-                        Forms.Authenticate(paraPrinciple);
+                        Forms.Authenticate(paraPrinciple);                 
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "That password was incorrect.");
                     }
                 }
             }
-            return View();          
+            return View(vmLogin);          
         }
 
         [Route("register")]
