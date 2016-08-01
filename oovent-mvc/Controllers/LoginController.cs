@@ -38,7 +38,7 @@ namespace Oovent.Mvc.Controllers
 
                 if (user == null)
                 {
-                    ModelState.AddModelError("", "");
+                    ModelState.AddModelError("", "That email was not found on our records.");
                 }
                 else
                 {
