@@ -33,6 +33,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -101,6 +102,8 @@
     <Content Include="Areas\Admin\Views\Event\List.cshtml" />
     <Content Include="Areas\Public\Views\Landing\Unauthorized.cshtml" />
     <Content Include="Areas\Public\Views\Login\Login.cshtml" />
+    <Content Include="Areas\Public\Views\Landing\Index.cshtml" />
+    <Content Include="Areas\Public\Views\Shared\_Layout.cshtml" />
     <None Include="Static\Libraries\jquery-2-1-4\jquery-2.1.4.intellisense.js" />
     <Content Include="Static\Libraries\jquery-2-1-4\jquery-2.1.4.js" />
     <Content Include="Static\Libraries\jquery-2-1-4\jquery-2.1.4.min.js" />
@@ -169,7 +172,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Views\Admin\" />
-    <Folder Include="Areas\Public\Views\Shared\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

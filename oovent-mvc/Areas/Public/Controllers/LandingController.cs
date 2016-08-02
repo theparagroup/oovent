@@ -6,8 +6,9 @@ using System.Web.Mvc;
 
 namespace Oovent.Mvc.Areas.Public.Controllers
 {
-    public class LandingController : Controller
+    public class LandingController : PublicController
     {
+        [Route("~/Index")]
         // GET: Public/Landing
         public ActionResult Index()
         {
