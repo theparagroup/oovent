@@ -100,7 +100,7 @@
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\Event\List.cshtml" />
     <Content Include="Areas\Public\Views\Landing\Unauthorized.cshtml" />
-    <Content Include="Areas\Public\Views\Landing\Login.cshtml" />
+    <Content Include="Areas\Public\Views\Login\Login.cshtml" />
     <None Include="Static\Libraries\jquery-2-1-4\jquery-2.1.4.intellisense.js" />
     <Content Include="Static\Libraries\jquery-2-1-4\jquery-2.1.4.js" />
     <Content Include="Static\Libraries\jquery-2-1-4\jquery-2.1.4.min.js" />
@@ -116,7 +116,6 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Static\Libraries\jquery-2-1-4\jquery-2.1.4.min.map" />
-    <Content Include="Areas\Public\Views\Landing\Register.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -135,6 +134,7 @@
     <Compile Include="Areas\Admin\Models\Events.cs" />
     <Compile Include="Areas\Admin\Models\RowEvents.cs" />
     <Compile Include="Areas\Public\Controllers\LandingController.cs" />
+    <Compile Include="Areas\Public\Controllers\LoginController.cs" />
     <Compile Include="Areas\Public\PublicController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

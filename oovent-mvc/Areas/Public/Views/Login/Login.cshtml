@@ -15,8 +15,7 @@
         @Html.ValidationMessageFor(m => m.Password)
 
         <input id="Submit" type="submit" value="Log In" /><br />
-            @Html.ValidationSummary(true, "Login Failed", new { style = "color: red; font-size: 14px;" })
+        @Html.ValidationSummary(true, "Login Failed", new { style = "color: red; font-size: 14px;" })
     }
 </body>
 </html>
-
