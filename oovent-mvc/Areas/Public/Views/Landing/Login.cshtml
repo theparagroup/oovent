@@ -1,0 +1,22 @@
+﻿@using Oovent.Models
+@model Oovent.Mvc.Areas.Public.Models.VmLogin
+
+<!DOCTYPE html>
+
+<html>
+<body>
+    <h1>Login</h1>
+    @using (Html.BeginForm())
+    {
+        @Html.TextBoxFor(m => m.Email, new { placeholder = "Email" })
+        @Html.ValidationMessageFor(m => m.Email)
+
+        @Html.PasswordFor(m => m.Password, new { placeholder = "Password" })
+        @Html.ValidationMessageFor(m => m.Password)
+
+        <input id="Submit" type="submit" value="Log In" /><br />
+            @Html.ValidationSummary(true, "Login Failed", new { style = "color: red; font-size: 14px;" })
+    }
+</body>
+</html>
+

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Oovent.Mvc.Models.Login
+namespace Oovent.Mvc.Areas.Public.Models
 {
     public class VmLogin
     {

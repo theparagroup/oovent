@@ -1,19 +1,31 @@
 ﻿using System;
-using System.Linq;
-using System.Web.Mvc;
-using com.paralib.Utils;
-using com.paralib.Mvc.Authentication;
-using com.paralib.Mvc.Authorization;
-using Oovent.Models.Ef;
-using Oovent.Mvc.Models.Login;
-using Oovent.Mvc.Models.Register;
 using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using Oovent.Mvc.Areas.Public.Models;
+using Oovent.Mvc.Areas.Public;
+using com.paralib.Utils;
+using Oovent.Models.Ef;
+using com.paralib.Mvc.Authorization;
+using com.paralib.Mvc.Authentication;
+using Oovent.Models;
 
-namespace Oovent.Mvc.Controllers
+namespace Oovent.Mvc.Areas.Public.Controllers
 {
-    public class LoginController : SiteController
+    [Route("~/{action}")]
+    public class LandingController : PublicController
     {
-        [Route("login")]
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult Unauthorized()
+        {
+            return View();
+        }
+
         [HttpGet]
         public ActionResult Login()
         {
@@ -27,13 +39,12 @@ namespace Oovent.Mvc.Controllers
             }
         }
 
-        [Route("login")]
         [HttpPost]
         public ActionResult Login(VmLogin vmLogin)
         {
             if (ModelState.IsValid)
             {
-                var user = Oovent.Models.EntityUserInfo.GetUser(vmLogin.Email);
+                var user = EntityUserInfo.GetUser(vmLogin.Email);
                 List<string> roles = new List<string>();
 
                 if (user == null)
@@ -47,17 +58,18 @@ namespace Oovent.Mvc.Controllers
                         using (DbContext db = new DbContext())
                         {
                             var query = from e in db.Entities
-                                        where e.Id == user.EntityId  && e.EntityTypeId == 2                                   
+                                        where e.Id == user.EntityId && e.EntityTypeId == 2
                                         select e;
-                            
+
                             if (query.Count() > 0)
                             {
                                 roles.Add("admin");
-                            }                            
-                        }                        
+                            }
+                        }
 
                         ParaPrinciple paraPrinciple = new ParaPrinciple(user.Email, roles.ToArray());
-                        Forms.Authenticate(paraPrinciple);                 
+                        Forms.Authenticate(paraPrinciple);
+                        return Redirect("~/admin/dashboard");
                     }
                     else
                     {
@@ -65,35 +77,7 @@ namespace Oovent.Mvc.Controllers
                     }
                 }
             }
-            return View(vmLogin);          
-        }
-
-        [Route("register")]
-        [HttpGet]
-        public ActionResult Register()
-        {
-            return View();
-        }
-
-        [Route("register")]
-        [HttpPost]
-        public ActionResult Register(VmRegister vmRegister)
-        {
-            if (ModelState.IsValid)
-            {
-                using (var Db = new DbContext())
-                {
-                    EfEntityUserInfo eui = new EfEntityUserInfo();
-                    eui.Email = vmRegister.Email;
-                    eui.Password = vmRegister.Password;
-
-                    Db.EntityUserInfo.Add(eui);
-                    Db.SaveChanges();
-
-                    return View();
-                }
-            }
-            return View();
+            return View(vmLogin);
         }
     }
 }
