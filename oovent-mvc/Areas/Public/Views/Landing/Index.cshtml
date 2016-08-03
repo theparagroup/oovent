@@ -1,0 +1,711 @@
+﻿
+@{
+    Layout = "~/Areas/Public/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Index</title>
+    </head>
+    <body>
+        <div class="row body">
+            <div class="row filter three columns">
+                <p class="filter-top-title">Filter</p>
+                <hr class="filter-top-title-hr">
+                <div class="filter-contents">
+                    <div class="row filter-title-type twelve columns">
+                        <p class="twelve columns">Type</p>
+                        <form>
+                            <div class="six columns">
+                                <div class="filter-button-check twelve columns" id="check-button">
+                                    <label>
+                                        <input name="type" type="radio" checked><span>Events</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="six columns">
+                                <div class="filter-button-check twelve columns" id="check-button">
+                                    <label>
+                                        <input name="type" type="radio"><span>Discounts</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="row filter-title twelve columns">
+                        <p>Price</p>
+                        <form>
+                            <div class="twelve columns">
+                                <div class="filter-button-check twelve columns" id="check-button">
+                                    <label>
+                                        <input type="checkbox" checked><span>All Prices</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="filter-adjust-button six columns">
+                                <div class="filter-button-check twelve columns" id="check-button">
+                                    <label>
+                                        <input type="checkbox"><span>Free</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="six columns">
+                                <div class="filter-button-check twelve columns" id="check-button">
+                                    <label>
+                                        <input type="checkbox"><span>Paid</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="row filter-title twelve columns">
+                        <p>Category</p>
+                        <form>
+                            <div class="twelve columns">
+                                <div class="filter-button-check twelve columns" id="check-button">
+                                    <label>
+                                        <input type="checkbox" checked><span>All Categories</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="filter-adjust-button six columns">
+                                <div class="filter-button-check twelve columns" id="check-button">
+                                    <label>
+                                        <input type="checkbox"><span>Music</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="six columns">
+                                <div class="filter-button-check twelve columns" id="check-button">
+                                    <label>
+                                        <input type="checkbox"><span>Culture</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="filter-adjust-button six columns">
+                                <div class="filter-button-check twelve columns" id="check-button">
+                                    <label>
+                                        <input type="checkbox"><span>On Campus</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="six columns">
+                                <div class="filter-button-check twelve columns" id="check-button">
+                                    <label>
+                                        <input type="checkbox"><span>Physical</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="filter-adjust-button six columns">
+                                <div class="filter-button-check twelve columns" id="check-button">
+                                    <label>
+                                        <input type="checkbox"><span>Social</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="six columns">
+                                <div class="filter-button-check twelve columns" id="check-button">
+                                    <label>
+                                        <input type="checkbox"><span>Educational</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="row filter-title twelve columns">
+                        <p class="filter-title-tag">Tags</p>
+                        <form>
+                            <div class="filter-button-tag three columns" id="tag-button">
+                                <label>
+                                    <input type="checkbox" checked><span>All</span>
+                                </label>
+                            </div>
+                            <div class="filter-button-tag seven columns" id="tag-button">
+                                <label>
+                                    <input type="checkbox"><span>bluegrass</span>
+                                </label>
+                            </div>
+                            <div class="filter-button-tag four columns" id="tag-button">
+                                <label>
+                                    <input type="checkbox"><span>speech</span>
+                                </label>
+                            </div>
+                            <div class="filter-button-tag four columns" id="tag-button">
+                                <label>
+                                    <input type="checkbox"><span>movie</span>
+                                </label>
+                            </div>
+                            <div class="filter-button-tag five columns" id="tag-button">
+                                <label>
+                                    <input type="checkbox"><span>potluck</span>
+                                </label>
+                            </div>
+                            <div class="filter-button-tag six columns" id="tag-button">
+                                <label>
+                                    <input type="checkbox"><span>job fair</span>
+                                </label>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="row events nine columns">
+                <div class="row search-div twelve columns">
+                    <div class="three columns">
+                        <p></p>
+                    </div>
+
+                    <div class="five columns">
+                        <form>
+                            <input class="search-bar" placeholder="search for events">
+                        </form>
+                    </div>
+
+                    <div class="search-bar-button one column">
+                        <img class="search-bar-icon" src="http://puu.sh/pEHrl.png" />
+                    </div>
+
+                    <div class="three columns">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="row filter-info twelve columns">
+                    <div class="twelve columns">
+                        <p>Current Filter: Events, all prices, all categories, all tags.</p>
+                    </div>
+                </div>
+                <div class="row date-filter twelve columns">
+                    <div class="date-arrow-left one column">
+                        <img src="http://puu.sh/pEIly.png">
+                    </div>
+                    <div class="date-info three columns">
+                        <p>May 30th</p>
+                    </div>
+                    <div class="date-arrow-right one column">
+                        <img src="http://puu.sh/pEIka.png">
+                    </div>
+                    <div class="date-dropdown two columns">
+                        <form>
+                            <select>
+                                <option value="day">Day</option>
+                                <option value="week">Week</option>
+                                <option value="month">Month</option>
+                            </select>
+                        </form>
+                    </div>
+                </div>
+                <div class="event-body twelve columns">
+                    <div class="row event-boxes-row twelve columns">
+                        <span id="event-modal-btn">
+                            <div class="event-box four columns">
+                                <div class="cost five columns">
+                                    <div class="type-title">
+                                        <p>Event</p>
+                                    </div>
+                                </div>
+                                <div class="image seven columns">
+                                    <img src="http://puu.sh/oY0H3/f47f04b978.jpg">
+                                </div>
+                                <div class="title twelve columns">
+                                    <p>The Well: Grace Fellowship Meet Up</p>
+                                </div>
+                                <div class="date twelve columns">
+                                    <p>April 27th 9:00 PM</p>
+                                </div>
+                            </div>
+                        </span>
+                        <span id="event-modal-btn">
+                            <div class="event-box four columns" id="shish">
+
+                                <div class="cost five columns">
+                                    <div class="type-title">
+                                        <p>Event</p>
+                                    </div>
+                                </div>
+                                <div class="image seven columns">
+                                    <img src="http://puu.sh/oXWwc/938d3253a5.jpg">
+                                </div>
+                                <div class="title twelve columns">
+                                    <p>Founders After 5 Music Series- Trongone Band</p>
+                                </div>
+                                <div class="date twelve columns">
+                                    <p>June 17 6:00 PM - 8:45 PM</p>
+                                </div>
+                            </div>
+                        </span>
+                        <span id="event-modal-btn">
+                            <div class="event-box-right four columns">
+                                <div class="cost five columns">
+                                    <div class="type-title">
+                                        <p>Discount</p>
+                                    </div>
+                                </div>
+                                <div class="image seven columns">
+                                    <img src="http://media.cylex-usa.com/companies/2509/2752/logo/logo.jpg">
+                                </div>
+                                <div class="title twelve columns">
+                                    <p>Label Half-Off Sushi Night</p>
+                                </div>
+                                <div class="date twelve columns">
+                                    <p>Every Wednesday and Friday</p>
+                                </div>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="row event-boxes-row twelve columns">
+                        <span id="event-modal-btn">
+                            <div class="event-box four columns">
+                                <div class="cost five columns">
+                                    <div class="type-title">
+                                        <img src="http://puu.sh/q9Awp.png" />
+                                    </div>
+                                </div>
+                                <div class="image seven columns">
+                                    <img src="http://puu.sh/oY0H3/f47f04b978.jpg">
+                                </div>
+                                <div class="title twelve columns">
+                                    <p>The Well: Grace Fellowship Meet Up</p>
+                                </div>
+                                <div class="date twelve columns">
+                                    <p>April 27th 9:00 PM</p>
+                                </div>
+                            </div>
+                        </span>
+                        <span id="event-modal-btn">
+                            <div class="event-box four columns">
+                                <div class="cost five columns">
+                                    <div class="type-title">
+                                        <p>Discount</p>
+                                    </div>
+                                </div>
+                                <div class="image seven columns">
+                                    <img src="http://www.johnsoncitypress.com/image/2015/12/10/x700_q30/Real-to-Reel.jpg">
+                                </div>
+                                <div class="title twelve columns">
+                                    <p>Real to Reel Wacky Wednesday</p>
+                                </div>
+                                <div class="date twelve columns">
+                                    <p>Every Wednesday</p>
+                                </div>
+                            </div>
+                        </span>
+                        <span id="event-modal-btn">
+                            <div class="event-box-right four columns">
+                                <div class="cost five columns">
+                                    <div class="type-title">
+                                        <p>Event</p>
+                                    </div>
+                                </div>
+                                <div class="image seven columns">
+                                    <img src="http://puu.sh/oXZ0l/e779a551db.jpg">
+                                </div>
+                                <div class="title twelve columns">
+                                    <p>Free Comic Book Day at Johnson City Public Library</p>
+                                </div>
+                                <div class="date twelve columns">
+                                    <p>May 7th 11:00 AM - 1:00 PM</p>
+                                </div>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="row event-boxes-row twelve columns">
+                        <span id="event-modal-btn">
+                            <div class="event-box four columns">
+                                <div class="cost five columns">
+                                    <div class="type-title">
+                                        <p>Event</p>
+                                    </div>
+                                </div>
+                                <div class="image seven columns">
+                                    <img src="http://puu.sh/oXYVX/b0f6e95718.jpg">
+                                </div>
+                                <div class="title twelve columns">
+                                    <p>Next to Last NSFW Open Mic Comedy</p>
+                                </div>
+                                <div class="date twelve columns">
+                                    <p>May 5th 10:00 PM - 11:55 PM</p>
+                                </div>
+                            </div>
+                        </span>
+                        <span id="event-modal-btn">
+                            <div class="event-box four columns">
+                                <div class="cost five columns">
+                                    <div class="type-title">
+                                        <p>Event</p>
+                                    </div>
+                                </div>
+                                <div class="image seven columns">
+                                    <img src="https://www.tnvacation.com/triptales/sites/default/files/Blue%20Plum%20Festival.jpg">
+                                </div>
+                                <div class="title twelve columns">
+                                    <p>Blue Plum Music and Arts Festival</p>
+                                </div>
+                                <div class="date twelve columns">
+                                    <p>June 3 - June 4</p>
+                                </div>
+                            </div>
+                        </span>
+                        <span id="event-modal-btn">
+                            <div class="event-box-right four columns">
+                                <div class="cost five columns">
+                                    <div class="type-title">
+                                        <p>Event</p>
+                                    </div>
+                                </div>
+                                <div class="image seven columns">
+                                    <img src="https://i.ytimg.com/vi/Iv7UoiEXw0w/maxresdefault.jpg">
+                                </div>
+                                <div class="title twelve columns">
+                                    <p>Taco Trek</p>
+                                </div>
+                                <div class="date twelve columns">
+                                    <p>June 7 7:00 PM - 7:30 PM</p>
+                                </div>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="row event-boxes-row twelve columns">
+                        <span id="event-modal-btn">
+                            <div class="event-box four columns">
+                                <div class="cost five columns">
+                                    <div class="type-title">
+                                        <p>Event</p>
+                                    </div>
+                                </div>
+                                <div class="image seven columns">
+                                    <img src="http://puu.sh/oY0H3/f47f04b978.jpg">
+                                </div>
+                                <div class="title twelve columns">
+                                    <p>The Well: Grace Fellowship Meet Up</p>
+                                </div>
+                                <div class="date twelve columns">
+                                    <p>April 27th 9:00 PM</p>
+                                </div>
+                            </div>
+                        </span>
+                        <span id="event-modal-btn">
+                            <div class="event-box four columns" id="shish">
+
+                                <div class="cost five columns">
+                                    <div class="type-title">
+                                        <p>Event</p>
+                                    </div>
+                                </div>
+                                <div class="image seven columns">
+                                    <img src="http://puu.sh/oXWwc/938d3253a5.jpg">
+                                </div>
+                                <div class="title twelve columns">
+                                    <p>Founders After 5 Music Series- Trongone Band</p>
+                                </div>
+                                <div class="date twelve columns">
+                                    <p>June 17 6:00 PM - 8:45 PM</p>
+                                </div>
+                            </div>
+                        </span>
+                        <span id="event-modal-btn">
+                            <div class="event-box-right four columns">
+                                <div class="cost five columns">
+                                    <div class="type-title">
+                                        <p>Discount</p>
+                                    </div>
+                                </div>
+                                <div class="image seven columns">
+                                    <img src="http://media.cylex-usa.com/companies/2509/2752/logo/logo.jpg">
+                                </div>
+                                <div class="title twelve columns">
+                                    <p>Label Half-Off Sushi Night</p>
+                                </div>
+                                <div class="date twelve columns">
+                                    <p>Every Wednesday and Friday</p>
+                                </div>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="row event-boxes-row twelve columns">
+                        <span id="event-modal-btn">
+                            <div class="event-box four columns">
+                                <div class="cost five columns">
+                                    <div class="type-title">
+                                        <p>Event</p>
+                                    </div>
+                                </div>
+                                <div class="image seven columns">
+                                    <img src="http://puu.sh/oY0H3/f47f04b978.jpg">
+                                </div>
+                                <div class="title twelve columns">
+                                    <p>The Well: Grace Fellowship Meet Up</p>
+                                </div>
+                                <div class="date twelve columns">
+                                    <p>April 27th 9:00 PM</p>
+                                </div>
+                            </div>
+                        </span>
+                        <span id="event-modal-btn">
+                            <div class="event-box four columns">
+                                <div class="cost five columns">
+                                    <div class="type-title">
+                                        <p>Discount</p>
+                                    </div>
+                                </div>
+                                <div class="image seven columns">
+                                    <img src="http://www.johnsoncitypress.com/image/2015/12/10/x700_q30/Real-to-Reel.jpg">
+                                </div>
+                                <div class="title twelve columns">
+                                    <p>Real to Reel Wacky Wednesday</p>
+                                </div>
+                                <div class="date twelve columns">
+                                    <p>Every Wednesday</p>
+                                </div>
+                            </div>
+                        </span>
+                        <span id="event-modal-btn">
+                            <div class="event-box-right four columns">
+                                <div class="cost five columns">
+                                    <div class="type-title">
+                                        <p>Event</p>
+                                    </div>
+                                </div>
+                                <div class="image seven columns">
+                                    <img src="http://puu.sh/oXZ0l/e779a551db.jpg">
+                                </div>
+                                <div class="title twelve columns">
+                                    <p>Free Comic Book Day at Johnson City Public Library</p>
+                                </div>
+                                <div class="date twelve columns">
+                                    <p>May 7th 11:00 AM - 1:00 PM</p>
+                                </div>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="row event-boxes-row twelve columns">
+                        <span id="event-modal-btn">
+                            <div class="event-box four columns">
+                                <div class="cost five columns">
+                                    <div class="type-title">
+                                        <p>Event</p>
+                                    </div>
+                                </div>
+                                <div class="image seven columns">
+                                    <img src="http://puu.sh/oXYVX/b0f6e95718.jpg">
+                                </div>
+                                <div class="title twelve columns">
+                                    <p>Next to Last NSFW Open Mic Comedy</p>
+                                </div>
+                                <div class="date twelve columns">
+                                    <p>May 5th 10:00 PM - 11:55 PM</p>
+                                </div>
+                            </div>
+                        </span>
+                        <span id="event-modal-btn">
+                            <div class="event-box four columns">
+                                <div class="cost five columns">
+                                    <div class="type-title">
+                                        <p>Event</p>
+                                    </div>
+                                </div>
+                                <div class="image seven columns">
+                                    <img src="https://www.tnvacation.com/triptales/sites/default/files/Blue%20Plum%20Festival.jpg">
+                                </div>
+                                <div class="title twelve columns">
+                                    <p>Blue Plum Music and Arts Festival</p>
+                                </div>
+                                <div class="date twelve columns">
+                                    <p>June 3 - June 4</p>
+                                </div>
+                            </div>
+                        </span>
+                        <span id="event-modal-btn">
+                            <div class="event-box-right four columns">
+                                <div class="cost five columns">
+                                    <div class="type-title">
+                                        <p>Event</p>
+                                    </div>
+                                </div>
+                                <div class="image seven columns">
+                                    <img src="https://i.ytimg.com/vi/Iv7UoiEXw0w/maxresdefault.jpg">
+                                </div>
+                                <div class="title twelve columns">
+                                    <p>Taco Trek</p>
+                                </div>
+                                <div class="date twelve columns">
+                                    <p>June 7 7:00 PM - 7:30 PM</p>
+                                </div>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="row event-boxes-row twelve columns">
+                        <span id="event-modal-btn">
+                            <div class="event-box four columns">
+                                <div class="cost five columns">
+                                    <div class="type-title">
+                                        <p>Event</p>
+                                    </div>
+                                </div>
+                                <div class="image seven columns">
+                                    <img src="http://puu.sh/oY0H3/f47f04b978.jpg">
+                                </div>
+                                <div class="title twelve columns">
+                                    <p>The Well: Grace Fellowship Meet Up</p>
+                                </div>
+                                <div class="date twelve columns">
+                                    <p>April 27th 9:00 PM</p>
+                                </div>
+                            </div>
+                        </span>
+                        <span id="event-modal-btn">
+                            <div class="event-box four columns" id="shish">
+
+                                <div class="cost five columns">
+                                    <div class="type-title">
+                                        <p>Event</p>
+                                    </div>
+                                </div>
+                                <div class="image seven columns">
+                                    <img src="http://puu.sh/oXWwc/938d3253a5.jpg">
+                                </div>
+                                <div class="title twelve columns">
+                                    <p>Founders After 5 Music Series- Trongone Band</p>
+                                </div>
+                                <div class="date twelve columns">
+                                    <p>June 17 6:00 PM - 8:45 PM</p>
+                                </div>
+                            </div>
+                        </span>
+                        <span id="event-modal-btn">
+                            <div class="event-box-right four columns">
+                                <div class="cost five columns">
+                                    <div class="type-title">
+                                        <p>Discount</p>
+                                    </div>
+                                </div>
+                                <div class="image seven columns">
+                                    <img src="http://media.cylex-usa.com/companies/2509/2752/logo/logo.jpg">
+                                </div>
+                                <div class="title twelve columns">
+                                    <p>Label Half-Off Sushi Night</p>
+                                </div>
+                                <div class="date twelve columns">
+                                    <p>Every Wednesday and Friday</p>
+                                </div>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="row event-boxes-row twelve columns">
+                        <span id="event-modal-btn">
+                            <div class="event-box four columns">
+                                <div class="cost five columns">
+                                    <div class="type-title">
+                                        <p>Event</p>
+                                    </div>
+                                </div>
+                                <div class="image seven columns">
+                                    <img src="http://puu.sh/oY0H3/f47f04b978.jpg">
+                                </div>
+                                <div class="title twelve columns">
+                                    <p>The Well: Grace Fellowship Meet Up</p>
+                                </div>
+                                <div class="date twelve columns">
+                                    <p>April 27th 9:00 PM</p>
+                                </div>
+                            </div>
+                        </span>
+                        <span id="event-modal-btn">
+                            <div class="event-box four columns">
+                                <div class="cost five columns">
+                                    <div class="type-title">
+                                        <p>Discount</p>
+                                    </div>
+                                </div>
+                                <div class="image seven columns">
+                                    <img src="http://www.johnsoncitypress.com/image/2015/12/10/x700_q30/Real-to-Reel.jpg">
+                                </div>
+                                <div class="title twelve columns">
+                                    <p>Real to Reel Wacky Wednesday</p>
+                                </div>
+                                <div class="date twelve columns">
+                                    <p>Every Wednesday</p>
+                                </div>
+                            </div>
+                        </span>
+                        <span id="event-modal-btn">
+                            <div class="event-box-right four columns">
+                                <div class="cost five columns">
+                                    <div class="type-title">
+                                        <p>Event</p>
+                                    </div>
+                                </div>
+                                <div class="image seven columns">
+                                    <img src="http://puu.sh/oXZ0l/e779a551db.jpg">
+                                </div>
+                                <div class="title twelve columns">
+                                    <p>Free Comic Book Day at Johnson City Public Library</p>
+                                </div>
+                                <div class="date twelve columns">
+                                    <p>May 7th 11:00 AM - 1:00 PM</p>
+                                </div>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="row event-boxes-row twelve columns">
+                        <span id="event-modal-btn">
+                            <div class="event-box-right four columns">
+                                <div class="cost five columns">
+                                    <div class="type-title">
+                                        <p>Event</p>
+                                    </div>
+                                </div>
+                                <div class="image seven columns">
+                                    <img src="http://puu.sh/oXYVX/b0f6e95718.jpg">
+                                </div>
+                                <div class="title twelve columns">
+                                    <p>Next to Last NSFW Open Mic Comedy</p>
+                                </div>
+                                <div class="date twelve columns">
+                                    <p>May 5th 10:00 PM - 11:55 PM</p>
+                                </div>
+                            </div>
+                        </span>
+                        <span id="event-modal-btn">
+                            <div class="event-box four columns">
+                                <div class="cost five columns">
+                                    <div class="type-title">
+                                        <p>Event</p>
+                                    </div>
+                                </div>
+                                <div class="image seven columns">
+                                    <img src="https://www.tnvacation.com/triptales/sites/default/files/Blue%20Plum%20Festival.jpg">
+                                </div>
+                                <div class="title twelve columns">
+                                    <p>Blue Plum Music and Arts Festival</p>
+                                </div>
+                                <div class="date twelve columns">
+                                    <p>June 3 - June 4</p>
+                                </div>
+                            </div>
+                        </span>
+                        <span id="event-modal-btn">
+                            <div class="event-box four columns">
+                                <div class="cost five columns">
+                                    <div class="type-title">
+                                        <p>Event</p>
+                                    </div>
+                                </div>
+                                <div class="image seven columns">
+                                    <img src="https://i.ytimg.com/vi/Iv7UoiEXw0w/maxresdefault.jpg">
+                                </div>
+                                <div class="title twelve columns">
+                                    <p>Taco Trek</p>
+                                </div>
+                                <div class="date twelve columns">
+                                    <p>June 7 7:00 PM - 7:30 PM</p>
+                                </div>
+                            </div>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
