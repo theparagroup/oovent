@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -52,18 +53,16 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
@@ -92,6 +91,7 @@
       <Private>True</Private>
       <HintPath>..\..\paralib-net-dependencies\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Views\web.config" />
@@ -116,6 +116,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Static\Libraries\jquery-2-1-4\jquery-2.1.4.min.map" />
+    <Content Include="Views\Table\Render.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -131,16 +132,16 @@
     <Compile Include="Areas\Admin\AdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\EventController.cs" />
     <Compile Include="Areas\Admin\Controllers\LandingController.cs" />
-    <Compile Include="Areas\Admin\Models\Events.cs" />
-    <Compile Include="Areas\Admin\Models\RowEvents.cs" />
+    <Compile Include="Areas\Admin\Models\Events\CrudEvents.cs" />
+    <Compile Include="Areas\Admin\Models\Events\RowEvents.cs" />
     <Compile Include="Areas\Public\Controllers\LandingController.cs" />
     <Compile Include="Areas\Public\Controllers\LoginController.cs" />
     <Compile Include="Areas\Public\PublicController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Intrastructure\ExtensionMethods.cs" />
-    <Compile Include="Intrastructure\TableDefinition.cs" />
+    <Compile Include="Infrastructure\ExtensionMethods.cs" />
+    <Compile Include="Infrastructure\TableDefinition.cs" />
     <Compile Include="Areas\Public\Models\VmLogin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SiteController.cs" />

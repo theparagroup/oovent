@@ -5,7 +5,7 @@ using System.Web.Mvc;
 using System.Web.Mvc.Html;
 using Oovent.Models;
 
-namespace Oovent.Mvc.Intrastructure
+namespace Oovent.Mvc.Infrastructure
 {
     public static class ExtensionMethods
     {

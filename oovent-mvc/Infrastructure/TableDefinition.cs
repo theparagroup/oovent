@@ -7,7 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Mvc.Html;
 
-namespace Oovent.Mvc.Intrastructure
+namespace Oovent.Mvc.Infrastructure
 {
     public class TableDefinition<T> : TableDefinition
     {

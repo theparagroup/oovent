@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace Oovent.Mvc.Areas.Admin.Models
+namespace Oovent.Mvc.Areas.Admin.Models.Events
 {    
     public class RowEvents
     {

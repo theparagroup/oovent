@@ -1,0 +1,49 @@
+﻿@using Oovent.Mvc.Infrastructure
+@model TableDefinition
+
+
+<table id="@Model.TableId" class="ttb-table @Model.TableClass" border="1">
+    @{
+
+        int rowNum = 0;
+        foreach (object obj in Model.Source)
+        {
+            if (rowNum == 0)
+            {
+                <tr class="ttb-tr @Model.TrHeaderClass @Model.TrClass">
+
+                    @foreach (var column in Model.Columns)
+                    {
+                        <th class="ttb-th @Model.ThClass @Model.ThHeaderClass @(column.Attribute?.ThClass)">@column.Name</th>
+                    }
+
+                </tr>
+            }
+
+            <tr class="ttb-tr @Model.TrRowClass @Model.TrClass">
+
+                @foreach (var column in Model.Columns)
+                {
+                    <td class="ttb-td @Model.TdClass @Model.TdRowClass @(column.Attribute?.TdClass)">
+
+                        @if (column.Attribute?.Raw ?? false)
+                        {
+                            @Html.Raw(Model.GetValue(obj, column))
+                        }
+                        else
+                        {
+                            @Model.GetValue(obj, column)
+
+                        }
+
+
+                    </td>
+                }
+
+            </tr>
+
+            ++rowNum;
+        }
+
+    }
+</table>
