@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Oovent.Models
+@model Oovent.Mvc.Areas.Public.Models.VmLogin
+
+<!DOCTYPE html>
 
 <html>
     <head>
@@ -42,39 +45,45 @@
                         </div>
                         <div class="modal-body">
                             <div class="modal-section">
-                                <form>
-                                    <div class="row modal-form twelve columns">
-                                        <div class="two columns">
-                                            <p></p>
-                                        </div>
+                                <div class="row modal-form twelve columns">
+                                    <div class="two columns">
+                                        <p></p>
+                                    </div>
+
+                                    @using (Html.BeginForm())
+                                    {
                                         <div class="modal-input-username four columns">
-                                            <label>Username</label>
-                                            <input type="text" placeholder="Enter username" />
+                                            @Html.TextBoxFor(m => m.Email, new { placeholder = "Email" })
+                                            @Html.ValidationMessageFor(m => m.Email)
                                         </div>
 
                                         <div class="modal-input-password four columns">
-                                            <label>Password</label>
-                                            <input type="text" placeholder="Enter password" />
+                                            @Html.PasswordFor(m => m.Password, new { placeholder = "Password" })
+                                            @Html.ValidationMessageFor(m => m.Password)
                                         </div>
+
                                         <div class="two columns">
-                                            <p></p>
-                                        </div>
-                                    </div>
-
-                                    <div class="row modal-form twelve columns">
-                                        <div class="three columns">
-                                            <p></p>
+                                            <div>
+                                                <p></p>
+                                            </div>
                                         </div>
 
-                                        <div class="modal-submit six columns">
-                                            <input type="submit" />
-                                        </div>
+                                        <div class="row modal-form twelve columns">
+                                            <div class="three columns">
+                                                <p></p>
+                                            </div>
 
-                                        <div class="three columns">
-                                            <p></p>
+                                            <div class="modal-submit six columns">
+                                                <input id="Submit" type="submit" value="Log In" /><br />
+                                                @Html.ValidationSummary(true, "Login Failed", new { style = "color: red; font-size: 14px;" })
+                                            </div>
+
+                                            <div class="three columns">
+                                                <p></p>
+                                            </div>
                                         </div>
-                                    </div>
-                                </form>
+                                    }
+                                </div>
                             </div>
                         </div>
                         <div class="modal-header">

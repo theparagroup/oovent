@@ -7,8 +7,8 @@ namespace Oovent.Mvc
     {
         public SiteController()
         {
-            HtmlHelper.ClientValidationEnabled = false;
-            HtmlHelper.UnobtrusiveJavaScriptEnabled = false;
+            HtmlHelper.ClientValidationEnabled = true;
+            HtmlHelper.UnobtrusiveJavaScriptEnabled = true;
         }
     }
 }

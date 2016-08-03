@@ -8,7 +8,6 @@ namespace Oovent.Mvc.Areas.Admin.Models.Events
 {    
     public class RowEvents
     {
-        [Column(Raw = true)]
         public string Client { get; set; }
         public string JobDescription { get; set; }
         public string JobStatus { get; set; }

@@ -1,13 +1,609 @@
-﻿@model IEnumerable<RowEvents>
-@using Oovent.Mvc.Areas.Admin.Models.Events
-
-@{
-    ViewBag.Title = "List";
-    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+﻿@{
+    Layout = null;
 }
 
-<h2>List</h2>
+<!DOCTYPE html>
 
-<div class="row oovent-event-list-body">
-    @Html.RenderTable<RowJob>(Model, t => { });
-</div>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="~/Static/Styles/skeleton.css" />
+    <link rel="stylesheet" type="text/css" href="~/Static/Styles/OoventStyleSheet.css" />
+    <meta name="viewport" content="width=device-width" />
+    <title>MyEvents</title>
+</head>
+<body class="body-whole">
+    <center>
+        <div class="container">
+            <div class="row top-bar twelve columns">
+                <div class="dropdown two columns">
+                    <button class="dropbtn">Profile</button>
+                    <div class="dropdown-content">
+                        <a href="/ExampleModels/Profile">My Profile</a>
+                        <a href="/ExampleModels/MyEvents">My Events</a>
+                        <a href="/ExampleModels/EditProfile">Edit Profile</a>
+                    </div>
+                </div>
+                <div class="top-button-login two columns" id="top-button">
+                    <button id="login-button">Login</button>
+                </div>
+                <a href="/ExampleModels/Form">
+                    <div class="top-button-check two columns">
+                        <button id="top-button">Create</button>
+                    </div>
+                </a>
+                <a href="/ExampleModels/Index">
+                    <div class="top-button-image three columns">
+                        <img class="logo" src="http://puu.sh/pDqvZ.png" alt="Home" title="Home" />
+                    </div>
+                </a>
+            </div>
+
+            <div id="login-modal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header-login">
+                        <div class="close-div">
+                            <span class="close">X</span>
+                        </div>
+                        <h2>Login</h2>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-section">
+                            <form>
+                                <div class="row modal-form twelve columns">
+                                    <div class="two columns">
+                                        <p></p>
+                                    </div>
+                                    <div class="modal-input-username four columns">
+                                        <label>Username</label>
+                                        <input type="text" placeholder="Enter username" />
+                                    </div>
+
+                                    <div class="modal-input-password four columns">
+                                        <label>Password</label>
+                                        <input type="text" placeholder="Enter password" />
+                                    </div>
+                                    <div class="two columns">
+                                        <p></p>
+                                    </div>
+                                </div>
+
+                                <div class="row modal-form twelve columns">
+                                    <div class="three columns">
+                                        <p></p>
+                                    </div>
+
+                                    <div class="modal-submit six columns">
+                                        <input type="submit" />
+                                    </div>
+
+                                    <div class="three columns">
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-header">
+                        <h2>Register</h2>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-section">
+                            <form>
+                                <div class="row modal-form twelve columns">
+                                    <div class="two columns">
+                                        <p></p>
+                                    </div>
+                                    <div class="modal-input-username four columns">
+                                        <label>Username</label>
+                                        <input type="text" placeholder="Enter username" />
+                                    </div>
+
+                                    <div class="modal-input-password four columns">
+                                        <label>Password</label>
+                                        <input type="text" placeholder="Enter password" />
+                                    </div>
+                                    <div class="two columns">
+                                        <p></p>
+                                    </div>
+                                </div>
+
+                                <div class="row modal-form twelve columns">
+                                    <div class="three columns">
+                                        <p></p>
+                                    </div>
+
+                                    <div class="modal-submit six columns">
+                                        <input type="submit" />
+                                    </div>
+
+                                    <div class="three columns">
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                    var modal = document.getElementById('login-modal');
+
+                    var btn = document.getElementById("login-button");
+
+                    var span = document.getElementsByClassName("close")[0];
+
+                    btn.onclick = function ()
+                    {
+                        modal.style.display = "block";
+                    }
+
+                    span.onclick = function ()
+                    {
+                        modal.style.display = "none";
+                    }
+
+                    window.onclick = function (event)
+                    {
+                        if (event.target == modal)
+                        {
+                            modal.style.display = "none";
+                        }
+                    }
+            </script>
+
+            <div class="row body twelve columns">
+                <div class="row myevents-type twelve columns">
+                    <form>
+                        <div class="blank three columns">
+                            <p></p>
+                        </div>
+
+                        <div class="me-type-event three columns">
+                            <div class="me-type-button twelve columns" id="check-button">
+                                <label>
+                                    <input name="type" type="radio" checked><span>Events</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="me-type-discount three columns">
+                            <div class="me-type-button twelve columns" id="check-button">
+                                <label>
+                                    <input name="type" type="radio"><span>Discounts</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="blank three columns">
+                            <p></p>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="row myevents-buttons twelve columns">
+                    <div class="blank three columns">
+                        <p></p>
+                    </div>
+                    <div class="me-button three columns">
+                        <button>Add</button>
+                    </div>
+                    <div class="me-button three columns">
+                        <button>Delete</button>
+                    </div>
+                    <div class="blank three columns">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="row myevents-event-container twelve columns">
+                    <div class="row myevents-event-row twelve columns">
+                        <div class="me-edit-delete two columns">
+                            <div class="me-edit twelve columns"><button>Edit</button></div>
+                            <div class="me-delete twelve columns"><button>Delete</button></div>
+                        </div>
+                        <div class="me-event-box three columns">
+                            <div class="cost five columns">
+                                <div class="type-title">
+                                    <p>Event</p>
+                                </div>
+                            </div>
+                            <div class="image seven columns">
+                                <img src="http://www.etsu.edu/news/2013/08_August/pictures/FarmersMarket8966bNewsItem.jpg">
+                            </div>
+                            <div class="title twelve columns">
+                                <p>Farmer's Market</p>
+                            </div>
+                            <div class="date twelve columns">
+                                <p>June 1st 6:00 AM - 2:00 PM</p>
+                            </div>
+                        </div>
+                        <div class="me-edit-delete two columns">
+                            <div class="me-edit twelve columns"><button>Edit</button></div>
+                            <div class="me-delete twelve columns"><button>Delete</button></div>
+                        </div>
+                        <div class="me-event-box three columns">
+                            <div class="cost five columns">
+                                <div class="type-title">
+                                    <p>Event</p>
+                                </div>
+                            </div>
+                            <div class="image seven columns">
+                                <img src="http://puu.sh/oXWwc/938d3253a5.jpg">
+                            </div>
+                            <div class="title twelve columns">
+                                <p>Founders After 5 Music Series- Trongone Band</p>
+                            </div>
+                            <div class="date twelve columns">
+                                <p>June 17 6:00 PM - 8:45 PM</p>
+                            </div>
+                        </div>
+                        <div class="blank two columns">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="row myevents-event-row twelve columns">
+                        <div class="me-edit-delete two columns">
+                            <div class="me-edit twelve columns"><button>Edit</button></div>
+                            <div class="me-delete twelve columns"><button>Delete</button></div>
+                        </div>
+                        <div class="me-event-box three columns">
+                            <div class="cost five columns">
+                                <div class="type-title">
+                                    <p>Event</p>
+                                </div>
+                            </div>
+                            <div class="image seven columns">
+                                <img src="http://www.etsu.edu/news/2013/08_August/pictures/FarmersMarket8966bNewsItem.jpg">
+                            </div>
+                            <div class="title twelve columns">
+                                <p>Farmer's Market</p>
+                            </div>
+                            <div class="date twelve columns">
+                                <p>June 1st 6:00 AM - 2:00 PM</p>
+                            </div>
+                        </div>
+                        <div class="me-edit-delete two columns">
+                            <div class="me-edit twelve columns"><button>Edit</button></div>
+                            <div class="me-delete twelve columns"><button>Delete</button></div>
+                        </div>
+                        <div class="me-event-box three columns">
+                            <div class="cost five columns">
+                                <div class="type-title">
+                                    <p>Event</p>
+                                </div>
+                            </div>
+                            <div class="image seven columns">
+                                <img src="http://puu.sh/oXWwc/938d3253a5.jpg">
+                            </div>
+                            <div class="title twelve columns">
+                                <p>Founders After 5 Music Series- Trongone Band</p>
+                            </div>
+                            <div class="date twelve columns">
+                                <p>June 17 6:00 PM - 8:45 PM</p>
+                            </div>
+                        </div>
+                        <div class="blank two columns">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="row myevents-event-row twelve columns">
+                        <div class="me-edit-delete two columns">
+                            <div class="me-edit twelve columns"><button>Edit</button></div>
+                            <div class="me-delete twelve columns"><button>Delete</button></div>
+                        </div>
+                        <div class="me-event-box three columns">
+                            <div class="cost five columns">
+                                <div class="type-title">
+                                    <p>Event</p>
+                                </div>
+                            </div>
+                            <div class="image seven columns">
+                                <img src="http://www.etsu.edu/news/2013/08_August/pictures/FarmersMarket8966bNewsItem.jpg">
+                            </div>
+                            <div class="title twelve columns">
+                                <p>Farmer's Market</p>
+                            </div>
+                            <div class="date twelve columns">
+                                <p>June 1st 6:00 AM - 2:00 PM</p>
+                            </div>
+                        </div>
+                        <div class="me-edit-delete two columns">
+                            <div class="me-edit twelve columns"><button>Edit</button></div>
+                            <div class="me-delete twelve columns"><button>Delete</button></div>
+                        </div>
+                        <div class="me-event-box three columns">
+                            <div class="cost five columns">
+                                <div class="type-title">
+                                    <p>Event</p>
+                                </div>
+                            </div>
+                            <div class="image seven columns">
+                                <img src="http://puu.sh/oXWwc/938d3253a5.jpg">
+                            </div>
+                            <div class="title twelve columns">
+                                <p>Founders After 5 Music Series- Trongone Band</p>
+                            </div>
+                            <div class="date twelve columns">
+                                <p>June 17 6:00 PM - 8:45 PM</p>
+                            </div>
+                        </div>
+                        <div class="blank two columns">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="row myevents-event-row twelve columns">
+                        <div class="me-edit-delete two columns">
+                            <div class="me-edit twelve columns"><button>Edit</button></div>
+                            <div class="me-delete twelve columns"><button>Delete</button></div>
+                        </div>
+                        <div class="me-event-box three columns">
+                            <div class="cost five columns">
+                                <div class="type-title">
+                                    <p>Event</p>
+                                </div>
+                            </div>
+                            <div class="image seven columns">
+                                <img src="http://www.etsu.edu/news/2013/08_August/pictures/FarmersMarket8966bNewsItem.jpg">
+                            </div>
+                            <div class="title twelve columns">
+                                <p>Farmer's Market</p>
+                            </div>
+                            <div class="date twelve columns">
+                                <p>June 1st 6:00 AM - 2:00 PM</p>
+                            </div>
+                        </div>
+                        <div class="me-edit-delete two columns">
+                            <div class="me-edit twelve columns"><button>Edit</button></div>
+                            <div class="me-delete twelve columns"><button>Delete</button></div>
+                        </div>
+                        <div class="me-event-box three columns">
+                            <div class="cost five columns">
+                                <div class="type-title">
+                                    <p>Event</p>
+                                </div>
+                            </div>
+                            <div class="image seven columns">
+                                <img src="http://puu.sh/oXWwc/938d3253a5.jpg">
+                            </div>
+                            <div class="title twelve columns">
+                                <p>Founders After 5 Music Series- Trongone Band</p>
+                            </div>
+                            <div class="date twelve columns">
+                                <p>June 17 6:00 PM - 8:45 PM</p>
+                            </div>
+                        </div>
+                        <div class="blank two columns">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="row myevents-event-row twelve columns">
+                        <div class="me-edit-delete two columns">
+                            <div class="me-edit twelve columns"><button>Edit</button></div>
+                            <div class="me-delete twelve columns"><button>Delete</button></div>
+                        </div>
+                        <div class="me-event-box three columns">
+                            <div class="cost five columns">
+                                <div class="type-title">
+                                    <p>Event</p>
+                                </div>
+                            </div>
+                            <div class="image seven columns">
+                                <img src="http://www.etsu.edu/news/2013/08_August/pictures/FarmersMarket8966bNewsItem.jpg">
+                            </div>
+                            <div class="title twelve columns">
+                                <p>Farmer's Market</p>
+                            </div>
+                            <div class="date twelve columns">
+                                <p>June 1st 6:00 AM - 2:00 PM</p>
+                            </div>
+                        </div>
+                        <div class="me-edit-delete two columns">
+                            <div class="me-edit twelve columns"><button>Edit</button></div>
+                            <div class="me-delete twelve columns"><button>Delete</button></div>
+                        </div>
+                        <div class="me-event-box three columns">
+                            <div class="cost five columns">
+                                <div class="type-title">
+                                    <p>Event</p>
+                                </div>
+                            </div>
+                            <div class="image seven columns">
+                                <img src="http://puu.sh/oXWwc/938d3253a5.jpg">
+                            </div>
+                            <div class="title twelve columns">
+                                <p>Founders After 5 Music Series- Trongone Band</p>
+                            </div>
+                            <div class="date twelve columns">
+                                <p>June 17 6:00 PM - 8:45 PM</p>
+                            </div>
+                        </div>
+                        <div class="blank two columns">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="row myevents-event-row twelve columns">
+                        <div class="me-edit-delete two columns">
+                            <div class="me-edit twelve columns"><button>Edit</button></div>
+                            <div class="me-delete twelve columns"><button>Delete</button></div>
+                        </div>
+                        <div class="me-event-box three columns">
+                            <div class="cost five columns">
+                                <div class="type-title">
+                                    <p>Event</p>
+                                </div>
+                            </div>
+                            <div class="image seven columns">
+                                <img src="http://www.etsu.edu/news/2013/08_August/pictures/FarmersMarket8966bNewsItem.jpg">
+                            </div>
+                            <div class="title twelve columns">
+                                <p>Farmer's Market</p>
+                            </div>
+                            <div class="date twelve columns">
+                                <p>June 1st 6:00 AM - 2:00 PM</p>
+                            </div>
+                        </div>
+                        <div class="me-edit-delete two columns">
+                            <div class="me-edit twelve columns"><button>Edit</button></div>
+                            <div class="me-delete twelve columns"><button>Delete</button></div>
+                        </div>
+                        <div class="me-event-box three columns">
+                            <div class="cost five columns">
+                                <div class="type-title">
+                                    <p>Event</p>
+                                </div>
+                            </div>
+                            <div class="image seven columns">
+                                <img src="http://puu.sh/oXWwc/938d3253a5.jpg">
+                            </div>
+                            <div class="title twelve columns">
+                                <p>Founders After 5 Music Series- Trongone Band</p>
+                            </div>
+                            <div class="date twelve columns">
+                                <p>June 17 6:00 PM - 8:45 PM</p>
+                            </div>
+                        </div>
+                        <div class="blank two columns">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="row myevents-event-row twelve columns">
+                        <div class="me-edit-delete two columns">
+                            <div class="me-edit twelve columns"><button>Edit</button></div>
+                            <div class="me-delete twelve columns"><button>Delete</button></div>
+                        </div>
+                        <div class="me-event-box three columns">
+                            <div class="cost five columns">
+                                <div class="type-title">
+                                    <p>Event</p>
+                                </div>
+                            </div>
+                            <div class="image seven columns">
+                                <img src="http://www.etsu.edu/news/2013/08_August/pictures/FarmersMarket8966bNewsItem.jpg">
+                            </div>
+                            <div class="title twelve columns">
+                                <p>Farmer's Market</p>
+                            </div>
+                            <div class="date twelve columns">
+                                <p>June 1st 6:00 AM - 2:00 PM</p>
+                            </div>
+                        </div>
+                        <div class="me-edit-delete two columns">
+                            <div class="me-edit twelve columns"><button>Edit</button></div>
+                            <div class="me-delete twelve columns"><button>Delete</button></div>
+                        </div>
+                        <div class="me-event-box three columns">
+                            <div class="cost five columns">
+                                <div class="type-title">
+                                    <p>Event</p>
+                                </div>
+                            </div>
+                            <div class="image seven columns">
+                                <img src="http://puu.sh/oXWwc/938d3253a5.jpg">
+                            </div>
+                            <div class="title twelve columns">
+                                <p>Founders After 5 Music Series- Trongone Band</p>
+                            </div>
+                            <div class="date twelve columns">
+                                <p>June 17 6:00 PM - 8:45 PM</p>
+                            </div>
+                        </div>
+                        <div class="blank two columns">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="row myevents-event-row twelve columns">
+                        <div class="me-edit-delete two columns">
+                            <div class="me-edit twelve columns"><button>Edit</button></div>
+                            <div class="me-delete twelve columns"><button>Delete</button></div>
+                        </div>
+                        <div class="me-event-box three columns">
+                            <div class="cost five columns">
+                                <div class="type-title">
+                                    <p>Event</p>
+                                </div>
+                            </div>
+                            <div class="image seven columns">
+                                <img src="http://www.etsu.edu/news/2013/08_August/pictures/FarmersMarket8966bNewsItem.jpg">
+                            </div>
+                            <div class="title twelve columns">
+                                <p>Farmer's Market</p>
+                            </div>
+                            <div class="date twelve columns">
+                                <p>June 1st 6:00 AM - 2:00 PM</p>
+                            </div>
+                        </div>
+                        <div class="me-edit-delete two columns">
+                            <div class="me-edit twelve columns"><button>Edit</button></div>
+                            <div class="me-delete twelve columns"><button>Delete</button></div>
+                        </div>
+                        <div class="me-event-box three columns">
+                            <div class="cost five columns">
+                                <div class="type-title">
+                                    <p>Event</p>
+                                </div>
+                            </div>
+                            <div class="image seven columns">
+                                <img src="http://puu.sh/oXWwc/938d3253a5.jpg">
+                            </div>
+                            <div class="title twelve columns">
+                                <p>Founders After 5 Music Series- Trongone Band</p>
+                            </div>
+                            <div class="date twelve columns">
+                                <p>June 17 6:00 PM - 8:45 PM</p>
+                            </div>
+                        </div>
+                        <div class="blank two columns">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="row myevents-event-row twelve columns">
+                        <div class="me-edit-delete two columns">
+                            <div class="me-edit twelve columns"><button>Edit</button></div>
+                            <div class="me-delete twelve columns"><button>Delete</button></div>
+                        </div>
+                        <div class="me-event-box three columns">
+                            <div class="cost five columns">
+                                <div class="type-title">
+                                    <p>Event</p>
+                                </div>
+                            </div>
+                            <div class="image seven columns">
+                                <img src="http://www.etsu.edu/news/2013/08_August/pictures/FarmersMarket8966bNewsItem.jpg">
+                            </div>
+                            <div class="title twelve columns">
+                                <p>Farmer's Market</p>
+                            </div>
+                            <div class="date twelve columns">
+                                <p>June 1st 6:00 AM - 2:00 PM</p>
+                            </div>
+                        </div>
+                        <div class="me-edit-delete two columns">
+                            <div class="me-edit twelve columns"><button>Edit</button></div>
+                            <div class="me-delete twelve columns"><button>Delete</button></div>
+                        </div>
+                        <div class="me-event-box three columns">
+                            <div class="cost five columns">
+                                <div class="type-title">
+                                    <p>Event</p>
+                                </div>
+                            </div>
+                            <div class="image seven columns">
+                                <img src="http://puu.sh/oXWwc/938d3253a5.jpg">
+                            </div>
+                            <div class="title twelve columns">
+                                <p>Founders After 5 Music Series- Trongone Band</p>
+                            </div>
+                            <div class="date twelve columns">
+                                <p>June 17 6:00 PM - 8:45 PM</p>
+                            </div>
+                        </div>
+                        <div class="blank two columns">
+                            <p></p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </center>
+</body>
+</html>
