@@ -1,0 +1,2249 @@
+﻿
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Areas/Public/Views/Shared/_Layout.cshtml";
+}
+
+<center>
+    <form>
+        <div class="container">
+            <div id="login-modal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header-login">
+                        <div class="close-div">
+                            <span class="close">X</span>
+                        </div>
+                        <h2>Login</h2>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-section">
+                            <form>
+                                <div class="row modal-form twelve columns">
+                                    <div class="two columns">
+                                        <p></p>
+                                    </div>
+                                    <div class="modal-input-username four columns">
+                                        <label>Username</label>
+                                        <input type="text" placeholder="Enter username" />
+                                    </div>
+
+                                    <div class="modal-input-password four columns">
+                                        <label>Password</label>
+                                        <input type="text" placeholder="Enter password" />
+                                    </div>
+                                    <div class="two columns">
+                                        <p></p>
+                                    </div>
+                                </div>
+
+                                <div class="row modal-form twelve columns">
+                                    <div class="three columns">
+                                        <p></p>
+                                    </div>
+
+                                    <div class="modal-submit six columns">
+                                        <input type="submit" />
+                                    </div>
+
+                                    <div class="three columns">
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-header">
+                        <h2>Register</h2>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-section">
+                            <form>
+                                <div class="row modal-form twelve columns">
+                                    <div class="two columns">
+                                        <p></p>
+                                    </div>
+                                    <div class="modal-input-username four columns">
+                                        <label>Username</label>
+                                        <input type="text" placeholder="Enter username" />
+                                    </div>
+
+                                    <div class="modal-input-password four columns">
+                                        <label>Password</label>
+                                        <input type="text" placeholder="Enter password" />
+                                    </div>
+                                    <div class="two columns">
+                                        <p></p>
+                                    </div>
+                                </div>
+
+                                <div class="row modal-form twelve columns">
+                                    <div class="three columns">
+                                        <p></p>
+                                    </div>
+
+                                    <div class="modal-submit six columns">
+                                        <input type="submit" />
+                                    </div>
+
+                                    <div class="three columns">
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row type-select twelve columns">
+                <div class="row create-type twelve columns">
+                    <div class="create-type-div four columns">
+                        <div class="create-type-button twelve columns" id="check-button">
+                            <label>
+                                <input id="create-type-button-event" name="type" type="radio" checked><span>Create Happening</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="create-type-div four columns">
+                        <div class="create-type-button twelve columns" id="check-button">
+                            <label>
+                                <input id="create-type-button-discount" name="type" type="radio"><span>Create Discount</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="create-type-div four columns">
+                        <div class="create-type-button twelve columns" id="check-button">
+                            <label>
+                                <input id="create-type-button-foodtruck" name="type" type="radio"><span>Create Foodtruck</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    document.getElementById("create-type-button-event").onclick = function ()
+                    {
+                        if (this.checked)
+                        {
+                            document.getElementById('create-foodtruck-form').style.display = "none";
+                            document.getElementById('create-discount-form').style.display = "none";
+                            document.getElementById('create-event-form').style.display = "block";
+                        }
+                    };
+                    document.getElementById("create-type-button-discount").onclick = function ()
+                    {
+                        if (this.checked)
+                        {
+                            document.getElementById('create-event-form').style.display = "none";
+                            document.getElementById('create-foodtruck-form').style.display = "none";
+                            document.getElementById('create-discount-form').style.display = "block";
+                        }
+                    };
+                    document.getElementById("create-type-button-foodtruck").onclick = function ()
+                    {
+                        if (this.checked)
+                        {
+                            document.getElementById('create-discount-form').style.display = "none";
+                            document.getElementById('create-event-form').style.display = "none";
+                            document.getElementById('create-foodtruck-form').style.display = "block";
+                        }
+                    };
+                </script>
+            </div>
+            <script>
+                    var modal = document.getElementById('login-modal');
+
+                    var btn = document.getElementById("login-button");
+
+                    var span = document.getElementsByClassName("close")[0];
+
+                    btn.onclick = function modalOpen()
+                    {
+                        modal.style.display = "block";
+                    }
+
+                    span.onclick = function modalClose()
+                    {
+                        modal.style.display = "none";
+                    }
+            </script>
+            <div id="create-event-form" class="create-event-form">
+                <div class="row create-left six columns">
+                    <div class="row create-first-row twelve columns">
+                        <div class="create-event-div twelve columns">
+                            <label>*Title</label>
+                            <input class="create-event-input" placeholder="Title of happening" />
+                        </div>
+                    </div>
+                    <div class="row create-row twelve columns">
+                        <div class="create-event-div twelve columns">
+                            <label>*What</label>
+                            <input class="create-event-input" placeholder="What kind of happening it is" />
+                        </div>
+                    </div>
+                    <div class="row create-row twelve columns">
+                        <div class="twelve columns">
+                            <label>*When</label>
+                            <div class="create-event-div six columns" style="margin-left: 0px;">
+                                <div class="create-type-button twelve columns" id="check-button">
+                                    <label>
+                                        <input id="create-event-button-onetime" class="create-event-input" name="event-when" type="radio" checked><span>One Time</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="create-event-div six columns">
+                                <div class="create-type-button twelve columns" id="check-button">
+                                    <label>
+                                        <input id="create-event-button-recurring" class="create-event-input" name="event-when" type="radio"><span>Recurring</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <script>
+                            document.getElementById("create-event-button-recurring").onclick = function ()
+                            {
+                                if (this.checked)
+                                {
+                                    document.getElementById('create-event-when-onetime').style.display = "none";
+                                    document.getElementById('create-event-when-recurring').style.display = "block";
+                                }
+                            };
+                            document.getElementById("create-event-button-onetime").onclick = function ()
+                            {
+                                if (this.checked)
+                                {
+                                    document.getElementById('create-event-when-recurring').style.display = "none";
+                                    document.getElementById('create-event-when-onetime').style.display = "block";
+                                }
+                            };
+
+                            $(function ()
+                            {
+                                $("#datetime12").datepicker();
+                            });
+                        </script>
+                    </div>
+
+                    <div class="row create-event-when twelve columns">
+                        <div id="create-event-when-onetime" class="row create-event-when-onetime twelve columns">
+                            <div id="div-datetime12" class="twelve columns">
+                                <label class="starting-label">Starting</label>
+                                <input type="text" id="datetime12" data-format="DD-MM-YYYY h:mm a" data-template="DD / MM / YYYY     hh : mm a" name="datetime" value="21-12-2012 8:30 pm" style="display: none;">
+                            </div>
+                            <script id="js-datetime12">
+                                $(function () {
+                                    $("#datepicker").datepicker();
+                                });
+                            </script>
+                            <div id="div-datetime12" class="twelve columns">
+                                <label>Ending</label>
+                                <input type="text" id="datepicker">
+                            </div>
+                        </div>
+                        <div id="create-event-when-recurring" class="row create-event-when-recurring">
+                            <div class="row create-event-when-recurring-buttons twelve columns">
+                                <div class="create-type-button four columns" id="check-button">
+                                    <label>
+                                        <input id="create-event-button-daily" class="create-event-input" name="event-ordinal" type="radio" checked><span>Daily</span>
+                                    </label>
+                                </div>
+                                <div class="create-type-button four columns" id="check-button">
+                                    <label>
+                                        <input id="create-event-button-weekly" class="create-event-input" name="event-ordinal" type="radio"><span>Weekly</span>
+                                    </label>
+                                </div>
+                                <div class="create-type-button four columns" id="check-button">
+                                    <label>
+                                        <input id="create-event-button-monthly" class="create-event-input" name="event-ordinal" type="radio"><span>Monthly</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="create-event-when-reccuring-div">
+                                <div id="create-event-when-reccuring-daily" class="create-event-when-reccuring-daily">
+                                    <div id="div-datetime12" class="twelve columns">
+                                        <label>Recurring</label>
+                                        <input type="text" id="datetime12" data-format="DD-MM-YYYY h:mm a" data-template="DD / MM / YYYY     hh : mm a" name="datetime" value="21-12-2012 8:30 pm" style="display: none;">
+                                        <span class="combodate">
+                                            <select class="year " style="width: auto;">
+                                                <option value="1">01</option>
+                                                <option value="2">02</option>
+                                                <option value="3">03</option>
+                                                <option value="4">04</option>
+                                                <option value="5">05</option>
+                                                <option value="6">06</option>
+                                                <option value="7">07</option>
+                                                <option value="8">08</option>
+                                                <option value="9">09</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                            </select>&nbsp;:&nbsp;
+                                            <select class="hour " style="width: auto;">
+                                                <option value="0">00</option>
+                                                <option value="5">05</option>
+                                                <option value="10">10</option>
+                                                <option value="15">15</option>
+                                                <option value="20">20</option>
+                                                <option value="25">25</option>
+                                                <option value="30">30</option>
+                                                <option value="35">35</option>
+                                                <option value="40">40</option>
+                                                <option value="45">45</option>
+                                                <option value="50">50</option>
+                                                <option value="55">55</option>
+                                            </select>&nbsp;&nbsp;
+                                            <select class="minute " style="width: auto;">
+                                                <option value="am">am</option>
+                                                <option value="pm">pm</option>
+                                            </select>&nbsp;To&nbsp;
+                                            <select class="year " style="width: auto;">
+                                                <option value="1">01</option>
+                                                <option value="2">02</option>
+                                                <option value="3">03</option>
+                                                <option value="4">04</option>
+                                                <option value="5">05</option>
+                                                <option value="6">06</option>
+                                                <option value="7">07</option>
+                                                <option value="8">08</option>
+                                                <option value="9">09</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                            </select>&nbsp;:&nbsp;
+                                            <select class="hour " style="width: auto;">
+                                                <option value="0">00</option>
+                                                <option value="5">05</option>
+                                                <option value="10">10</option>
+                                                <option value="15">15</option>
+                                                <option value="20">20</option>
+                                                <option value="25">25</option>
+                                                <option value="30">30</option>
+                                                <option value="35">35</option>
+                                                <option value="40">40</option>
+                                                <option value="45">45</option>
+                                                <option value="50">50</option>
+                                                <option value="55">55</option>
+                                            </select>&nbsp;&nbsp;
+                                            <select class="minute " style="width: auto;">
+                                                <option value="am">am</option>
+                                                <option value="pm">pm</option>
+                                            </select>&nbsp;&nbsp;
+                                        </span>
+                                    </div>
+                                </div>
+                                <div id="create-event-when-reccuring-weekly" class="create-event-when-reccuring-weekly">
+                                    <div id="div-datetime12" class="twelve columns">
+                                        <label>Recurring</label>
+                                        <input type="text" id="datetime12" data-format="DD-MM-YYYY h:mm a" data-template="DD / MM / YYYY     hh : mm a" name="datetime" value="21-12-2012 8:30 pm" style="display: none;">
+                                        <span class="combodate">
+                                            <input type="checkbox" />Sunday
+                                            <input type="checkbox" />Monday
+                                            <input type="checkbox" />Tuesday
+                                            <input type="checkbox" />Wednesday
+                                            <input type="checkbox" />Thursday
+                                            <input type="checkbox" />Friday
+                                            <input type="checkbox" />Saturday
+                                            &nbsp;From&nbsp;
+                                            <select class="year " style="width: auto;">
+                                                <option value="1">01</option>
+                                                <option value="2">02</option>
+                                                <option value="3">03</option>
+                                                <option value="4">04</option>
+                                                <option value="5">05</option>
+                                                <option value="6">06</option>
+                                                <option value="7">07</option>
+                                                <option value="8">08</option>
+                                                <option value="9">09</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                            </select>&nbsp;:&nbsp;
+                                            <select class="hour " style="width: auto;">
+                                                <option value="0">00</option>
+                                                <option value="5">05</option>
+                                                <option value="10">10</option>
+                                                <option value="15">15</option>
+                                                <option value="20">20</option>
+                                                <option value="25">25</option>
+                                                <option value="30">30</option>
+                                                <option value="35">35</option>
+                                                <option value="40">40</option>
+                                                <option value="45">45</option>
+                                                <option value="50">50</option>
+                                                <option value="55">55</option>
+                                            </select>&nbsp;&nbsp;
+                                            <select class="minute " style="width: auto;">
+                                                <option value="am">am</option>
+                                                <option value="pm">pm</option>
+                                            </select>&nbsp;To&nbsp;
+                                            <select class="year " style="width: auto;">
+                                                <option value="1">01</option>
+                                                <option value="2">02</option>
+                                                <option value="3">03</option>
+                                                <option value="4">04</option>
+                                                <option value="5">05</option>
+                                                <option value="6">06</option>
+                                                <option value="7">07</option>
+                                                <option value="8">08</option>
+                                                <option value="9">09</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                            </select>&nbsp;:&nbsp;
+                                            <select class="hour " style="width: auto;">
+                                                <option value="0">00</option>
+                                                <option value="5">05</option>
+                                                <option value="10">10</option>
+                                                <option value="15">15</option>
+                                                <option value="20">20</option>
+                                                <option value="25">25</option>
+                                                <option value="30">30</option>
+                                                <option value="35">35</option>
+                                                <option value="40">40</option>
+                                                <option value="45">45</option>
+                                                <option value="50">50</option>
+                                                <option value="55">55</option>
+                                            </select>&nbsp;&nbsp;
+                                            <select class="minute " style="width: auto;">
+                                                <option value="am">am</option>
+                                                <option value="pm">pm</option>
+                                            </select>&nbsp;&nbsp;
+                                        </span>
+                                    </div>
+                                </div>
+                                <div id="create-event-when-reccuring-monthly" class="create-event-when-reccuring-monthly">
+                                    <div id="div-datetime12" class="twelve columns">
+                                        <label>Recurring</label>
+                                        <input type="text" id="datetime12" data-format="DD-MM-YYYY h:mm a" data-template="DD / MM / YYYY     hh : mm a" name="datetime" value="21-12-2012 8:30 pm" style="display: none;">
+                                        <span class="combodate">
+                                            &nbsp;Every&nbsp;
+                                            <select class="month " style="width: auto;">
+                                                <option value="0">1st</option>
+                                                <option value="1">2nd</option>
+                                                <option value="2">3rd</option>
+                                                <option value="3">4th</option>
+                                            </select>&nbsp;&nbsp;
+                                            <input type="checkbox" />Sunday
+                                            <input type="checkbox" />Monday
+                                            <input type="checkbox" />Tuesday
+                                            <input type="checkbox" />Wednesday
+                                            <input type="checkbox" />Thursday
+                                            <input type="checkbox" />Friday
+                                            <input type="checkbox" />Saturday
+                                            &nbsp;From&nbsp;
+                                            <select class="year " style="width: auto;">
+                                                <option value="1">01</option>
+                                                <option value="2">02</option>
+                                                <option value="3">03</option>
+                                                <option value="4">04</option>
+                                                <option value="5">05</option>
+                                                <option value="6">06</option>
+                                                <option value="7">07</option>
+                                                <option value="8">08</option>
+                                                <option value="9">09</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                            </select>&nbsp;:&nbsp;
+                                            <select class="hour " style="width: auto;">
+                                                <option value="0">00</option>
+                                                <option value="5">05</option>
+                                                <option value="10">10</option>
+                                                <option value="15">15</option>
+                                                <option value="20">20</option>
+                                                <option value="25">25</option>
+                                                <option value="30">30</option>
+                                                <option value="35">35</option>
+                                                <option value="40">40</option>
+                                                <option value="45">45</option>
+                                                <option value="50">50</option>
+                                                <option value="55">55</option>
+                                            </select>&nbsp;&nbsp;
+                                            <select class="minute " style="width: auto;">
+                                                <option value="am">am</option>
+                                                <option value="pm">pm</option>
+                                            </select>&nbsp;To&nbsp;
+                                            <select class="year " style="width: auto;">
+                                                <option value="1">01</option>
+                                                <option value="2">02</option>
+                                                <option value="3">03</option>
+                                                <option value="4">04</option>
+                                                <option value="5">05</option>
+                                                <option value="6">06</option>
+                                                <option value="7">07</option>
+                                                <option value="8">08</option>
+                                                <option value="9">09</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                            </select>&nbsp;:&nbsp;
+                                            <select class="hour " style="width: auto;">
+                                                <option value="0">00</option>
+                                                <option value="5">05</option>
+                                                <option value="10">10</option>
+                                                <option value="15">15</option>
+                                                <option value="20">20</option>
+                                                <option value="25">25</option>
+                                                <option value="30">30</option>
+                                                <option value="35">35</option>
+                                                <option value="40">40</option>
+                                                <option value="45">45</option>
+                                                <option value="50">50</option>
+                                                <option value="55">55</option>
+                                            </select>&nbsp;&nbsp;
+                                            <select class="minute " style="width: auto;">
+                                                <option value="am">am</option>
+                                                <option value="pm">pm</option>
+                                            </select>&nbsp;&nbsp;
+                                        </span>
+                                    </div>
+                                    <script>
+                                        document.getElementById("create-event-button-daily").onclick = function ()
+                                        {
+                                            if (this.checked)
+                                            {
+                                                document.getElementById('create-event-when-reccuring-monthly').style.display = "none";
+                                                document.getElementById('create-event-when-reccuring-weekly').style.display = "none";
+                                                document.getElementById('create-event-when-reccuring-daily').style.display = "block";
+                                            }
+                                        };
+                                        document.getElementById("create-event-button-weekly").onclick = function ()
+                                        {
+                                            if (this.checked)
+                                            {
+                                                document.getElementById('create-event-when-reccuring-monthly').style.display = "none";
+                                                document.getElementById('create-event-when-reccuring-daily').style.display = "none";
+                                                document.getElementById('create-event-when-reccuring-weekly').style.display = "block";
+                                            }
+                                        };
+                                        document.getElementById("create-event-button-monthly").onclick = function ()
+                                        {
+                                            if (this.checked)
+                                            {
+                                                document.getElementById('create-event-when-reccuring-weekly').style.display = "none";
+                                                document.getElementById('create-event-when-reccuring-daily').style.display = "none";
+                                                document.getElementById('create-event-when-reccuring-monthly').style.display = "block";
+                                            }
+                                        };
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row twelve columns">
+                        <div class="create-event-div twelve columns">
+                            <label>Associated Happening</label>
+                            <input class="create-event-input" placeholder="Title of related happening" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row create-right six columns">
+                    <div class="row create-first-row twelve columns">
+                        <label>Price</label>
+                        <input class="create-event-input" placeholder="Cost of admission" />
+                    </div>
+                    <div class="create-event-div twelve columns">
+                        <label>*Where</label>
+                        <input class="create-event-input" placeholder="Where the happening is" />
+                    </div>
+                    <div class="row twelve columns">
+                        <div class="create-event-div twelve columns">
+                            <label>Description</label>
+                            <textarea class="create-event-textarea" placeholder="Describe the happening"></textarea>
+                        </div>
+                    </div>
+                    <div class="row twelve columns">
+                        <div class="create-event-div twelve columns">
+                            <label>Phone</label>
+                            <input class="create-event-input" placeholder="Phone number of the orgainizer" />
+                        </div>
+                    </div>
+                    <div class="row twelve columns">
+                        <div class="create-event-div twelve columns">
+                            <label>Email</label>
+                            <input class="create-event-input" placeholder="Email of the orgainizer" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row create-links twelve columns">
+                    <label>Related Links</label>
+                    <div class="row create-event-link-buttons twelve columns">
+                        <div class="create-type-button two columns" id="check-button">
+                            <label>
+                                <input id="create-event-button-website" class="create-event-input" name="event-link" type="radio" checked><span>Website</span>
+                            </label>
+                        </div>
+                        <div class="create-type-button two columns" id="check-button">
+                            <label>
+                                <input id="create-event-button-twitter" class="create-event-input" name="event-link" type="radio"><span>Twitter</span>
+                            </label>
+                        </div>
+                        <div class="create-type-button two columns" id="check-button">
+                            <label>
+                                <input id="create-event-button-facebook" class="create-event-input" name="event-link" type="radio"><span>Facebook</span>
+                            </label>
+                        </div>
+                        <div class="create-type-button two columns" id="check-button">
+                            <label>
+                                <input id="create-event-button-instagram" class="create-event-input" name="event-link" type="radio"><span>Instagram</span>
+                            </label>
+                        </div>
+                        <div class="create-type-button two columns" id="check-button">
+                            <label>
+                                <input id="create-event-button-pintrest" class="create-event-input" name="event-link" type="radio"><span>Pintrest</span>
+                            </label>
+                        </div>
+                        <div class="create-type-button two columns" id="check-button">
+                            <label>
+                                <input id="create-event-button-youtube" class="create-event-input" name="event-link" type="radio"><span>Youtube</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div id="create-event-input-link-website" class="create-event-link-inputs">
+                        <div class="two columns">
+                            <p></p>
+                        </div>
+                        <div class="eight columns">
+                            <input class="create-event-input-link" placeholder="Link to related website" />
+                        </div>
+                        <div class="two columns">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div id="create-event-input-link-twitter" class="create-event-link-inputs">
+                        <div class="two columns">
+                            <p></p>
+                        </div>
+                        <div class="eight columns">
+                            <input class="create-event-input-link" placeholder="Link to related twitter page" />
+                        </div>
+                        <div class="two columns">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div id="create-event-input-link-facebook" class="create-event-link-inputs">
+                        <div class="two columns">
+                            <p></p>
+                        </div>
+                        <div class="eight columns">
+                            <input class="create-event-input-link" placeholder="Link to related facebook page" />
+                        </div>
+                        <div class="two columns">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div id="create-event-input-link-instagram" class="create-event-link-inputs">
+                        <div class="two columns">
+                            <p></p>
+                        </div>
+                        <div class="eight columns">
+                            <input class="create-event-input-link" placeholder="Link to related instagram page" />
+                        </div>
+                        <div class="two columns">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div id="create-event-input-link-pintrest" class="create-event-link-inputs">
+                        <div class="two columns">
+                            <p></p>
+                        </div>
+                        <div class="eight columns">
+                            <input class="create-event-input-link" placeholder="Link to related pintrest page" />
+                        </div>
+                        <div class="two columns">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div id="create-event-input-link-youtube" class="create-event-link-inputs">
+                        <div class="two columns">
+                            <p></p>
+                        </div>
+                        <div class="eight columns">
+                            <input class="create-event-input-link" placeholder="Link to related youtube account/video" />
+                        </div>
+                        <div class="two columns">
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    document.getElementById("create-event-button-website").onclick = function ()
+                    {
+                        if (this.checked)
+                        {
+                            document.getElementById('create-event-input-link-twitter').style.display = "none";
+                            document.getElementById('create-event-input-link-facebook').style.display = "none";
+                            document.getElementById('create-event-input-link-instagram').style.display = "none";
+                            document.getElementById('create-event-input-link-pintrest').style.display = "none";
+                            document.getElementById('create-event-input-link-youtube').style.display = "none";
+                            document.getElementById('create-event-input-link-website').style.display = "block";
+                        }
+                    };
+                    document.getElementById("create-event-button-twitter").onclick = function ()
+                    {
+                        if (this.checked)
+                        {
+                            document.getElementById('create-event-input-link-website').style.display = "none";
+                            document.getElementById('create-event-input-link-facebook').style.display = "none";
+                            document.getElementById('create-event-input-link-instagram').style.display = "none";
+                            document.getElementById('create-event-input-link-pintrest').style.display = "none";
+                            document.getElementById('create-event-input-link-youtube').style.display = "none";
+                            document.getElementById('create-event-input-link-twitter').style.display = "block";
+                        }
+                    };
+                    document.getElementById("create-event-button-facebook").onclick = function ()
+                    {
+                        if (this.checked)
+                        {
+                            document.getElementById('create-event-input-link-twitter').style.display = "none";
+                            document.getElementById('create-event-input-link-website').style.display = "none";
+                            document.getElementById('create-event-input-link-instagram').style.display = "none";
+                            document.getElementById('create-event-input-link-pintrest').style.display = "none";
+                            document.getElementById('create-event-input-link-youtube').style.display = "none";
+                            document.getElementById('create-event-input-link-facebook').style.display = "block";
+                        }
+                    };
+                    document.getElementById("create-event-button-instagram").onclick = function ()
+                    {
+                        if (this.checked)
+                        {
+                            document.getElementById('create-event-input-link-twitter').style.display = "none";
+                            document.getElementById('create-event-input-link-facebook').style.display = "none";
+                            document.getElementById('create-event-input-link-website').style.display = "none";
+                            document.getElementById('create-event-input-link-pintrest').style.display = "none";
+                            document.getElementById('create-event-input-link-youtube').style.display = "none";
+                            document.getElementById('create-event-input-link-instagram').style.display = "block";
+                        }
+                    };
+                    document.getElementById("create-event-button-pintrest").onclick = function ()
+                    {
+                        if (this.checked)
+                        {
+                            document.getElementById('create-event-input-link-twitter').style.display = "none";
+                            document.getElementById('create-event-input-link-facebook').style.display = "none";
+                            document.getElementById('create-event-input-link-instagram').style.display = "none";
+                            document.getElementById('create-event-input-link-website').style.display = "none";
+                            document.getElementById('create-event-input-link-youtube').style.display = "none";
+                            document.getElementById('create-event-input-link-pintrest').style.display = "block";
+                        }
+                    };
+                    document.getElementById("create-event-button-youtube").onclick = function ()
+                    {
+                        if (this.checked)
+                        {
+                            document.getElementById('create-event-input-link-twitter').style.display = "none";
+                            document.getElementById('create-event-input-link-facebook').style.display = "none";
+                            document.getElementById('create-event-input-link-instagram').style.display = "none";
+                            document.getElementById('create-event-input-link-pintrest').style.display = "none";
+                            document.getElementById('create-event-input-link-website').style.display = "none";
+                            document.getElementById('create-event-input-link-youtube').style.display = "block";
+                        }
+                    };
+                </script>
+                <div class="row create-submit">
+                    <div class="four columns">
+                        <p></p>
+                    </div>
+
+                    <div class="event-submit four columns">
+                        <input type="submit" value="Submit Happening" />
+                    </div>
+
+                    <div class="four columns">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div id="create-discount-form" class="create-discount-form">
+                <div class="row create-left six columns">
+                    <div class="row create-first-row twelve columns">
+                        <div class="create-event-div twelve columns">
+                            <label>*Title</label>
+                            <input class="create-event-input" placeholder="Title of discount" />
+                        </div>
+                    </div>
+                    <div class="row create-row twelve columns">
+                        <div class="create-event-div twelve columns">
+                            <label>*What</label>
+                            <input class="create-event-input" placeholder="What kind of discount it is" />
+                        </div>
+                    </div>
+                    <div class="row create-row twelve columns">
+                        <div class="twelve columns">
+                            <label>*When</label>
+                            <div class="create-event-div six columns" style="margin-left: 0px;">
+                                <div class="create-type-button twelve columns" id="check-button">
+                                    <label>
+                                        <input id="create-discount-button-onetime" class="create-event-input" name="discount-when" type="radio" checked><span>One Time</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="create-event-div six columns">
+                                <div class="create-type-button twelve columns" id="check-button">
+                                    <label>
+                                        <input id="create-discount-button-recurring" class="create-event-input" name="discount-when" type="radio"><span>Recurring</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <script>
+                            document.getElementById("create-discount-button-recurring").onclick = function ()
+                            {
+                                if (this.checked)
+                                {
+                                    document.getElementById('create-discount-when-onetime').style.display = "none";
+                                    document.getElementById('create-discount-when-recurring').style.display = "block";
+                                }
+                            };
+                            document.getElementById("create-discount-button-onetime").onclick = function ()
+                            {
+                                if (this.checked)
+                                {
+                                    document.getElementById('create-discount-when-recurring').style.display = "none";
+                                    document.getElementById('create-discount-when-onetime').style.display = "block";
+                                }
+                            };
+                        </script>
+                    </div>
+                    <div class="row create-event-when twelve columns">
+                        <div id="create-discount-when-onetime" class="row create-event-when-onetime twelve columns">
+                            <div id="div-datetime12" class="twelve columns">
+                                <label class="starting-label">Starting</label>
+                                <input type="text" id="datetime12" data-format="DD-MM-YYYY h:mm a" data-template="DD / MM / YYYY     hh : mm a" name="datetime" value="21-12-2012 8:30 pm" style="display: none;">
+                                <span class="combodate">
+                                    <select class="day " style="width: auto;">
+                                        <option value="1">01</option>
+                                        <option value="2">02</option>
+                                        <option value="3">03</option>
+                                        <option value="4">04</option>
+                                        <option value="5">05</option>
+                                        <option value="6">06</option>
+                                        <option value="7">07</option>
+                                        <option value="8">08</option>
+                                        <option value="9">09</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        <option value="13">13</option>
+                                        <option value="14">14</option>
+                                        <option value="15">15</option>
+                                        <option value="16">16</option>
+                                        <option value="17">17</option>
+                                        <option value="18">18</option>
+                                        <option value="19">19</option>
+                                        <option value="20">20</option>
+                                        <option value="21">21</option>
+                                        <option value="22">22</option>
+                                        <option value="23">23</option>
+                                        <option value="24">24</option>
+                                        <option value="25">25</option>
+                                        <option value="26">26</option>
+                                        <option value="27">27</option>
+                                        <option value="28">28</option>
+                                        <option value="29">29</option>
+                                        <option value="30">30</option>
+                                        <option value="31">31</option>
+                                    </select>&nbsp;/&nbsp;
+                                    <select class="month " style="width: auto;">
+                                        <option value="0">01</option>
+                                        <option value="1">02</option>
+                                        <option value="2">03</option>
+                                        <option value="3">04</option>
+                                        <option value="4">05</option>
+                                        <option value="5">06</option>
+                                        <option value="6">07</option>
+                                        <option value="7">08</option>
+                                        <option value="8">09</option>
+                                        <option value="9">10</option>
+                                        <option value="10">11</option>
+                                        <option value="11">12</option>
+                                    </select>&nbsp;/&nbsp;
+                                    <select class="year " style="width: auto;">
+                                        <option value="2016">2016</option>
+                                        <option value="2017">2017</option>
+                                        <option value="2018">2018</option>
+                                    </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <select class="hour " style="width: auto;">
+                                        <option value="1">01</option>
+                                        <option value="2">02</option>
+                                        <option value="3">03</option>
+                                        <option value="4">04</option>
+                                        <option value="5">05</option>
+                                        <option value="6">06</option>
+                                        <option value="7">07</option>
+                                        <option value="8">08</option>
+                                        <option value="9">09</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                    </select>&nbsp;:&nbsp;
+                                    <select class="minute " style="width: auto;">
+                                        <option value="0">00</option>
+                                        <option value="5">05</option>
+                                        <option value="10">10</option>
+                                        <option value="15">15</option>
+                                        <option value="20">20</option>
+                                        <option value="25">25</option>
+                                        <option value="30">30</option>
+                                        <option value="35">35</option>
+                                        <option value="40">40</option>
+                                        <option value="45">45</option>
+                                        <option value="50">50</option>
+                                        <option value="55">55</option>
+                                    </select>&nbsp;
+                                    <select class="ampm " style="width: auto;">
+                                        <option value="am">am</option>
+                                        <option value="pm">pm</option>
+                                    </select>
+                                </span>
+                            </div>
+                            <div id="div-datetime12" class="twelve columns">
+                                <label>Ending</label>
+                                <input type="text" id="datetime12" data-format="DD-MM-YYYY h:mm a" data-template="DD / MM / YYYY     hh : mm a" name="datetime" value="21-12-2012 8:30 pm" style="display: none;">
+                                <span class="combodate">
+                                    <select class="day " style="width: auto;">
+                                        <option value="1">01</option>
+                                        <option value="2">02</option>
+                                        <option value="3">03</option>
+                                        <option value="4">04</option>
+                                        <option value="5">05</option>
+                                        <option value="6">06</option>
+                                        <option value="7">07</option>
+                                        <option value="8">08</option>
+                                        <option value="9">09</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        <option value="13">13</option>
+                                        <option value="14">14</option>
+                                        <option value="15">15</option>
+                                        <option value="16">16</option>
+                                        <option value="17">17</option>
+                                        <option value="18">18</option>
+                                        <option value="19">19</option>
+                                        <option value="20">20</option>
+                                        <option value="21">21</option>
+                                        <option value="22">22</option>
+                                        <option value="23">23</option>
+                                        <option value="24">24</option>
+                                        <option value="25">25</option>
+                                        <option value="26">26</option>
+                                        <option value="27">27</option>
+                                        <option value="28">28</option>
+                                        <option value="29">29</option>
+                                        <option value="30">30</option>
+                                        <option value="31">31</option>
+                                    </select>&nbsp;/&nbsp;
+                                    <select class="month " style="width: auto;">
+                                        <option value="0">01</option>
+                                        <option value="1">02</option>
+                                        <option value="2">03</option>
+                                        <option value="3">04</option>
+                                        <option value="4">05</option>
+                                        <option value="5">06</option>
+                                        <option value="6">07</option>
+                                        <option value="7">08</option>
+                                        <option value="8">09</option>
+                                        <option value="9">10</option>
+                                        <option value="10">11</option>
+                                        <option value="11">12</option>
+                                    </select>&nbsp;/&nbsp;
+                                    <select class="year " style="width: auto;">
+                                        <option value="2016">2016</option>
+                                        <option value="2017">2017</option>
+                                        <option value="2018">2018</option>
+                                    </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <select class="hour " style="width: auto;">
+                                        <option value="1">01</option>
+                                        <option value="2">02</option>
+                                        <option value="3">03</option>
+                                        <option value="4">04</option>
+                                        <option value="5">05</option>
+                                        <option value="6">06</option>
+                                        <option value="7">07</option>
+                                        <option value="8">08</option>
+                                        <option value="9">09</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                    </select>&nbsp;:&nbsp;
+                                    <select class="minute " style="width: auto;">
+                                        <option value="0">00</option>
+                                        <option value="5">05</option>
+                                        <option value="10">10</option>
+                                        <option value="15">15</option>
+                                        <option value="20">20</option>
+                                        <option value="25">25</option>
+                                        <option value="30">30</option>
+                                        <option value="35">35</option>
+                                        <option value="40">40</option>
+                                        <option value="45">45</option>
+                                        <option value="50">50</option>
+                                        <option value="55">55</option>
+                                    </select>&nbsp;
+                                    <select class="ampm " style="width: auto;">
+                                        <option value="am">am</option>
+                                        <option value="pm">pm</option>
+                                    </select>
+                                </span>
+                            </div>
+                        </div>
+                        <div id="create-discount-when-recurring" class="row create-event-when-recurring">
+                            <div class="row create-event-when-recurring-buttons twelve columns">
+                                <div class="create-type-button four columns" id="check-button">
+                                    <label>
+                                        <input id="create-discount-button-daily" class="create-event-input" name="discount-ordinal" type="radio" checked><span>Daily</span>
+                                    </label>
+                                </div>
+                                <div class="create-type-button four columns" id="check-button">
+                                    <label>
+                                        <input id="create-discount-button-weekly" class="create-event-input" name="discount-ordinal" type="radio"><span>Weekly</span>
+                                    </label>
+                                </div>
+                                <div class="create-type-button four columns" id="check-button">
+                                    <label>
+                                        <input id="create-discount-button-monthly" class="create-event-input" name="discount-ordinal" type="radio"><span>Monthly</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="create-event-when-reccuring-div">
+                                <div id="create-discount-when-reccuring-daily" class="create-event-when-reccuring-daily">
+                                    <div id="div-datetime12" class="twelve columns">
+                                        <label>Recurring</label>
+                                        <input type="text" id="datetime12" data-format="DD-MM-YYYY h:mm a" data-template="DD / MM / YYYY     hh : mm a" name="datetime" value="21-12-2012 8:30 pm" style="display: none;">
+                                        <span class="combodate">
+                                            <select class="year " style="width: auto;">
+                                                <option value="1">01</option>
+                                                <option value="2">02</option>
+                                                <option value="3">03</option>
+                                                <option value="4">04</option>
+                                                <option value="5">05</option>
+                                                <option value="6">06</option>
+                                                <option value="7">07</option>
+                                                <option value="8">08</option>
+                                                <option value="9">09</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                            </select>&nbsp;:&nbsp;
+                                            <select class="hour " style="width: auto;">
+                                                <option value="0">00</option>
+                                                <option value="5">05</option>
+                                                <option value="10">10</option>
+                                                <option value="15">15</option>
+                                                <option value="20">20</option>
+                                                <option value="25">25</option>
+                                                <option value="30">30</option>
+                                                <option value="35">35</option>
+                                                <option value="40">40</option>
+                                                <option value="45">45</option>
+                                                <option value="50">50</option>
+                                                <option value="55">55</option>
+                                            </select>&nbsp;&nbsp;
+                                            <select class="minute " style="width: auto;">
+                                                <option value="am">am</option>
+                                                <option value="pm">pm</option>
+                                            </select>&nbsp;To&nbsp;
+                                            <select class="year " style="width: auto;">
+                                                <option value="1">01</option>
+                                                <option value="2">02</option>
+                                                <option value="3">03</option>
+                                                <option value="4">04</option>
+                                                <option value="5">05</option>
+                                                <option value="6">06</option>
+                                                <option value="7">07</option>
+                                                <option value="8">08</option>
+                                                <option value="9">09</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                            </select>&nbsp;:&nbsp;
+                                            <select class="hour " style="width: auto;">
+                                                <option value="0">00</option>
+                                                <option value="5">05</option>
+                                                <option value="10">10</option>
+                                                <option value="15">15</option>
+                                                <option value="20">20</option>
+                                                <option value="25">25</option>
+                                                <option value="30">30</option>
+                                                <option value="35">35</option>
+                                                <option value="40">40</option>
+                                                <option value="45">45</option>
+                                                <option value="50">50</option>
+                                                <option value="55">55</option>
+                                            </select>&nbsp;&nbsp;
+                                            <select class="minute " style="width: auto;">
+                                                <option value="am">am</option>
+                                                <option value="pm">pm</option>
+                                            </select>&nbsp;&nbsp;
+                                        </span>
+                                    </div>
+                                </div>
+                                <div id="create-discount-when-reccuring-weekly" class="create-event-when-reccuring-weekly">
+                                    <div id="div-datetime12" class="twelve columns">
+                                        <label>Recurring</label>
+                                        <input type="text" id="datetime12" data-format="DD-MM-YYYY h:mm a" data-template="DD / MM / YYYY     hh : mm a" name="datetime" value="21-12-2012 8:30 pm" style="display: none;">
+                                        <span class="combodate">
+                                            <input type="checkbox" />Sunday
+                                            <input type="checkbox" />Monday
+                                            <input type="checkbox" />Tuesday
+                                            <input type="checkbox" />Wednesday
+                                            <input type="checkbox" />Thursday
+                                            <input type="checkbox" />Friday
+                                            <input type="checkbox" />Saturday
+                                            &nbsp;From&nbsp;
+                                            <select class="year " style="width: auto;">
+                                                <option value="1">01</option>
+                                                <option value="2">02</option>
+                                                <option value="3">03</option>
+                                                <option value="4">04</option>
+                                                <option value="5">05</option>
+                                                <option value="6">06</option>
+                                                <option value="7">07</option>
+                                                <option value="8">08</option>
+                                                <option value="9">09</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                            </select>&nbsp;:&nbsp;
+                                            <select class="hour " style="width: auto;">
+                                                <option value="0">00</option>
+                                                <option value="5">05</option>
+                                                <option value="10">10</option>
+                                                <option value="15">15</option>
+                                                <option value="20">20</option>
+                                                <option value="25">25</option>
+                                                <option value="30">30</option>
+                                                <option value="35">35</option>
+                                                <option value="40">40</option>
+                                                <option value="45">45</option>
+                                                <option value="50">50</option>
+                                                <option value="55">55</option>
+                                            </select>&nbsp;&nbsp;
+                                            <select class="minute " style="width: auto;">
+                                                <option value="am">am</option>
+                                                <option value="pm">pm</option>
+                                            </select>&nbsp;To&nbsp;
+                                            <select class="year " style="width: auto;">
+                                                <option value="1">01</option>
+                                                <option value="2">02</option>
+                                                <option value="3">03</option>
+                                                <option value="4">04</option>
+                                                <option value="5">05</option>
+                                                <option value="6">06</option>
+                                                <option value="7">07</option>
+                                                <option value="8">08</option>
+                                                <option value="9">09</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                            </select>&nbsp;:&nbsp;
+                                            <select class="hour " style="width: auto;">
+                                                <option value="0">00</option>
+                                                <option value="5">05</option>
+                                                <option value="10">10</option>
+                                                <option value="15">15</option>
+                                                <option value="20">20</option>
+                                                <option value="25">25</option>
+                                                <option value="30">30</option>
+                                                <option value="35">35</option>
+                                                <option value="40">40</option>
+                                                <option value="45">45</option>
+                                                <option value="50">50</option>
+                                                <option value="55">55</option>
+                                            </select>&nbsp;&nbsp;
+                                            <select class="minute " style="width: auto;">
+                                                <option value="am">am</option>
+                                                <option value="pm">pm</option>
+                                            </select>&nbsp;&nbsp;
+                                        </span>
+                                    </div>
+                                </div>
+                                <div id="create-discount-when-reccuring-monthly" class="create-event-when-reccuring-monthly">
+                                    <div id="div-datetime12" class="twelve columns">
+                                        <label>Recurring</label>
+                                        <input type="text" id="datetime12" data-format="DD-MM-YYYY h:mm a" data-template="DD / MM / YYYY     hh : mm a" name="datetime" value="21-12-2012 8:30 pm" style="display: none;">
+                                        <span class="combodate">
+                                            &nbsp;Every&nbsp;
+                                            <select class="month " style="width: auto;">
+                                                <option value="0">1st</option>
+                                                <option value="1">2nd</option>
+                                                <option value="2">3rd</option>
+                                                <option value="3">4th</option>
+                                            </select>&nbsp;&nbsp;
+                                            <input type="checkbox" />Sunday
+                                            <input type="checkbox" />Monday
+                                            <input type="checkbox" />Tuesday
+                                            <input type="checkbox" />Wednesday
+                                            <input type="checkbox" />Thursday
+                                            <input type="checkbox" />Friday
+                                            <input type="checkbox" />Saturday
+                                            &nbsp;From&nbsp;
+                                            <select class="year " style="width: auto;">
+                                                <option value="1">01</option>
+                                                <option value="2">02</option>
+                                                <option value="3">03</option>
+                                                <option value="4">04</option>
+                                                <option value="5">05</option>
+                                                <option value="6">06</option>
+                                                <option value="7">07</option>
+                                                <option value="8">08</option>
+                                                <option value="9">09</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                            </select>&nbsp;:&nbsp;
+                                            <select class="hour " style="width: auto;">
+                                                <option value="0">00</option>
+                                                <option value="5">05</option>
+                                                <option value="10">10</option>
+                                                <option value="15">15</option>
+                                                <option value="20">20</option>
+                                                <option value="25">25</option>
+                                                <option value="30">30</option>
+                                                <option value="35">35</option>
+                                                <option value="40">40</option>
+                                                <option value="45">45</option>
+                                                <option value="50">50</option>
+                                                <option value="55">55</option>
+                                            </select>&nbsp;&nbsp;
+                                            <select class="minute " style="width: auto;">
+                                                <option value="am">am</option>
+                                                <option value="pm">pm</option>
+                                            </select>&nbsp;To&nbsp;
+                                            <select class="year " style="width: auto;">
+                                                <option value="1">01</option>
+                                                <option value="2">02</option>
+                                                <option value="3">03</option>
+                                                <option value="4">04</option>
+                                                <option value="5">05</option>
+                                                <option value="6">06</option>
+                                                <option value="7">07</option>
+                                                <option value="8">08</option>
+                                                <option value="9">09</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                            </select>&nbsp;:&nbsp;
+                                            <select class="hour " style="width: auto;">
+                                                <option value="0">00</option>
+                                                <option value="5">05</option>
+                                                <option value="10">10</option>
+                                                <option value="15">15</option>
+                                                <option value="20">20</option>
+                                                <option value="25">25</option>
+                                                <option value="30">30</option>
+                                                <option value="35">35</option>
+                                                <option value="40">40</option>
+                                                <option value="45">45</option>
+                                                <option value="50">50</option>
+                                                <option value="55">55</option>
+                                            </select>&nbsp;&nbsp;
+                                            <select class="minute " style="width: auto;">
+                                                <option value="am">am</option>
+                                                <option value="pm">pm</option>
+                                            </select>&nbsp;&nbsp;
+                                        </span>
+                                    </div>
+                                    <script>
+                                        document.getElementById("create-discount-button-daily").onclick = function ()
+                                        {
+                                            if (this.checked)
+                                            {
+                                                document.getElementById('create-discount-when-reccuring-monthly').style.display = "none";
+                                                document.getElementById('create-discount-when-reccuring-weekly').style.display = "none";
+                                                document.getElementById('create-discount-when-reccuring-daily').style.display = "block";
+                                            }
+                                        };
+                                        document.getElementById("create-discount-button-weekly").onclick = function ()
+                                        {
+                                            if (this.checked)
+                                            {
+                                                document.getElementById('create-discount-when-reccuring-monthly').style.display = "none";
+                                                document.getElementById('create-discount-when-reccuring-daily').style.display = "none";
+                                                document.getElementById('create-discount-when-reccuring-weekly').style.display = "block";
+                                            }
+                                        };
+                                        document.getElementById("create-discount-button-monthly").onclick = function ()
+                                        {
+                                            if (this.checked)
+                                            {
+                                                document.getElementById('create-discount-when-reccuring-weekly').style.display = "none";
+                                                document.getElementById('create-discount-when-reccuring-daily').style.display = "none";
+                                                document.getElementById('create-discount-when-reccuring-monthly').style.display = "block";
+                                            }
+                                        };
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row create-right six columns">
+                    <div class="row create-first-row twelve columns">
+                        <label>*Where</label>
+                        <input class="create-event-input" placeholder="Where the discount is" />
+                    </div>
+                    <div class="row twelve columns">
+                        <div class="create-event-div twelve columns">
+                            <label>Associated Discount</label>
+                            <input class="create-event-input" placeholder="Title of related discount" />
+                        </div>
+                    </div>
+                    <div class="row twelve columns">
+                        <div class="create-event-div twelve columns">
+                            <label>Description</label>
+                            <textarea class="create-event-textarea" placeholder="Describe the discount"></textarea>
+                        </div>
+                    </div>
+                    <div class="row twelve columns">
+                        <div class="create-event-div twelve columns">
+                            <label>Phone</label>
+                            <input class="create-event-input" placeholder="Phone number of the orgainizer" />
+                        </div>
+                    </div>
+                    <div class="row twelve columns">
+                        <div class="create-event-div twelve columns">
+                            <label>Email</label>
+                            <input class="create-event-input" placeholder="Email of the orgainizer" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row create-links twelve columns">
+                    <label>Related Links</label>
+                    <div class="row create-event-link-buttons twelve columns">
+                        <div class="create-type-button two columns" id="check-button">
+                            <label>
+                                <input id="create-discount-button-website" class="create-event-input" name="discount-link" type="radio" checked><span>Website</span>
+                            </label>
+                        </div>
+                        <div class="create-type-button two columns" id="check-button">
+                            <label>
+                                <input id="create-discount-button-twitter" class="create-event-input" name="discount-link" type="radio"><span>Twitter</span>
+                            </label>
+                        </div>
+                        <div class="create-type-button two columns" id="check-button">
+                            <label>
+                                <input id="create-discount-button-facebook" class="create-event-input" name="discount-link" type="radio"><span>Facebook</span>
+                            </label>
+                        </div>
+                        <div class="create-type-button two columns" id="check-button">
+                            <label>
+                                <input id="create-discount-button-instagram" class="create-event-input" name="discount-link" type="radio"><span>Instagram</span>
+                            </label>
+                        </div>
+                        <div class="create-type-button two columns" id="check-button">
+                            <label>
+                                <input id="create-discount-button-pintrest" class="create-event-input" name="discount-link" type="radio"><span>Pintrest</span>
+                            </label>
+                        </div>
+                        <div class="create-type-button two columns" id="check-button">
+                            <label>
+                                <input id="create-discount-button-youtube" class="create-event-input" name="discount-link" type="radio"><span>Youtube</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div id="create-discount-input-link-website" class="create-event-link-inputs">
+                        <div class="two columns">
+                            <p></p>
+                        </div>
+                        <div class="eight columns">
+                            <input class="create-event-input-link" placeholder="Link to related website" />
+                        </div>
+                        <div class="two columns">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div id="create-discount-input-link-twitter" class="create-event-link-inputs">
+                        <div class="two columns">
+                            <p></p>
+                        </div>
+                        <div class="eight columns">
+                            <input class="create-event-input-link" placeholder="Link to related twitter page" />
+                        </div>
+                        <div class="two columns">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div id="create-discount-input-link-facebook" class="create-event-link-inputs">
+                        <div class="two columns">
+                            <p></p>
+                        </div>
+                        <div class="eight columns">
+                            <input class="create-event-input-link" placeholder="Link to related facebook page" />
+                        </div>
+                        <div class="two columns">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div id="create-discount-input-link-instagram" class="create-event-link-inputs">
+                        <div class="two columns">
+                            <p></p>
+                        </div>
+                        <div class="eight columns">
+                            <input class="create-event-input-link" placeholder="Link to related instagram page" />
+                        </div>
+                        <div class="two columns">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div id="create-discount-input-link-pintrest" class="create-event-link-inputs">
+                        <div class="two columns">
+                            <p></p>
+                        </div>
+                        <div class="eight columns">
+                            <input class="create-event-input-link" placeholder="Link to related pintrest page" />
+                        </div>
+                        <div class="two columns">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div id="create-discount-input-link-youtube" class="create-event-link-inputs">
+                        <div class="two columns">
+                            <p></p>
+                        </div>
+                        <div class="eight columns">
+                            <input class="create-event-input-link" placeholder="Link to related youtube account/video" />
+                        </div>
+                        <div class="two columns">
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    document.getElementById("create-discount-button-website").onclick = function ()
+                    {
+                        if (this.checked)
+                        {
+                            document.getElementById('create-discount-input-link-twitter').style.display = "none";
+                            document.getElementById('create-discount-input-link-facebook').style.display = "none";
+                            document.getElementById('create-discount-input-link-instagram').style.display = "none";
+                            document.getElementById('create-discount-input-link-pintrest').style.display = "none";
+                            document.getElementById('create-discount-input-link-youtube').style.display = "none";
+                            document.getElementById('create-discount-input-link-website').style.display = "block";
+                        }
+                    };
+                    document.getElementById("create-discount-button-twitter").onclick = function ()
+                    {
+                        if (this.checked)
+                        {
+                            document.getElementById('create-discount-input-link-website').style.display = "none";
+                            document.getElementById('create-discount-input-link-facebook').style.display = "none";
+                            document.getElementById('create-discount-input-link-instagram').style.display = "none";
+                            document.getElementById('create-discount-input-link-pintrest').style.display = "none";
+                            document.getElementById('create-discount-input-link-youtube').style.display = "none";
+                            document.getElementById('create-discount-input-link-twitter').style.display = "block";
+                        }
+                    };
+                    document.getElementById("create-discount-button-facebook").onclick = function ()
+                    {
+                        if (this.checked)
+                        {
+                            document.getElementById('create-discount-input-link-twitter').style.display = "none";
+                            document.getElementById('create-discount-input-link-website').style.display = "none";
+                            document.getElementById('create-discount-input-link-instagram').style.display = "none";
+                            document.getElementById('create-discount-input-link-pintrest').style.display = "none";
+                            document.getElementById('create-discount-input-link-youtube').style.display = "none";
+                            document.getElementById('create-discount-input-link-facebook').style.display = "block";
+                        }
+                    };
+                    document.getElementById("create-discount-button-instagram").onclick = function ()
+                    {
+                        if (this.checked)
+                        {
+                            document.getElementById('create-discount-input-link-twitter').style.display = "none";
+                            document.getElementById('create-discount-input-link-facebook').style.display = "none";
+                            document.getElementById('create-discount-input-link-website').style.display = "none";
+                            document.getElementById('create-discount-input-link-pintrest').style.display = "none";
+                            document.getElementById('create-discount-input-link-youtube').style.display = "none";
+                            document.getElementById('create-discount-input-link-instagram').style.display = "block";
+                        }
+                    };
+                    document.getElementById("create-discount-button-pintrest").onclick = function ()
+                    {
+                        if (this.checked)
+                        {
+                            document.getElementById('create-discount-input-link-twitter').style.display = "none";
+                            document.getElementById('create-discount-input-link-facebook').style.display = "none";
+                            document.getElementById('create-discount-input-link-instagram').style.display = "none";
+                            document.getElementById('create-discount-input-link-website').style.display = "none";
+                            document.getElementById('create-discount-input-link-youtube').style.display = "none";
+                            document.getElementById('create-discount-input-link-pintrest').style.display = "block";
+                        }
+                    };
+                    document.getElementById("create-discount-button-youtube").onclick = function ()
+                    {
+                        if (this.checked)
+                        {
+                            document.getElementById('create-discount-input-link-twitter').style.display = "none";
+                            document.getElementById('create-discount-input-link-facebook').style.display = "none";
+                            document.getElementById('create-discount-input-link-instagram').style.display = "none";
+                            document.getElementById('create-discount-input-link-pintrest').style.display = "none";
+                            document.getElementById('create-discount-input-link-website').style.display = "none";
+                            document.getElementById('create-discount-input-link-youtube').style.display = "block";
+                        }
+                    };
+                </script>
+                <div class="row create-submit">
+                    <div class="four columns">
+                        <p></p>
+                    </div>
+
+                    <div class="event-submit four columns">
+                        <input type="submit" value="Submit Discount" />
+                    </div>
+
+                    <div class="four columns">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div id="create-foodtruck-form" class="create-foodtruck-form">
+                <div class="row create-left six columns">
+                    <div class="row create-first-row twelve columns">
+                        <div class="create-event-div twelve columns">
+                            <label>*Title</label>
+                            <input class="create-event-input" placeholder="Title of foodtruck" />
+                        </div>
+                    </div>
+                    <div class="row create-row twelve columns">
+                        <div class="create-event-div twelve columns">
+                            <label>*What</label>
+                            <input class="create-event-input" placeholder="What kind of foodtruck it is" />
+                        </div>
+                    </div>
+                    <div class="row create-row twelve columns">
+                        <div class="twelve columns">
+                            <label>*When</label>
+                            <div class="create-event-div six columns" style="margin-left: 0px;">
+                                <div class="create-type-button twelve columns" id="check-button">
+                                    <label>
+                                        <input id="create-foodtruck-button-onetime" class="create-event-input" name="foodtruck-when" type="radio" checked><span>One Time</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="create-event-div six columns">
+                                <div class="create-type-button twelve columns" id="check-button">
+                                    <label>
+                                        <input id="create-foodtruck-button-recurring" class="create-event-input" name="foodtruck-when" type="radio"><span>Recurring</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <script>
+                            document.getElementById("create-foodtruck-button-recurring").onclick = function ()
+                            {
+                                if (this.checked)
+                                {
+                                    document.getElementById('create-foodtruck-when-onetime').style.display = "none";
+                                    document.getElementById('create-foodtruck-when-recurring').style.display = "block";
+                                }
+                            };
+                            document.getElementById("create-foodtruck-button-onetime").onclick = function ()
+                            {
+                                if (this.checked)
+                                {
+                                    document.getElementById('create-foodtruck-when-recurring').style.display = "none";
+                                    document.getElementById('create-foodtruck-when-onetime').style.display = "block";
+                                }
+                            };
+                        </script>
+                    </div>
+
+                    <div class="row create-event-when twelve columns">
+                        <div id="create-foodtruck-when-onetime" class="row create-event-when-onetime twelve columns">
+                            <div id="div-datetime12" class="twelve columns">
+                                <label class="starting-label">Starting</label>
+                                <input type="text" id="datetime12" data-format="DD-MM-YYYY h:mm a" data-template="DD / MM / YYYY     hh : mm a" name="datetime" value="21-12-2012 8:30 pm" style="display: none;">
+                                <span class="combodate">
+                                    <select class="day " style="width: auto;">
+                                        <option value="1">01</option>
+                                        <option value="2">02</option>
+                                        <option value="3">03</option>
+                                        <option value="4">04</option>
+                                        <option value="5">05</option>
+                                        <option value="6">06</option>
+                                        <option value="7">07</option>
+                                        <option value="8">08</option>
+                                        <option value="9">09</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        <option value="13">13</option>
+                                        <option value="14">14</option>
+                                        <option value="15">15</option>
+                                        <option value="16">16</option>
+                                        <option value="17">17</option>
+                                        <option value="18">18</option>
+                                        <option value="19">19</option>
+                                        <option value="20">20</option>
+                                        <option value="21">21</option>
+                                        <option value="22">22</option>
+                                        <option value="23">23</option>
+                                        <option value="24">24</option>
+                                        <option value="25">25</option>
+                                        <option value="26">26</option>
+                                        <option value="27">27</option>
+                                        <option value="28">28</option>
+                                        <option value="29">29</option>
+                                        <option value="30">30</option>
+                                        <option value="31">31</option>
+                                    </select>&nbsp;/&nbsp;
+                                    <select class="month " style="width: auto;">
+                                        <option value="0">01</option>
+                                        <option value="1">02</option>
+                                        <option value="2">03</option>
+                                        <option value="3">04</option>
+                                        <option value="4">05</option>
+                                        <option value="5">06</option>
+                                        <option value="6">07</option>
+                                        <option value="7">08</option>
+                                        <option value="8">09</option>
+                                        <option value="9">10</option>
+                                        <option value="10">11</option>
+                                        <option value="11">12</option>
+                                    </select>&nbsp;/&nbsp;
+                                    <select class="year " style="width: auto;">
+                                        <option value="2016">2016</option>
+                                        <option value="2017">2017</option>
+                                        <option value="2018">2018</option>
+                                    </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <select class="hour " style="width: auto;">
+                                        <option value="1">01</option>
+                                        <option value="2">02</option>
+                                        <option value="3">03</option>
+                                        <option value="4">04</option>
+                                        <option value="5">05</option>
+                                        <option value="6">06</option>
+                                        <option value="7">07</option>
+                                        <option value="8">08</option>
+                                        <option value="9">09</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                    </select>&nbsp;:&nbsp;
+                                    <select class="minute " style="width: auto;">
+                                        <option value="0">00</option>
+                                        <option value="5">05</option>
+                                        <option value="10">10</option>
+                                        <option value="15">15</option>
+                                        <option value="20">20</option>
+                                        <option value="25">25</option>
+                                        <option value="30">30</option>
+                                        <option value="35">35</option>
+                                        <option value="40">40</option>
+                                        <option value="45">45</option>
+                                        <option value="50">50</option>
+                                        <option value="55">55</option>
+                                    </select>&nbsp;
+                                    <select class="ampm " style="width: auto;">
+                                        <option value="am">am</option>
+                                        <option value="pm">pm</option>
+                                    </select>
+                                </span>
+                            </div>
+                            <div id="div-datetime12" class="twelve columns">
+                                <label>Ending</label>
+                                <input type="text" id="datetime12" data-format="DD-MM-YYYY h:mm a" data-template="DD / MM / YYYY     hh : mm a" name="datetime" value="21-12-2012 8:30 pm" style="display: none;">
+                                <span class="combodate">
+                                    <select class="day " style="width: auto;">
+                                        <option value="1">01</option>
+                                        <option value="2">02</option>
+                                        <option value="3">03</option>
+                                        <option value="4">04</option>
+                                        <option value="5">05</option>
+                                        <option value="6">06</option>
+                                        <option value="7">07</option>
+                                        <option value="8">08</option>
+                                        <option value="9">09</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        <option value="13">13</option>
+                                        <option value="14">14</option>
+                                        <option value="15">15</option>
+                                        <option value="16">16</option>
+                                        <option value="17">17</option>
+                                        <option value="18">18</option>
+                                        <option value="19">19</option>
+                                        <option value="20">20</option>
+                                        <option value="21">21</option>
+                                        <option value="22">22</option>
+                                        <option value="23">23</option>
+                                        <option value="24">24</option>
+                                        <option value="25">25</option>
+                                        <option value="26">26</option>
+                                        <option value="27">27</option>
+                                        <option value="28">28</option>
+                                        <option value="29">29</option>
+                                        <option value="30">30</option>
+                                        <option value="31">31</option>
+                                    </select>&nbsp;/&nbsp;
+                                    <select class="month " style="width: auto;">
+                                        <option value="0">01</option>
+                                        <option value="1">02</option>
+                                        <option value="2">03</option>
+                                        <option value="3">04</option>
+                                        <option value="4">05</option>
+                                        <option value="5">06</option>
+                                        <option value="6">07</option>
+                                        <option value="7">08</option>
+                                        <option value="8">09</option>
+                                        <option value="9">10</option>
+                                        <option value="10">11</option>
+                                        <option value="11">12</option>
+                                    </select>&nbsp;/&nbsp;
+                                    <select class="year " style="width: auto;">
+                                        <option value="2016">2016</option>
+                                        <option value="2017">2017</option>
+                                        <option value="2018">2018</option>
+                                    </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <select class="hour " style="width: auto;">
+                                        <option value="1">01</option>
+                                        <option value="2">02</option>
+                                        <option value="3">03</option>
+                                        <option value="4">04</option>
+                                        <option value="5">05</option>
+                                        <option value="6">06</option>
+                                        <option value="7">07</option>
+                                        <option value="8">08</option>
+                                        <option value="9">09</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                    </select>&nbsp;:&nbsp;
+                                    <select class="minute " style="width: auto;">
+                                        <option value="0">00</option>
+                                        <option value="5">05</option>
+                                        <option value="10">10</option>
+                                        <option value="15">15</option>
+                                        <option value="20">20</option>
+                                        <option value="25">25</option>
+                                        <option value="30">30</option>
+                                        <option value="35">35</option>
+                                        <option value="40">40</option>
+                                        <option value="45">45</option>
+                                        <option value="50">50</option>
+                                        <option value="55">55</option>
+                                    </select>&nbsp;
+                                    <select class="ampm " style="width: auto;">
+                                        <option value="am">am</option>
+                                        <option value="pm">pm</option>
+                                    </select>
+                                </span>
+                            </div>
+                        </div>
+                        <div id="create-foodtruck-when-recurring" class="row create-event-when-recurring">
+                            <div class="row create-event-when-recurring-buttons twelve columns">
+                                <div class="create-type-button four columns" id="check-button">
+                                    <label>
+                                        <input id="create-foodtruck-button-daily" class="create-event-input" name="ordinal" type="radio" checked><span>Daily</span>
+                                    </label>
+                                </div>
+                                <div class="create-type-button four columns" id="check-button">
+                                    <label>
+                                        <input id="create-foodtruck-button-weekly" class="create-event-input" name="ordinal" type="radio"><span>Weekly</span>
+                                    </label>
+                                </div>
+                                <div class="create-type-button four columns" id="check-button">
+                                    <label>
+                                        <input id="create-foodtruck-button-monthly" class="create-event-input" name="ordinal" type="radio"><span>Monthly</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="create-event-when-reccuring-div">
+                                <div id="create-foodtruck-when-reccuring-daily" class="create-event-when-reccuring-daily">
+                                    <div id="div-datetime12" class="twelve columns">
+                                        <label>Recurring</label>
+                                        <input type="text" id="datetime12" data-format="DD-MM-YYYY h:mm a" data-template="DD / MM / YYYY     hh : mm a" name="datetime" value="21-12-2012 8:30 pm" style="display: none;">
+                                        <span class="combodate">
+                                            <select class="year " style="width: auto;">
+                                                <option value="1">01</option>
+                                                <option value="2">02</option>
+                                                <option value="3">03</option>
+                                                <option value="4">04</option>
+                                                <option value="5">05</option>
+                                                <option value="6">06</option>
+                                                <option value="7">07</option>
+                                                <option value="8">08</option>
+                                                <option value="9">09</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                            </select>&nbsp;:&nbsp;
+                                            <select class="hour " style="width: auto;">
+                                                <option value="0">00</option>
+                                                <option value="5">05</option>
+                                                <option value="10">10</option>
+                                                <option value="15">15</option>
+                                                <option value="20">20</option>
+                                                <option value="25">25</option>
+                                                <option value="30">30</option>
+                                                <option value="35">35</option>
+                                                <option value="40">40</option>
+                                                <option value="45">45</option>
+                                                <option value="50">50</option>
+                                                <option value="55">55</option>
+                                            </select>&nbsp;&nbsp;
+                                            <select class="minute " style="width: auto;">
+                                                <option value="am">am</option>
+                                                <option value="pm">pm</option>
+                                            </select>&nbsp;To&nbsp;
+                                            <select class="year " style="width: auto;">
+                                                <option value="1">01</option>
+                                                <option value="2">02</option>
+                                                <option value="3">03</option>
+                                                <option value="4">04</option>
+                                                <option value="5">05</option>
+                                                <option value="6">06</option>
+                                                <option value="7">07</option>
+                                                <option value="8">08</option>
+                                                <option value="9">09</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                            </select>&nbsp;:&nbsp;
+                                            <select class="hour " style="width: auto;">
+                                                <option value="0">00</option>
+                                                <option value="5">05</option>
+                                                <option value="10">10</option>
+                                                <option value="15">15</option>
+                                                <option value="20">20</option>
+                                                <option value="25">25</option>
+                                                <option value="30">30</option>
+                                                <option value="35">35</option>
+                                                <option value="40">40</option>
+                                                <option value="45">45</option>
+                                                <option value="50">50</option>
+                                                <option value="55">55</option>
+                                            </select>&nbsp;&nbsp;
+                                            <select class="minute " style="width: auto;">
+                                                <option value="am">am</option>
+                                                <option value="pm">pm</option>
+                                            </select>&nbsp;&nbsp;
+                                        </span>
+                                    </div>
+                                </div>
+                                <div id="create-foodtruck-when-reccuring-weekly" class="create-event-when-reccuring-weekly">
+                                    <div id="div-datetime12" class="twelve columns">
+                                        <label>Recurring</label>
+                                        <input type="text" id="datetime12" data-format="DD-MM-YYYY h:mm a" data-template="DD / MM / YYYY     hh : mm a" name="datetime" value="21-12-2012 8:30 pm" style="display: none;">
+                                        <span class="combodate">
+                                            <input type="checkbox" />Sunday
+                                            <input type="checkbox" />Monday
+                                            <input type="checkbox" />Tuesday
+                                            <input type="checkbox" />Wednesday
+                                            <input type="checkbox" />Thursday
+                                            <input type="checkbox" />Friday
+                                            <input type="checkbox" />Saturday
+                                            &nbsp;From&nbsp;
+                                            <select class="year " style="width: auto;">
+                                                <option value="1">01</option>
+                                                <option value="2">02</option>
+                                                <option value="3">03</option>
+                                                <option value="4">04</option>
+                                                <option value="5">05</option>
+                                                <option value="6">06</option>
+                                                <option value="7">07</option>
+                                                <option value="8">08</option>
+                                                <option value="9">09</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                            </select>&nbsp;:&nbsp;
+                                            <select class="hour " style="width: auto;">
+                                                <option value="0">00</option>
+                                                <option value="5">05</option>
+                                                <option value="10">10</option>
+                                                <option value="15">15</option>
+                                                <option value="20">20</option>
+                                                <option value="25">25</option>
+                                                <option value="30">30</option>
+                                                <option value="35">35</option>
+                                                <option value="40">40</option>
+                                                <option value="45">45</option>
+                                                <option value="50">50</option>
+                                                <option value="55">55</option>
+                                            </select>&nbsp;&nbsp;
+                                            <select class="minute " style="width: auto;">
+                                                <option value="am">am</option>
+                                                <option value="pm">pm</option>
+                                            </select>&nbsp;To&nbsp;
+                                            <select class="year " style="width: auto;">
+                                                <option value="1">01</option>
+                                                <option value="2">02</option>
+                                                <option value="3">03</option>
+                                                <option value="4">04</option>
+                                                <option value="5">05</option>
+                                                <option value="6">06</option>
+                                                <option value="7">07</option>
+                                                <option value="8">08</option>
+                                                <option value="9">09</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                            </select>&nbsp;:&nbsp;
+                                            <select class="hour " style="width: auto;">
+                                                <option value="0">00</option>
+                                                <option value="5">05</option>
+                                                <option value="10">10</option>
+                                                <option value="15">15</option>
+                                                <option value="20">20</option>
+                                                <option value="25">25</option>
+                                                <option value="30">30</option>
+                                                <option value="35">35</option>
+                                                <option value="40">40</option>
+                                                <option value="45">45</option>
+                                                <option value="50">50</option>
+                                                <option value="55">55</option>
+                                            </select>&nbsp;&nbsp;
+                                            <select class="minute " style="width: auto;">
+                                                <option value="am">am</option>
+                                                <option value="pm">pm</option>
+                                            </select>&nbsp;&nbsp;
+                                        </span>
+                                    </div>
+                                </div>
+                                <div id="create-foodtruck-when-reccuring-monthly" class="create-event-when-reccuring-monthly">
+                                    <div id="div-datetime12" class="twelve columns">
+                                        <label>Recurring</label>
+                                        <input type="text" id="datetime12" data-format="DD-MM-YYYY h:mm a" data-template="DD / MM / YYYY     hh : mm a" name="datetime" value="21-12-2012 8:30 pm" style="display: none;">
+                                        <span class="combodate">
+                                            &nbsp;Every&nbsp;
+                                            <select class="month " style="width: auto;">
+                                                <option value="0">1st</option>
+                                                <option value="1">2nd</option>
+                                                <option value="2">3rd</option>
+                                                <option value="3">4th</option>
+                                            </select>&nbsp;&nbsp;
+                                            <input type="checkbox" />Sunday
+                                            <input type="checkbox" />Monday
+                                            <input type="checkbox" />Tuesday
+                                            <input type="checkbox" />Wednesday
+                                            <input type="checkbox" />Thursday
+                                            <input type="checkbox" />Friday
+                                            <input type="checkbox" />Saturday
+                                            &nbsp;From&nbsp;
+                                            <select class="year " style="width: auto;">
+                                                <option value="1">01</option>
+                                                <option value="2">02</option>
+                                                <option value="3">03</option>
+                                                <option value="4">04</option>
+                                                <option value="5">05</option>
+                                                <option value="6">06</option>
+                                                <option value="7">07</option>
+                                                <option value="8">08</option>
+                                                <option value="9">09</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                            </select>&nbsp;:&nbsp;
+                                            <select class="hour " style="width: auto;">
+                                                <option value="0">00</option>
+                                                <option value="5">05</option>
+                                                <option value="10">10</option>
+                                                <option value="15">15</option>
+                                                <option value="20">20</option>
+                                                <option value="25">25</option>
+                                                <option value="30">30</option>
+                                                <option value="35">35</option>
+                                                <option value="40">40</option>
+                                                <option value="45">45</option>
+                                                <option value="50">50</option>
+                                                <option value="55">55</option>
+                                            </select>&nbsp;&nbsp;
+                                            <select class="minute " style="width: auto;">
+                                                <option value="am">am</option>
+                                                <option value="pm">pm</option>
+                                            </select>&nbsp;To&nbsp;
+                                            <select class="year " style="width: auto;">
+                                                <option value="1">01</option>
+                                                <option value="2">02</option>
+                                                <option value="3">03</option>
+                                                <option value="4">04</option>
+                                                <option value="5">05</option>
+                                                <option value="6">06</option>
+                                                <option value="7">07</option>
+                                                <option value="8">08</option>
+                                                <option value="9">09</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                            </select>&nbsp;:&nbsp;
+                                            <select class="hour " style="width: auto;">
+                                                <option value="0">00</option>
+                                                <option value="5">05</option>
+                                                <option value="10">10</option>
+                                                <option value="15">15</option>
+                                                <option value="20">20</option>
+                                                <option value="25">25</option>
+                                                <option value="30">30</option>
+                                                <option value="35">35</option>
+                                                <option value="40">40</option>
+                                                <option value="45">45</option>
+                                                <option value="50">50</option>
+                                                <option value="55">55</option>
+                                            </select>&nbsp;&nbsp;
+                                            <select class="minute " style="width: auto;">
+                                                <option value="am">am</option>
+                                                <option value="pm">pm</option>
+                                            </select>&nbsp;&nbsp;
+                                        </span>
+                                    </div>
+                                    <script>
+                                        document.getElementById("create-foodtruck-button-daily").onclick = function ()
+                                        {
+                                            if (this.checked)
+                                            {
+                                                document.getElementById('create-foodtruck-when-reccuring-monthly').style.display = "none";
+                                                document.getElementById('create-foodtruck-when-reccuring-weekly').style.display = "none";
+                                                document.getElementById('create-foodtruck-when-reccuring-daily').style.display = "block";
+                                            }
+                                        };
+                                        document.getElementById("create-foodtruck-button-weekly").onclick = function ()
+                                        {
+                                            if (this.checked)
+                                            {
+                                                document.getElementById('create-foodtruck-when-reccuring-monthly').style.display = "none";
+                                                document.getElementById('create-foodtruck-when-reccuring-daily').style.display = "none";
+                                                document.getElementById('create-foodtruck-when-reccuring-weekly').style.display = "block";
+                                            }
+                                        };
+                                        document.getElementById("create-foodtruck-button-monthly").onclick = function ()
+                                        {
+                                            if (this.checked)
+                                            {
+                                                document.getElementById('create-foodtruck-when-reccuring-weekly').style.display = "none";
+                                                document.getElementById('create-foodtruck-when-reccuring-daily').style.display = "none";
+                                                document.getElementById('create-foodtruck-when-reccuring-monthly').style.display = "block";
+                                            }
+                                        };
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row create-right six columns">
+                    <div class="row create-first-row twelve columns">
+                        <label>*Where</label>
+                        <input class="create-event-input" placeholder="Where the foodtruck is" />
+                    </div>
+                    <div class="row twelve columns">
+                        <div class="create-event-div twelve columns">
+                            <label>Associated Foodtruck</label>
+                            <input class="create-event-input" placeholder="Title of related foodtruck" />
+                        </div>
+                    </div>
+
+                    <div class="row twelve columns">
+                        <div class="create-event-div twelve columns">
+                            <label>Description</label>
+                            <textarea class="create-event-textarea" placeholder="Describe the foodtruck"></textarea>
+                        </div>
+                    </div>
+                    <div class="row twelve columns">
+                        <div class="create-event-div twelve columns">
+                            <label>Phone</label>
+                            <input class="create-event-input" placeholder="Phone number of the foodtruck" />
+                        </div>
+                    </div>
+                    <div class="row twelve columns">
+                        <div class="create-event-div twelve columns">
+                            <label>Email</label>
+                            <input class="create-event-input" placeholder="Email of the foodtruck" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row create-links twelve columns">
+                    <label>Related Links</label>
+                    <div class="row create-event-link-buttons twelve columns">
+                        <div class="create-type-button two columns" id="check-button">
+                            <label>
+                                <input id="create-foodtruck-button-website" class="create-event-input" name="foodtruck-link" type="radio" checked><span>Website</span>
+                            </label>
+                        </div>
+                        <div class="create-type-button two columns" id="check-button">
+                            <label>
+                                <input id="create-foodtruck-button-twitter" class="create-event-input" name="foodtruck-link" type="radio"><span>Twitter</span>
+                            </label>
+                        </div>
+                        <div class="create-type-button two columns" id="check-button">
+                            <label>
+                                <input id="create-foodtruck-button-facebook" class="create-event-input" name="foodtruck-link" type="radio"><span>Facebook</span>
+                            </label>
+                        </div>
+                        <div class="create-type-button two columns" id="check-button">
+                            <label>
+                                <input id="create-foodtruck-button-instagram" class="create-event-input" name="foodtruck-link" type="radio"><span>Instagram</span>
+                            </label>
+                        </div>
+                        <div class="create-type-button two columns" id="check-button">
+                            <label>
+                                <input id="create-foodtruck-button-pintrest" class="create-event-input" name="foodtruck-link" type="radio"><span>Pintrest</span>
+                            </label>
+                        </div>
+                        <div class="create-type-button two columns" id="check-button">
+                            <label>
+                                <input id="create-foodtruck-button-youtube" class="create-event-input" name="foodtruck-link" type="radio"><span>Youtube</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div id="create-foodtruck-input-link-website" class="create-event-link-inputs">
+                        <div class="two columns">
+                            <p></p>
+                        </div>
+                        <div class="eight columns">
+                            <input class="create-event-input-link" placeholder="Link to related website" />
+                        </div>
+                        <div class="two columns">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div id="create-foodtruck-input-link-twitter" class="create-event-link-inputs">
+                        <div class="two columns">
+                            <p></p>
+                        </div>
+                        <div class="eight columns">
+                            <input class="create-event-input-link" placeholder="Link to related twitter page" />
+                        </div>
+                        <div class="two columns">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div id="create-foodtruck-input-link-facebook" class="create-event-link-inputs">
+                        <div class="two columns">
+                            <p></p>
+                        </div>
+                        <div class="eight columns">
+                            <input class="create-event-input-link" placeholder="Link to related facebook page" />
+                        </div>
+                        <div class="two columns">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div id="create-foodtruck-input-link-instagram" class="create-event-link-inputs">
+                        <div class="two columns">
+                            <p></p>
+                        </div>
+                        <div class="eight columns">
+                            <input class="create-event-input-link" placeholder="Link to related instagram page" />
+                        </div>
+                        <div class="two columns">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div id="create-foodtruck-input-link-pintrest" class="create-event-link-inputs">
+                        <div class="two columns">
+                            <p></p>
+                        </div>
+                        <div class="eight columns">
+                            <input class="create-event-input-link" placeholder="Link to related pintrest page" />
+                        </div>
+                        <div class="two columns">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div id="create-foodtruck-input-link-youtube" class="create-event-link-inputs">
+                        <div class="two columns">
+                            <p></p>
+                        </div>
+                        <div class="eight columns">
+                            <input class="create-event-input-link" placeholder="Link to related youtube account/video" />
+                        </div>
+                        <div class="two columns">
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    document.getElementById("create-foodtruck-button-website").onclick = function ()
+                    {
+                        if (this.checked)
+                        {
+                            document.getElementById('create-foodtruck-input-link-twitter').style.display = "none";
+                            document.getElementById('create-foodtruck-input-link-facebook').style.display = "none";
+                            document.getElementById('create-foodtruck-input-link-instagram').style.display = "none";
+                            document.getElementById('create-foodtruck-input-link-pintrest').style.display = "none";
+                            document.getElementById('create-foodtruck-input-link-youtube').style.display = "none";
+                            document.getElementById('create-foodtruck-input-link-website').style.display = "block";
+                        }
+                    };
+                    document.getElementById("create-foodtruck-button-twitter").onclick = function ()
+                    {
+                        if (this.checked)
+                        {
+                            document.getElementById('create-foodtruck-input-link-website').style.display = "none";
+                            document.getElementById('create-foodtruck-input-link-facebook').style.display = "none";
+                            document.getElementById('create-foodtruck-input-link-instagram').style.display = "none";
+                            document.getElementById('create-foodtruck-input-link-pintrest').style.display = "none";
+                            document.getElementById('create-foodtruck-input-link-youtube').style.display = "none";
+                            document.getElementById('create-foodtruck-input-link-twitter').style.display = "block";
+                        }
+                    };
+                    document.getElementById("create-foodtruck-button-facebook").onclick = function ()
+                    {
+                        if (this.checked)
+                        {
+                            document.getElementById('create-foodtruck-input-link-twitter').style.display = "none";
+                            document.getElementById('create-foodtruck-input-link-website').style.display = "none";
+                            document.getElementById('create-foodtruck-input-link-instagram').style.display = "none";
+                            document.getElementById('create-foodtruck-input-link-pintrest').style.display = "none";
+                            document.getElementById('create-foodtruck-input-link-youtube').style.display = "none";
+                            document.getElementById('create-foodtruck-input-link-facebook').style.display = "block";
+                        }
+                    };
+                    document.getElementById("create-foodtruck-button-instagram").onclick = function ()
+                    {
+                        if (this.checked)
+                        {
+                            document.getElementById('create-foodtruck-input-link-twitter').style.display = "none";
+                            document.getElementById('create-foodtruck-input-link-facebook').style.display = "none";
+                            document.getElementById('create-foodtruck-input-link-website').style.display = "none";
+                            document.getElementById('create-foodtruck-input-link-pintrest').style.display = "none";
+                            document.getElementById('create-foodtruck-input-link-youtube').style.display = "none";
+                            document.getElementById('create-foodtruck-input-link-instagram').style.display = "block";
+                        }
+                    };
+                    document.getElementById("create-foodtruck-button-pintrest").onclick = function ()
+                    {
+                        if (this.checked)
+                        {
+                            document.getElementById('create-foodtruck-input-link-twitter').style.display = "none";
+                            document.getElementById('create-foodtruck-input-link-facebook').style.display = "none";
+                            document.getElementById('create-foodtruck-input-link-instagram').style.display = "none";
+                            document.getElementById('create-foodtruck-input-link-website').style.display = "none";
+                            document.getElementById('create-foodtruck-input-link-youtube').style.display = "none";
+                            document.getElementById('create-foodtruck-input-link-pintrest').style.display = "block";
+                        }
+                    };
+                    document.getElementById("create-foodtruck-button-youtube").onclick = function ()
+                    {
+                        if (this.checked)
+                        {
+                            document.getElementById('create-foodtruck-input-link-twitter').style.display = "none";
+                            document.getElementById('create-foodtruck-input-link-facebook').style.display = "none";
+                            document.getElementById('create-foodtruck-input-link-instagram').style.display = "none";
+                            document.getElementById('create-foodtruck-input-link-pintrest').style.display = "none";
+                            document.getElementById('create-foodtruck-input-link-website').style.display = "none";
+                            document.getElementById('create-foodtruck-input-link-youtube').style.display = "block";
+                        }
+                    };
+                </script>
+                <div class="row create-submit">
+                    <div class="four columns">
+                        <p></p>
+                    </div>
+
+                    <div class="event-submit four columns">
+                        <input type="submit" value="Submit Foodtruck" />
+                    </div>
+
+                    <div class="four columns">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</center>
