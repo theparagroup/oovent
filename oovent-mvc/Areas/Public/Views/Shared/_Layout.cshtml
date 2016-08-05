@@ -7,12 +7,12 @@
     <head>
         <link rel="stylesheet" type="text/css" href="~/Static/Styles/skeleton.css" />
         <link rel="stylesheet" type="text/css" href="~/Static/Styles/OoventStyleSheet.css" />
-        <link rel="stylesheet" type="text/javascript" href="~/Scripts/jquery.js" />
+        <script type="text/javascript" src="~/Static/Libraries/frontend/jquery.js"></script>
     </head>
-    <body>
+    <body class="body-whole">
         <div class="container">
             <center>
-                <div class="row top-bar tweleve columns">
+                <div class="row top-bar twelve columns">
                     <div class="dropdown two columns">
                         <button class="dropbtn">Profile</button>
                         <div class="dropdown-content">
@@ -29,35 +29,35 @@
                             <button id="top-button">Create</button>
                         </div>
                     </a>
-                    <a href="/ExampleModels/Index">
+                    <a href="/Index">
                         <div class="top-button-image three columns">
                             <img class="logo" src="http://puu.sh/pDqvZ.png" alt="Home" title="Home" />
                         </div>
                     </a>
                 </div>
-                <div id="login-modal" class="modal">
-                    <div class="modal-content">
-                        <div class="modal-header-login">
+                <div id="login-modal" class="login-modal">
+                    <div class="login-modal-content">
+                        <div class="login-modal-header-login">
                             <div class="close-div">
                                 <span class="close">X</span>
                             </div>
                             <h2>Login</h2>
                         </div>
-                        <div class="modal-body">
-                            <div class="modal-section">
-                                <div class="row modal-form twelve columns">
+                        <div class="login-modal-body">
+                            <div class="login-modal-section">
+                                <div class="row login-modal-form twelve columns">
                                     <div class="two columns">
                                         <p></p>
                                     </div>
 
                                     @using (Html.BeginForm())
                                     {
-                                        <div class="modal-input-username four columns">
+                                        <div class="login-modal-input-username four columns">
                                             @Html.TextBoxFor(m => m.Email, new { placeholder = "Email" })
                                             @Html.ValidationMessageFor(m => m.Email)
                                         </div>
 
-                                        <div class="modal-input-password four columns">
+                                        <div class="login-modal-input-password four columns">
                                             @Html.PasswordFor(m => m.Password, new { placeholder = "Password" })
                                             @Html.ValidationMessageFor(m => m.Password)
                                         </div>
@@ -68,12 +68,12 @@
                                             </div>
                                         </div>
 
-                                        <div class="row modal-form twelve columns">
+                                        <div class="row login-modal-form twelve columns">
                                             <div class="three columns">
                                                 <p></p>
                                             </div>
 
-                                            <div class="modal-submit six columns">
+                                            <div class="login-modal-submit six columns">
                                                 <input id="Submit" type="submit" value="Log In" /><br />
                                                 @Html.ValidationSummary(true, "Login Failed", new { style = "color: red; font-size: 14px;" })
                                             </div>
@@ -86,22 +86,22 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="modal-header">
+                        <div class="login-modal-header">
                             <h2>Register</h2>
                         </div>
-                        <div class="modal-body">
-                            <div class="modal-section">
+                        <div class="login-modal-body">
+                            <div class="login-modal-section">
                                 <form>
-                                    <div class="row modal-form twelve columns">
+                                    <div class="row login-modal-form twelve columns">
                                         <div class="two columns">
                                             <p></p>
                                         </div>
-                                        <div class="modal-input-username four columns">
+                                        <div class="login-modal-input-username four columns">
                                             <label>Username</label>
                                             <input type="text" placeholder="Enter username" />
                                         </div>
 
-                                        <div class="modal-input-password four columns">
+                                        <div class="login-modal-input-password four columns">
                                             <label>Password</label>
                                             <input type="text" placeholder="Enter password" />
                                         </div>
@@ -110,12 +110,12 @@
                                         </div>
                                     </div>
 
-                                    <div class="row modal-form twelve columns">
+                                    <div class="row login-modal-form twelve columns">
                                         <div class="three columns">
                                             <p></p>
                                         </div>
 
-                                        <div class="modal-submit six columns">
+                                        <div class="login-modal-submit six columns">
                                             <input type="submit" />
                                         </div>
 
@@ -127,220 +127,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <script>
-                    var modal = document.getElementById('login-modal');
-
-                    var btn = document.getElementById("login-button");
-
-                    var span = document.getElementsByClassName("close")[0];
-
-                    btn.onclick = function modalOpen()
-                    {
-                        modal.style.display = "block";
-                    }
-
-                    span.onclick = function modalClose()
-                    {
-                        modal.style.display = "none";
-                    }
-                </script>
-                <div id="event-modal" class="event-modal">
-                    <div class="event-modal-content">
-                        <div class="event-modal-header-login">
-                            <div class="event-close-div">
-                                <span class="event-close">X</span>
-                            </div>
-                            <h2>Free Comic Book Day at Johnson City Public Library</h2>
-                        </div>
-                        <div class="row event-modal-body">
-                            <div class="row event-modal-top-body-info">
-                                <div class="event-modal-type four columns">
-                                    <p>Type: Event</p>
-                                </div>
-                                <div class="event-modal-category four columns">
-                                    <p>Category: Culture</p>
-                                </div>
-                                <div class="event-modal-tags four columns">
-                                    <p>Tags: comics, cosplay, giveaway</p>
-                                </div>
-                            </div>
-                            <div class="row event-modal-top-body">
-                                <div class="one column">
-                                    <p></p>
-                                </div>
-                                <div class="modal-date five columns">
-                                    <div class="modal-date-box twelve columns"><p></p></div>
-                                    <div class="modal-date-box twelve columns"><p>Date: May 7th 11:00 AM - 1:00 PM</p></div>
-                                    <div class="modal-date-box twelve columns"><p>Location: 100 W Millard St</p></div>
-                                    <div class="modal-date-box twelve columns"><p>Price: Free</p></div>
-                                    <div class="modal-date-box twelve columns"><p>Phone: 423-434-4450</p></div>
-                                </div>
-                                <div class="modal-image five columns">
-                                    <img class="modal-img" src="http://puu.sh/oXZ0l/e779a551db.jpg" />
-                                </div>
-                                <div class="one column">
-                                    <p></p>
-                                </div>
-                            </div>
-                            <div class="row event-modal-middle-body">
-                                <div class="modal-description twelve columns">
-                                    <p>A wide selection of comics, graphic novels, and games will be available to the public. This is a totally free give away, and takers of the comics are not olbigated to return them like they would a library book. Costumes/cosplay is encouraged.</p>
-                                </div>
-                            </div>
-                            <div class="row event-modal-bottom-body">
-                                <div class="one column">
-                                    <p></p>
-                                </div>
-                                <div class="modal-links ten columns">
-                                    <div class="row profile-links-title twelve columns">
-                                        <p class="p-title">Links</p>
-                                    </div>
-                                    <div class="row profile-links twelve columns">
-                                        <div class="profile-link-left four columns">
-                                            <a href="http://www.jcpl.net/">
-                                                <div class="profile-link-button">
-                                                    <button id="p-link-button-left">Website</button>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="profile-link-middle four columns">
-                                            <a href="https://www.facebook.com/JohnsonCityPublicLibrary/">
-                                                <div class="profile-link-button">
-                                                    <button id="p-link-button-middle">Facebook</button>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="profile-link-right four columns">
-                                            <a href="https://twitter.com/JCPublicLibrary">
-                                                <div class="profile-link-button">
-                                                    <button id="p-link-button-right">Twitter</button>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="one column">
-                                    <p></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <script>
-                    window.onload = function ()
-                    {
-                        var eventModal = document.getElementById('event-modal');
-
-                        var eventBtn = document.getElementById("event-modal-btn");
-
-                        var eventSpan = document.getElementsByClassName("event-close")[0];
-
-                        eventBtn.onclick = function eventModalOpen()
-                        {
-                            eventModal.style.display = "block";
-                        }
-
-                        eventSpan.onclick = function eventModalClose()
-                        {
-                            eventModal.style.display = "none";
-                        }
-
-                        window.onclick = function eventModalCloseOuter(event)
-                        {
-                            if (event.target == eventModal)
-                            {
-                                eventModal.style.display = "none";
-                            }
-                            if (event.target == modal)
-                            {
-                                modal.style.display = "none";
-                            }
-                        }
-                    }
-                </script>
-                <div id="event-modal" class="event-modal">
-                    <div class="event-modal-content">
-                        <div class="event-modal-header-login">
-                            <div class="event-close-div">
-                                <span class="event-close">X</span>
-                            </div>
-                            <h2>Free Comic Book Day at Johnson City Public Library</h2>
-                        </div>
-                        <div class="row event-modal-body">
-                            <div class="row event-modal-top-body-info">
-                                <div class="event-modal-type four columns">
-                                    <p>Type: Event</p>
-                                </div>
-                                <div class="event-modal-category four columns">
-                                    <p>Category: Culture</p>
-                                </div>
-                                <div class="event-modal-tags four columns">
-                                    <p>Tags: comics, cosplay, giveaway</p>
-                                </div>
-                            </div>
-                            <div class="row event-modal-top-body">
-                                <div class="one column">
-                                    <p></p>
-                                </div>
-                                <div class="modal-date five columns">
-                                    <div class="modal-date-box twelve columns"><p></p></div>
-                                    <div class="modal-date-box twelve columns"><p>Date: May 7th 11:00 AM - 1:00 PM</p></div>
-                                    <div class="modal-date-box twelve columns"><p>Location: 100 W Millard St</p></div>
-                                    <div class="modal-date-box twelve columns"><p>Price: Free</p></div>
-                                    <div class="modal-date-box twelve columns"><p>Phone: 423-434-4450</p></div>
-                                </div>
-                                <div class="modal-image five columns">
-                                    <img class="modal-img" src="http://puu.sh/oXZ0l/e779a551db.jpg" />
-                                </div>
-                                <div class="one column">
-                                    <p></p>
-                                </div>
-                            </div>
-                            <div class="row event-modal-middle-body">
-                                <div class="modal-description twelve columns">
-                                    <p>A wide selection of comics, graphic novels, and games will be available to the public. This is a totally free give away, and takers of the comics are not olbigated to return them like they would a library book. Costumes/cosplay is encouraged.</p>
-                                </div>
-                            </div>
-                            <div class="row event-modal-bottom-body">
-                                <div class="one column">
-                                    <p></p>
-                                </div>
-                                <div class="modal-links ten columns">
-                                    <div class="row profile-links-title twelve columns">
-                                        <p class="p-title">Links</p>
-                                    </div>
-                                    <div class="row profile-links twelve columns">
-                                        <div class="profile-link-left four columns">
-                                            <a href="http://www.jcpl.net/">
-                                                <div class="profile-link-button">
-                                                    <button id="p-link-button-left">Website</button>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="profile-link-middle four columns">
-                                            <a href="https://www.facebook.com/JohnsonCityPublicLibrary/">
-                                                <div class="profile-link-button">
-                                                    <button id="p-link-button-middle">Facebook</button>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="profile-link-right four columns">
-                                            <a href="https://twitter.com/JCPublicLibrary">
-                                                <div class="profile-link-button">
-                                                    <button id="p-link-button-right">Twitter</button>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="one column">
-                                    <p></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
+                </div>               
                 @RenderBody()
             </center>
         </div>

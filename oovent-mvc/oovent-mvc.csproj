@@ -105,6 +105,7 @@
     <Content Include="Areas\Public\Views\Landing\Index.cshtml" />
     <Content Include="Areas\Public\Views\Shared\_Layout.cshtml" />
     <Content Include="Static\Libraries\combodate.js" />
+    <Content Include="Static\Libraries\frontend.js" />
     <Content Include="Static\Libraries\jquery-ui-1-12\jquery-ui.js" />
     <Content Include="Static\Libraries\jquery-ui-1-12\jquery-ui.min.js" />
     <Content Include="Static\Libraries\jquery-ui-1-12\themes\base\images\ui-icons_444444_256x240.png" />
@@ -201,7 +202,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\Admin\AdminController.cs" />
