@@ -10,7 +10,20 @@ using Oovent.Models.Ef;
 
 namespace Oovent.Mvc.Areas.Admin.Models.Events
 {
-    public class Events
+    public class CrudEvents
     {
+        public static List<string> Name(string email)
+        {
+            var user = EntityUserInfo.GetUser(email);
+            using (DbContext db = new DbContext())
+            {
+                var query = from e in db.Events
+                            from eer in db.EventEntityRelationships
+                            where eer.EntityId == user.EntityId && eer.EventId == e.Id
+                            select e.Title;
+
+                return query.ToList();
+            }
+        }
     }
 }
