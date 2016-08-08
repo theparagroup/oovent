@@ -15,6 +15,7 @@ namespace Oovent.Mvc.Areas.Admin.Models.Events
         [ParaType(ParaTypes.Key)]
         public int Id { get; set; }
 
+        [Required(ErrorMessage = "*")]
         [ParaType(ParaTypes.Name)]
         public string Title { get; set; }
 
