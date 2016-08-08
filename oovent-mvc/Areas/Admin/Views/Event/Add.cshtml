@@ -1,4 +1,6 @@
-﻿
+﻿@model Oovent.Mvc.Areas.Admin.Models.Events.CrudEvents
+@using Oovent.Mvc.Areas.Admin.Models.Events
+
 @{
     Layout = "~/Areas/Public/Views/Shared/_Layout.cshtml";
 }
@@ -11,7 +13,8 @@
     </head>
     <body>
         <center>
-            <form>
+                @using (Html.BeginForm())
+                {
                 <div class="container">
                     <div class="row type-select twelve columns">
                         <div class="row create-type twelve columns">
@@ -43,7 +46,7 @@
                             <div class="row create-first-row twelve columns">
                                 <div class="create-event-div twelve columns">
                                     <label>*Title</label>
-                                    <input class="create-event-input" placeholder="Title of happening" />
+                                    @Html.TextBoxFor(m => m.Title, new { @class = "create-event-input", placeholder = "Title of happening" })
                                 </div>
                             </div>
                             <div class="row create-row twelve columns">
@@ -491,6 +494,7 @@
                             </div>
                         </div>
                     </div>
+                                }
                     <div id="create-discount-form" class="display-none">
                         <div class="row create-left six columns">
                             <div class="row create-first-row twelve columns">
@@ -1734,7 +1738,7 @@
                         </div>
                     </div>
                 </div>
-            </form>
+                }
         </center>
     </body>
 </html>

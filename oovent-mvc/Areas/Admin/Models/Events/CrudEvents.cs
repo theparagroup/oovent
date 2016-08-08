@@ -12,7 +12,40 @@ namespace Oovent.Mvc.Areas.Admin.Models.Events
 {
     public class CrudEvents
     {
-        public static List<string> Name(string email)
+        [ParaType(ParaTypes.Key)]
+        public int Id { get; set; }
+
+        [ParaType(ParaTypes.Name)]
+        public string Title { get; set; }
+
+        [ParaType(ParaTypes.Currency)]
+        public string Price { get; set; }
+
+        [ParaType(ParaTypes.Key)]
+        public Entity What { get; set; }
+
+        [ParaType(ParaTypes.Key)]
+        public Entity Where { get; set; }
+
+        [ParaType(ParaTypes.DateTime)]
+        public DateTime StartDate { get; set; }
+
+        [ParaType(ParaTypes.DateTime)]
+        public DateTime EndDate { get; set; }
+
+        [ParaType(ParaTypes.Description)]
+        public string Description { get; set; }
+
+        [ParaType(ParaTypes.Key)]
+        public Event ParentEvent { get; set; }
+
+        [ParaType(ParaTypes.Phone)]
+        public string Phone { get; set; }
+
+        [ParaType(ParaTypes.Email)]
+        public string Email { get; set; }
+
+        public static List<EfEvent> GetUserEvents(string email)
         {
             var user = EntityUserInfo.GetUser(email);
             using (DbContext db = new DbContext())
@@ -20,7 +53,7 @@ namespace Oovent.Mvc.Areas.Admin.Models.Events
                 var query = from e in db.Events
                             from eer in db.EventEntityRelationships
                             where eer.EntityId == user.EntityId && eer.EventId == e.Id
-                            select e.Title;
+                            select e;
 
                 return query.ToList();
             }

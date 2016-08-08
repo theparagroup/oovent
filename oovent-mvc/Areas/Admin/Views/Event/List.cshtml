@@ -29,7 +29,7 @@
                         <p></p>
                     </div>
                     <div class="me-button six columns">
-                        <button>Add</button>
+                        <a href="add"><button>Add</button></a>
                     </div>
                     <div class="blank three columns">
                         <p></p>
@@ -38,25 +38,36 @@
 
                 <div class="row myevents-event-container twelve columns">
 
-                    @{ 
-                        foreach (string Name in CrudEvents.Name(User.Identity.Name))
+                    @{
+                        foreach (Oovent.Models.Ef.EfEvent Event in CrudEvents.GetUserEvents(User.Identity.Name))
                         {
-                            <p>@Name</p>
+                            <div class="me-edit-delete two columns">
+                                <div class="me-edit twelve columns"><button>Edit</button></div>
+                                <div class="me-delete twelve columns"><button>Delete</button></div>
+                            </div>
+                            <div class="me-event-box three columns">
+                                <div class="cost five columns">
+                                    <div class="type-title">
+                                        <p>@Event.EventTypeId</p>
+                                    </div>
+                                </div>
+                                <div class="image seven columns">
+                                    <p></p>
+                                </div>
+                                <div class="title twelve columns">
+                                    <p>@Event.Title</p>
+                                </div>
+                                <div class="date twelve columns">
+                                    <p>@Event.Start - @Event.End</p>
+                                </div>
+                            </div>
+                            <div class="blank two columns">
+                                <p></p>
+                            </div>
                         }
                     }
 
-                    <div class="row myevents-event-row twelve columns">
-                        <div class="me-edit-delete two columns">
-                            <div class="me-edit twelve columns"><button>Edit</button></div>
-                            <div class="me-delete twelve columns"><button>Delete</button></div>
-                        </div>
-                        <div class="me-event-box three columns">
-                            <div class="type-title">
-                                <p>Event</p>
-                            </div>
-                        </div>
-                    </div>
-                    
+         
 
 
                         <div class="row myevents-event-row twelve columns">
