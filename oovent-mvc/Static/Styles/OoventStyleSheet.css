@@ -337,18 +337,30 @@
 	border-width: 1px;
 	border-color: #646769;
     border-radius: 10px;
-    padding: 5px;
 }
 
-.filter p
+.filter-type-header-top
 {
-	font-size: 130%;
+    margin-top: -1px;
+    border-color: #646769;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top-left-radius: 10px; 
+    border-top-right-radius: 10px; 
+    margin-bottom: 10px;
+    font-size: 130%;
 	color: #26282a;
+    background-color: #0080ff;
+    color: #fffeff;
 }
 
 .filter-type-header
 {
     margin-bottom: 10px;
+    font-size: 130%;
+	color: #26282a;
+    background-color: #0080ff;
+    color: #fffeff;
 }
 
 .filter-type input
@@ -360,6 +372,36 @@
 {
     float: left;
     margin-left: 25%;
+}
+
+.filter-tag-div
+{
+    width: 90%;
+    margin-left: 0px;
+}
+
+#filter-tag
+{
+    font-size: 120%;
+    display: inline;
+    padding: 5px;
+}
+
+#filter-tag input 
+{
+    position: absolute;
+    top: -400px;
+    right: 100px;
+}
+
+#filter-tag input:checked + span
+{
+    color: #0080ff;
+}
+
+#filter-tag:hover
+{
+    color: #0080ff;
 }
 
 /*CSS for the search bar in index.cshtml*/
@@ -1050,6 +1092,58 @@
 {
     background-color: #1a7ada;
     color: #fffeff;
+}
+
+/*CSS for login page*/
+
+.login-title p
+{
+    margin-top: 30px;
+    font-size: 200%;
+    color: #26282a;
+}
+
+.register-title p
+{
+    font-size: 200%;
+    color: #26282a;
+}
+
+.login-email input
+{
+    width: 100%;
+    height: 40px !important;
+}
+
+.login-password input
+{
+    width: 100%;
+    height: 40px !important;
+}
+
+.register-title p
+{
+    margin-top: 20px;
+}
+
+.submit
+{
+    background-color: #0080ff !important;
+    color: #fffeff !important;
+    font-size: 100% !important;
+}
+
+/*CSS for the Unathorized page*/
+
+.unauthorized-text
+{
+    margin-left: 0px;
+}
+
+.unauthorized-text p
+{
+    margin-top: 30px;
+    font-size: 200%;
 }
 
 /*CSS for the whole of Profile.cshtml*/

@@ -104,8 +104,9 @@
     <Content Include="Areas\Public\Views\Login\Login.cshtml" />
     <Content Include="Areas\Public\Views\Landing\Index.cshtml" />
     <Content Include="Areas\Public\Views\Shared\_Layout.cshtml" />
-    <Content Include="Static\Libraries\combodate.js" />
-    <Content Include="Static\Libraries\frontend.js" />
+    <Content Include="Static\Libraries\frontend\combodate.js" />
+    <Content Include="Static\Libraries\frontend\frontend-add.js" />
+    <Content Include="Static\Libraries\frontend\frontend-index.js" />
     <Content Include="Static\Libraries\jquery-ui-1-12\jquery-ui.js" />
     <Content Include="Static\Libraries\jquery-ui-1-12\jquery-ui.min.js" />
     <Content Include="Static\Libraries\jquery-ui-1-12\themes\base\images\ui-icons_444444_256x240.png" />
@@ -180,8 +181,8 @@
     <Content Include="Static\Libraries\jquery-ui-1-12\themes\southstreet\jquery-ui.theme.css" />
     <Content Include="Static\Libraries\jquery-ui-1-12\themes\southstreet\jquery-ui.theme.min.css" />
     <Content Include="Static\Libraries\jquery-validate\jquery.validate-1.8.0.1.js" />
-    <Content Include="Static\Libraries\jquery.js" />
-    <Content Include="Static\Libraries\moment.js" />
+    <Content Include="Static\Libraries\frontend\jquery.js" />
+    <Content Include="Static\Libraries\frontend\moment.js" />
     <Content Include="Static\Libraries\ms-unobstrusive\jquery.unobtrusive-ajax-3.2.3.js" />
     <Content Include="Static\Libraries\ms-unobstrusive\jquery.validate.unobtrusive-3.2.3.js" />
     <Content Include="Static\Styles\OoventStyleSheet.css" />

@@ -1,21 +1,68 @@
 ﻿@using Oovent.Models
 @model Oovent.Mvc.Areas.Public.Models.VmLogin
+@{
+    Layout = "~/Areas/Public/Views/Shared/_Layout.cshtml";
+}
 
 <!DOCTYPE html>
 
 <html>
-<body>
-    <h1>Login</h1>
-    @using (Html.BeginForm())
-    {
-        @Html.TextBoxFor(m => m.Email, new { placeholder = "Email" })
-        @Html.ValidationMessageFor(m => m.Email)
-
-        @Html.PasswordFor(m => m.Password, new { placeholder = "Password" })
-        @Html.ValidationMessageFor(m => m.Password)
-
-        <input id="Submit" type="submit" value="Log In" /><br />
-        @Html.ValidationSummary(true, "Login Failed", new { style = "color: red; font-size: 14px;" })
-    }
-</body>
+    <body>
+        <center>
+            @using (Html.BeginForm())
+            {
+                <div class="login-title">
+                    <div class="three columns">
+                        <p></p>
+                    </div>
+                    <div class="six columns">
+                        <p>Login</p>
+                    </div>
+                    <div class="three columns">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="row login-form twelve columns">
+                    <div class="one column">
+                        <p></p>
+                    </div>
+                    @Html.TextBoxFor(m => m.Email, new { placeholder = "Email", @class = "login-email five columns" })
+                    @Html.ValidationMessageFor(m => m.Email)
+                    @Html.PasswordFor(m => m.Password, new { placeholder = "Password", @class = "login-password five columns" })
+                    @Html.ValidationMessageFor(m => m.Password)
+                    @Html.ValidationSummary(true, "Login Failed", new { style = "color: red; font-size: 14px;" })
+                    <div class="one column">
+                        <p></p>
+                    </div>
+                    <input class="submit" id="Submit" type="submit" value="Log In" />
+                </div>
+                <div class="register-title">
+                    <div class="three columns">
+                        <p></p>
+                    </div>
+                    <div class="six columns">
+                        <p>Register</p>
+                    </div>
+                    <div class="three columns">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="row register-form twelve columns">
+                    <div class="one column">
+                        <p></p>
+                    </div>
+                    <div class="login-email five columns">
+                        <input type="text" placeholder="Email"/>
+                    </div>
+                    <div class="login-password five columns">
+                        <input type="text" placeholder="Password"/>
+                    </div>
+                    <div class="one column">
+                        <p></p>
+                    </div>
+                    <input class="submit" id="Register" type="submit" value="Register" />
+                </div>
+            }
+        </center>
+    </body>
 </html>

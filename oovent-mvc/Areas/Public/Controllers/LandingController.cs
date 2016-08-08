@@ -14,5 +14,12 @@ namespace Oovent.Mvc.Areas.Public.Controllers
         {
             return View();
         }
+
+        [Route("~/Unauthorized")]
+        // GET: Public/Landing
+        public ActionResult Unauthorized()
+        {
+            return View();
+        }
     }
 }
