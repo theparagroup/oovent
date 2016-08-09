@@ -19,7 +19,7 @@ namespace Oovent.Mvc.Areas.Public.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
-                return Redirect("~/");
+                return Redirect("~/index");
             }
             else
             {

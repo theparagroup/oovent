@@ -11,93 +11,96 @@
         <script type="text/javascript" src="~/Static/Libraries/frontend/frontend-index.js"></script>
     </head>
     <body>
-        <div id="event-modal" class="event-modal">
-            <div class="row event-modal-content">
-                <div class="row event-modal-header twelve columns">
-                    <div class="event-close-div">
-                        <span class="event-close">X</span>
-                    </div>
-                    <div class="event-modal-icon two columns">
-                        <img src="http://puu.sh/qoOmc.png" />
-                    </div>
-                    <div class="event-modal-header eight columns">
-                        <h2>Free Comic Book Day at Johnson City Public Library</h2>
-                    </div>                    
-                </div>
-                <div class="row event-modal-body">
-                    <div class="row event-modal-top-body-info">
-                        <div class="event-modal-type four columns">
-                            <p></p>
-                        </div>
-                        <div class="event-modal-category four columns">
-                            <p></p>
-                        </div>
-                        <div class="event-modal-tags four columns">
-                            <p></p>
-                        </div>
-                    </div>
-                    <div class="row event-modal-top-body">
-                        <div class="one column">
-                            <p></p>
-                        </div>
-                        <div class="event-modal-date five columns">
-                            <div class="event-modal-date-box twelve columns"><p></p></div>
-                            <div class="event-modal-date-box twelve columns"><p>When: May 7th 11:00 AM - 1:00 PM</p></div>
-                            <div class="event-modal-date-box twelve columns"><p>What: Giveaway</p></div>
-                            <div class="event-modal-date-box twelve columns"><p>Where: 100 W Millard St</p></div>
-                            <div class="event-modal-date-box twelve columns"><p>Price: Free</p></div>                          
-                        </div>
-                        <div class="event-modal-image five columns">
-                            <img class="event-modal-img" src="http://puu.sh/oXZ0l/e779a551db.jpg" />
-                        </div>
-                        <div class="one column">
-                            <p></p>
-                        </div>
-                    </div>
-                    <div class="row event-modal-modal-middle-body">
-                        <div class="event-modal-description twelve columns">
-                            <p>A wide selection of comics, graphic novels, and games will be available to the public. This is a totally free give away, and takers of the comics are not olbigated to return them like they would a library book. Costumes/cosplay is encouraged.</p>
-                        </div>
-                    </div>
-                    <div class="row event-modal-bottom-body">
-                        <div class="one column">
-                            <p></p>
-                        </div>
-                        <div class="event-modal-links ten columns">
-                            <div class="row profile-links-title twelve columns">
-                                <p class="p-title">Links</p>
+        @{
+            foreach (Oovent.Models.Ef.EfEvent Event in Oovent.Mvc.Areas.Public.Models.Events.CrudEvents.GetEvents())
+            {
+                <div id="event-modal" class="event-modal">
+                    <div class="row event-modal-content">
+                        <div class="row event-modal-header twelve columns">
+                            <div class="event-close-div">
+                                <span class="event-close">X</span>
                             </div>
-                            <div class="row profile-links twelve columns">
-                                <div class="profile-link-left four columns">
-                                    <a href="http://www.jcpl.net/">
-                                        <div class="profile-link-button">
-                                            <button id="p-link-button-left">Website</button>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="profile-link-middle four columns">
-                                    <a href="https://www.facebook.com/JohnsonCityPublicLibrary/">
-                                        <div class="profile-link-button">
-                                            <button id="p-link-button-middle">Facebook</button>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="profile-link-right four columns">
-                                    <a href="https://twitter.com/JCPublicLibrary">
-                                        <div class="profile-link-button">
-                                            <button id="p-link-button-right">Twitter</button>
-                                        </div>
-                                    </a>
-                                </div>
+                            <div class="event-modal-header ten columns">
+                                <h2>@Event.Title</h2>
                             </div>
                         </div>
-                        <div class="one column">
-                            <p></p>
+                        <div class="row event-modal-body">
+                            <div class="row event-modal-top-body-info">
+                                <div class="event-modal-type four columns">
+                                    <p></p>
+                                </div>
+                                <div class="event-modal-category four columns">
+                                    <p></p>
+                                </div>
+                                <div class="event-modal-tags four columns">
+                                    <p></p>
+                                </div>
+                            </div>
+                            <div class="row event-modal-top-body">
+                                <div class="one column">
+                                    <p></p>
+                                </div>
+                                <div class="event-modal-date five columns">
+                                    <div class="event-modal-date-box twelve columns"><p></p></div>
+                                    <div class="event-modal-date-box twelve columns"><p>When: @Event.Start - @Event.End</p></div>
+                                    <div class="event-modal-date-box twelve columns"><p>What: @Event.EventTypeId</p></div>
+                                    <div class="event-modal-date-box twelve columns"><p>Where: ???</p></div>
+                                    <div class="event-modal-date-box twelve columns"><p>Price: @Event.Price</p></div>
+                                </div>
+                                <div class="event-modal-image five columns">
+                                    <img class="event-modal-img" src="http://puu.sh/oXZ0l/e779a551db.jpg" />
+                                </div>
+                                <div class="one column">
+                                    <p></p>
+                                </div>
+                            </div>
+                            <div class="row event-modal-modal-middle-body">
+                                <div class="event-modal-description twelve columns">
+                                    <p>@Event.Description</p>
+                                </div>
+                            </div>
+                            <div class="row event-modal-bottom-body">
+                                <div class="one column">
+                                    <p></p>
+                                </div>
+                                <div class="event-modal-links ten columns">
+                                    <div class="row profile-links-title twelve columns">
+                                        <p class="p-title">Links</p>
+                                    </div>
+                                    <div class="row profile-links twelve columns">
+                                        <div class="profile-link-left four columns">
+                                            <a href="http://www.jcpl.net/">
+                                                <div class="profile-link-button">
+                                                    <button id="p-link-button-left">Website</button>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="profile-link-middle four columns">
+                                            <a href="https://www.facebook.com/JohnsonCityPublicLibrary/">
+                                                <div class="profile-link-button">
+                                                    <button id="p-link-button-middle">Facebook</button>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="profile-link-right four columns">
+                                            <a href="https://twitter.com/JCPublicLibrary">
+                                                <div class="profile-link-button">
+                                                    <button id="p-link-button-right">Twitter</button>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="one column">
+                                    <p></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            }
+        }
+        
         <div class="row body">
             <div class="row filter three columns">
                 <div class="filter-contents">
@@ -270,509 +273,30 @@
                 </div>
                 <div class="event-body twelve columns">
                     <div class="row event-boxes-row twelve columns">
-                        <span id="event-modal-btn">
-                            <div class="event-box four columns">
-                                <div class="cost five columns">
-                                    <div class="type-title">
-                                        <img src="http://puu.sh/qoOmc.png" />
+                        @{
+                            foreach (Oovent.Models.Ef.EfEvent Event in Oovent.Mvc.Areas.Public.Models.Events.CrudEvents.GetEvents())
+                            {
+                                <span id="event-modal-btn">
+                                    <div class="event-box four columns">
+                                        <div class="cost five columns">
+                                            <div class="type-title">
+                                                <img src="http://puu.sh/qoOmc.png" />
+                                            </div>
+                                        </div>
+                                        <div class="image seven columns">
+                                            <img src="http://puu.sh/oXZ0l/e779a551db.jpg">
+                                        </div>
+                                        <div class="title twelve columns">
+                                            <p>@Event.Title</p>
+                                        </div>
+                                        <div class="date twelve columns">
+                                            <p>@Event.Start - @Event.End</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="image seven columns">
-                                    <img src="http://puu.sh/oXZ0l/e779a551db.jpg">
-                                </div>
-                                <div class="title twelve columns">
-                                    <p>Free Comic Book Day at Johnson City Public Library</p>
-                                </div>
-                                <div class="date twelve columns">
-                                    <p>May 7th 11:00 AM - 1:00 PM</p>
-                                </div>
-                            </div>
-                        </span>
-                        <span id="event-modal-btn">
-                            <div class="event-box four columns">
-                                <div class="cost five columns">
-                                    <div class="type-title">
-                                        <img src="http://puu.sh/qoQXA.png" />
-                                    </div>
-                                </div>
-                                <div class="image seven columns">
-                                    <img src="http://www.johnsoncitypress.com/image/2015/11/03/x700_q30/48fbfae7-384a-4549-94d2-d7733f448eaf.jpg">
-                                </div>
-                                <div class="title twelve columns">
-                                    <p>Carribean Grill Foodtruck</p>
-                                </div>
-                                <div class="date twelve columns">
-                                    <p>11:00 AM - 8:00 PM</p>
-                                </div>
-                            </div>
-                        </span>
-                        <span id="event-modal-btn">
-                            <div class="event-box-right four columns">
-                                <div class="cost five columns">
-                                    <div class="type-title">
-                                        <img src="http://puu.sh/q9Awp.png" />
-                                    </div>
-                                </div>
-                                <div class="image seven columns">
-                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTovwZdB5_dyDxOJrFFb_rSRLdiVddDPFwGsjf_Z2KOmJTG4JEw">
-                                </div>
-                                <div class="title twelve columns">
-                                    <p>Label Half-Off Sushi Night</p>
-                                </div>
-                                <div class="date twelve columns">
-                                    <p>Every Wednesday and Friday</p>
-                                </div>
-                            </div>
-                        </span>
-                    </div>
-                    <div class="row event-boxes-row twelve columns">
-                        <span id="event-modal-btn">
-                            <div class="event-box four columns">
-                                <div class="cost five columns">
-                                    <div class="type-title">
-                                        <img src="http://puu.sh/q9Awp.png" />
-                                    </div>
-                                </div>
-                                <div class="image seven columns">
-                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTovwZdB5_dyDxOJrFFb_rSRLdiVddDPFwGsjf_Z2KOmJTG4JEw">
-                                </div>
-                                <div class="title twelve columns">
-                                    <p>Real to Reel Wacky Wednesday</p>
-                                </div>
-                                <div class="date twelve columns">
-                                    <p>Every Wednesday</p>
-                                </div>
-                            </div>
-                        </span>
-                        <span id="event-modal-btn">
-                            <div class="event-box four columns">
-                                <div class="cost five columns">
-                                    <div class="type-title">
-                                        <img src="http://puu.sh/qoOmc.png" />
-                                    </div>
-                                </div>
-                                <div class="image seven columns">
-                                    <img src="https://i.ytimg.com/vi/Iv7UoiEXw0w/maxresdefault.jpg">
-                                </div>
-                                <div class="title twelve columns">
-                                    <p>Taco Trek</p>
-                                </div>
-                                <div class="date twelve columns">
-                                    <p>June 7 7:00 PM - 7:30 PM</p>
-                                </div>
-                            </div>
-                        </span>                     
-                        <span id="event-modal-btn">
-                            <div class="event-box-right four columns">
-                                <div class="cost five columns">
-                                    <div class="type-title">
-                                        <img src="http://puu.sh/qoQXA.png" />
-                                    </div>
-                                </div>
-                                <div class="image seven columns">
-                                    <img src="http://www.johnsoncitypress.com/image/2016/01/06/x700_q30/0c1939ea-cb85-4c88-8616-83f896f08eae.jpg">
-                                </div>
-                                <div class="title twelve columns">
-                                    <p>Foodie Fiction Foodtruck</p>
-                                </div>
-                                <div class="date twelve columns">
-                                    <p>11:00 AM - 7:00 PM</p>
-                                </div>
-                            </div>
-                        </span>
-                    </div>
-                    <div class="row event-boxes-row twelve columns">
-                        <span id="event-modal-btn">
-                            <div class="event-box four columns">
-                                <div class="cost five columns">
-                                    <div class="type-title">
-                                        <img src="http://puu.sh/qoOmc.png" />
-                                    </div>
-                                </div>
-                                <div class="image seven columns">
-                                    <img src="http://puu.sh/oXYVX/b0f6e95718.jpg">
-                                </div>
-                                <div class="title twelve columns">
-                                    <p>Next to Last NSFW Open Mic Comedy</p>
-                                </div>
-                                <div class="date twelve columns">
-                                    <p>May 5th 10:00 PM - 11:55 PM</p>
-                                </div>
-                            </div>
-                        </span>
-                        <span id="event-modal-btn">
-                            <div class="event-box four columns">
-                                <div class="cost five columns">
-                                    <div class="type-title">
-                                        <img src="http://puu.sh/qoOmc.png" />
-                                    </div>
-                                </div>
-                                <div class="image seven columns">
-                                    <img src="https://www.tnvacation.com/triptales/sites/default/files/Blue%20Plum%20Festival.jpg">
-                                </div>
-                                <div class="title twelve columns">
-                                    <p>Blue Plum Music and Arts Festival</p>
-                                </div>
-                                <div class="date twelve columns">
-                                    <p>June 3 - June 4</p>
-                                </div>
-                            </div>
-                        </span>
-                        <span id="event-modal-btn">
-                            <div class="event-box-right four columns">
-                                <div class="cost five columns">
-                                    <div class="type-title">
-                                        <img src="http://puu.sh/q9Awp.png" />
-                                    </div>
-                                </div>
-                                <div class="image seven columns">
-                                    <img src="http://www.johnnyspizza.com/wp-content/uploads/2014/12/JOhnson-City.jpg">
-                                </div>
-                                <div class="title twelve columns">
-                                    <p>Johnny Brusco's Half-Off Slice Night</p>
-                                </div>
-                                <div class="date twelve columns">
-                                    <p>Every Monday</p>
-                                </div>
-                            </div>
-                        </span>
-                    </div>          
-                    <div class="row event-boxes-row twelve columns">
-                        <span id="event-modal-btn">
-                            <div class="event-box four columns">
-                                <div class="cost five columns">
-                                    <div class="type-title">
-                                        <img src="http://puu.sh/qoOmc.png" />
-                                    </div>
-                                </div>
-                                <div class="image seven columns">
-                                    <img src="http://puu.sh/oXZ0l/e779a551db.jpg">
-                                </div>
-                                <div class="title twelve columns">
-                                    <p>Free Comic Book Day at Johnson City Public Library</p>
-                                </div>
-                                <div class="date twelve columns">
-                                    <p>May 7th 11:00 AM - 1:00 PM</p>
-                                </div>
-                            </div>
-                        </span>
-                        <span id="event-modal-btn">
-                            <div class="event-box four columns">
-                                <div class="cost five columns">
-                                    <div class="type-title">
-                                        <img src="http://puu.sh/qoQXA.png" />
-                                    </div>
-                                </div>
-                                <div class="image seven columns">
-                                    <img src="http://www.johnsoncitypress.com/image/2015/11/03/x700_q30/48fbfae7-384a-4549-94d2-d7733f448eaf.jpg">
-                                </div>
-                                <div class="title twelve columns">
-                                    <p>Carribean Grill Foodtruck</p>
-                                </div>
-                                <div class="date twelve columns">
-                                    <p>11:00 AM - 8:00 PM</p>
-                                </div>
-                            </div>
-                        </span>
-                        <span id="event-modal-btn">
-                            <div class="event-box-right four columns">
-                                <div class="cost five columns">
-                                    <div class="type-title">
-                                        <img src="http://puu.sh/q9Awp.png" />
-                                    </div>
-                                </div>
-                                <div class="image seven columns">
-                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTovwZdB5_dyDxOJrFFb_rSRLdiVddDPFwGsjf_Z2KOmJTG4JEw">
-                                </div>
-                                <div class="title twelve columns">
-                                    <p>Label Half-Off Sushi Night</p>
-                                </div>
-                                <div class="date twelve columns">
-                                    <p>Every Wednesday and Friday</p>
-                                </div>
-                            </div>
-                        </span>
-                    </div>
-                    <div class="row event-boxes-row twelve columns">
-                        <span id="event-modal-btn">
-                            <div class="event-box four columns">
-                                <div class="cost five columns">
-                                    <div class="type-title">
-                                        <img src="http://puu.sh/q9Awp.png" />
-                                    </div>
-                                </div>
-                                <div class="image seven columns">
-                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTovwZdB5_dyDxOJrFFb_rSRLdiVddDPFwGsjf_Z2KOmJTG4JEw">
-                                </div>
-                                <div class="title twelve columns">
-                                    <p>Real to Reel Wacky Wednesday</p>
-                                </div>
-                                <div class="date twelve columns">
-                                    <p>Every Wednesday</p>
-                                </div>
-                            </div>
-                        </span>
-                        <span id="event-modal-btn">
-                            <div class="event-box four columns">
-                                <div class="cost five columns">
-                                    <div class="type-title">
-                                        <img src="http://puu.sh/qoOmc.png" />
-                                    </div>
-                                </div>
-                                <div class="image seven columns">
-                                    <img src="https://i.ytimg.com/vi/Iv7UoiEXw0w/maxresdefault.jpg">
-                                </div>
-                                <div class="title twelve columns">
-                                    <p>Taco Trek</p>
-                                </div>
-                                <div class="date twelve columns">
-                                    <p>June 7 7:00 PM - 7:30 PM</p>
-                                </div>
-                            </div>
-                        </span>
-                        <span id="event-modal-btn">
-                            <div class="event-box-right four columns">
-                                <div class="cost five columns">
-                                    <div class="type-title">
-                                        <img src="http://puu.sh/qoQXA.png" />
-                                    </div>
-                                </div>
-                                <div class="image seven columns">
-                                    <img src="http://www.johnsoncitypress.com/image/2016/01/06/x700_q30/0c1939ea-cb85-4c88-8616-83f896f08eae.jpg">
-                                </div>
-                                <div class="title twelve columns">
-                                    <p>Foodie Fiction Foodtruck</p>
-                                </div>
-                                <div class="date twelve columns">
-                                    <p>11:00 AM - 7:00 PM</p>
-                                </div>
-                            </div>
-                        </span>
-                    </div>
-                    <div class="row event-boxes-row twelve columns">
-                        <span id="event-modal-btn">
-                            <div class="event-box four columns">
-                                <div class="cost five columns">
-                                    <div class="type-title">
-                                        <img src="http://puu.sh/qoOmc.png" />
-                                    </div>
-                                </div>
-                                <div class="image seven columns">
-                                    <img src="http://puu.sh/oXYVX/b0f6e95718.jpg">
-                                </div>
-                                <div class="title twelve columns">
-                                    <p>Next to Last NSFW Open Mic Comedy</p>
-                                </div>
-                                <div class="date twelve columns">
-                                    <p>May 5th 10:00 PM - 11:55 PM</p>
-                                </div>
-                            </div>
-                        </span>
-                        <span id="event-modal-btn">
-                            <div class="event-box four columns">
-                                <div class="cost five columns">
-                                    <div class="type-title">
-                                        <img src="http://puu.sh/qoOmc.png" />
-                                    </div>
-                                </div>
-                                <div class="image seven columns">
-                                    <img src="https://www.tnvacation.com/triptales/sites/default/files/Blue%20Plum%20Festival.jpg">
-                                </div>
-                                <div class="title twelve columns">
-                                    <p>Blue Plum Music and Arts Festival</p>
-                                </div>
-                                <div class="date twelve columns">
-                                    <p>June 3 - June 4</p>
-                                </div>
-                            </div>
-                        </span>
-                        <span id="event-modal-btn">
-                            <div class="event-box-right four columns">
-                                <div class="cost five columns">
-                                    <div class="type-title">
-                                        <img src="http://puu.sh/q9Awp.png" />
-                                    </div>
-                                </div>
-                                <div class="image seven columns">
-                                    <img src="http://www.johnnyspizza.com/wp-content/uploads/2014/12/JOhnson-City.jpg">
-                                </div>
-                                <div class="title twelve columns">
-                                    <p>Johnny Brusco's Half-Off Slice Night</p>
-                                </div>
-                                <div class="date twelve columns">
-                                    <p>Every Monday</p>
-                                </div>
-                            </div>
-                        </span>
-                    </div>
-                    <div class="row event-boxes-row twelve columns">
-                        <span id="event-modal-btn">
-                            <div class="event-box four columns">
-                                <div class="cost five columns">
-                                    <div class="type-title">
-                                        <img src="http://puu.sh/qoOmc.png" />
-                                    </div>
-                                </div>
-                                <div class="image seven columns">
-                                    <img src="http://puu.sh/oXZ0l/e779a551db.jpg">
-                                </div>
-                                <div class="title twelve columns">
-                                    <p>Free Comic Book Day at Johnson City Public Library</p>
-                                </div>
-                                <div class="date twelve columns">
-                                    <p>May 7th 11:00 AM - 1:00 PM</p>
-                                </div>
-                            </div>
-                        </span>
-                        <span id="event-modal-btn">
-                            <div class="event-box four columns">
-                                <div class="cost five columns">
-                                    <div class="type-title">
-                                        <img src="http://puu.sh/qoQXA.png" />
-                                    </div>
-                                </div>
-                                <div class="image seven columns">
-                                    <img src="http://www.johnsoncitypress.com/image/2015/11/03/x700_q30/48fbfae7-384a-4549-94d2-d7733f448eaf.jpg">
-                                </div>
-                                <div class="title twelve columns">
-                                    <p>Carribean Grill Foodtruck</p>
-                                </div>
-                                <div class="date twelve columns">
-                                    <p>11:00 AM - 8:00 PM</p>
-                                </div>
-                            </div>
-                        </span>
-                        <span id="event-modal-btn">
-                            <div class="event-box-right four columns">
-                                <div class="cost five columns">
-                                    <div class="type-title">
-                                        <img src="http://puu.sh/q9Awp.png" />
-                                    </div>
-                                </div>
-                                <div class="image seven columns">
-                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTovwZdB5_dyDxOJrFFb_rSRLdiVddDPFwGsjf_Z2KOmJTG4JEw">
-                                </div>
-                                <div class="title twelve columns">
-                                    <p>Label Half-Off Sushi Night</p>
-                                </div>
-                                <div class="date twelve columns">
-                                    <p>Every Wednesday and Friday</p>
-                                </div>
-                            </div>
-                        </span>
-                    </div>
-                    <div class="row event-boxes-row twelve columns">
-                        <span id="event-modal-btn">
-                            <div class="event-box four columns">
-                                <div class="cost five columns">
-                                    <div class="type-title">
-                                        <img src="http://puu.sh/q9Awp.png" />
-                                    </div>
-                                </div>
-                                <div class="image seven columns">
-                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTovwZdB5_dyDxOJrFFb_rSRLdiVddDPFwGsjf_Z2KOmJTG4JEw">
-                                </div>
-                                <div class="title twelve columns">
-                                    <p>Real to Reel Wacky Wednesday</p>
-                                </div>
-                                <div class="date twelve columns">
-                                    <p>Every Wednesday</p>
-                                </div>
-                            </div>
-                        </span>
-                        <span id="event-modal-btn">
-                            <div class="event-box four columns">
-                                <div class="cost five columns">
-                                    <div class="type-title">
-                                        <img src="http://puu.sh/qoOmc.png" />
-                                    </div>
-                                </div>
-                                <div class="image seven columns">
-                                    <img src="https://i.ytimg.com/vi/Iv7UoiEXw0w/maxresdefault.jpg">
-                                </div>
-                                <div class="title twelve columns">
-                                    <p>Taco Trek</p>
-                                </div>
-                                <div class="date twelve columns">
-                                    <p>June 7 7:00 PM - 7:30 PM</p>
-                                </div>
-                            </div>
-                        </span>
-                        <span id="event-modal-btn">
-                            <div class="event-box-right four columns">
-                                <div class="cost five columns">
-                                    <div class="type-title">
-                                        <img src="http://puu.sh/qoQXA.png" />
-                                    </div>
-                                </div>
-                                <div class="image seven columns">
-                                    <img src="http://www.johnsoncitypress.com/image/2016/01/06/x700_q30/0c1939ea-cb85-4c88-8616-83f896f08eae.jpg">
-                                </div>
-                                <div class="title twelve columns">
-                                    <p>Foodie Fiction Foodtruck</p>
-                                </div>
-                                <div class="date twelve columns">
-                                    <p>11:00 AM - 7:00 PM</p>
-                                </div>
-                            </div>
-                        </span>
-                    </div>
-                    <div class="row event-boxes-row twelve columns">
-                        <span id="event-modal-btn">
-                            <div class="event-box four columns">
-                                <div class="cost five columns">
-                                    <div class="type-title">
-                                        <img src="http://puu.sh/qoOmc.png" />
-                                    </div>
-                                </div>
-                                <div class="image seven columns">
-                                    <img src="http://puu.sh/oXYVX/b0f6e95718.jpg">
-                                </div>
-                                <div class="title twelve columns">
-                                    <p>Next to Last NSFW Open Mic Comedy</p>
-                                </div>
-                                <div class="date twelve columns">
-                                    <p>May 5th 10:00 PM - 11:55 PM</p>
-                                </div>
-                            </div>
-                        </span>
-                        <span id="event-modal-btn">
-                            <div class="event-box four columns">
-                                <div class="cost five columns">
-                                    <div class="type-title">
-                                        <img src="http://puu.sh/qoOmc.png" />
-                                    </div>
-                                </div>
-                                <div class="image seven columns">
-                                    <img src="https://www.tnvacation.com/triptales/sites/default/files/Blue%20Plum%20Festival.jpg">
-                                </div>
-                                <div class="title twelve columns">
-                                    <p>Blue Plum Music and Arts Festival</p>
-                                </div>
-                                <div class="date twelve columns">
-                                    <p>June 3 - June 4</p>
-                                </div>
-                            </div>
-                        </span>
-                        <span id="event-modal-btn">
-                            <div class="event-box-right four columns">
-                                <div class="cost five columns">
-                                    <div class="type-title">
-                                        <img src="http://puu.sh/q9Awp.png" />
-                                    </div>
-                                </div>
-                                <div class="image seven columns">
-                                    <img src="http://www.johnnyspizza.com/wp-content/uploads/2014/12/JOhnson-City.jpg">
-                                </div>
-                                <div class="title twelve columns">
-                                    <p>Johnny Brusco's Half-Off Slice Night</p>
-                                </div>
-                                <div class="date twelve columns">
-                                    <p>Every Monday</p>
-                                </div>
-                            </div>
-                        </span>
-                    </div>          
+                                </span>
+                            }
+                        }                        
+                    </div>   
                 </div>
             </div>
         </div>

@@ -30,12 +30,15 @@
                     @Html.ValidationMessageFor(m => m.Email)
                     @Html.PasswordFor(m => m.Password, new { placeholder = "Password", @class = "login-password five columns" })
                     @Html.ValidationMessageFor(m => m.Password)
-                    @Html.ValidationSummary(true, "Login Failed", new { style = "color: red; font-size: 14px;" })
                     <div class="one column">
                         <p></p>
                     </div>
                     <input class="submit" id="Submit" type="submit" value="Log In" />
                 </div>
+                <div class="row twelve columns">
+                    @Html.ValidationSummary(true, "Login Failed", new { style = "color: red; font-size: 14px;" })
+                </div>
+                <!--
                 <div class="register-title">
                     <div class="three columns">
                         <p></p>
@@ -62,6 +65,7 @@
                     </div>
                     <input class="submit" id="Register" type="submit" value="Register" />
                 </div>
+                 -->
             }
         </center>
     </body>
