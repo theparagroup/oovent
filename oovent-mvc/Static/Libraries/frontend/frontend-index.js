@@ -22,29 +22,33 @@ window.onload = function ()
 
     //Javascript for the event modal in Index.cshtml
 
-    var eventModal = document.getElementById('event-modal');
-    var eventBtn = document.getElementById("event-modal-btn");
-    var eventSpan = document.getElementsByClassName("event-close")[0];
 
-    eventBtn.onclick = function eventModalOpen()
+    for (i = 1; i < 500; i++)
     {
-        eventModal.style.display = "block";
-    }
+        var eventModal = document.getElementById('event-modal-' + i);
+        var eventBtn = document.getElementById("event-modal-btn-" + i);
+        var eventSpan = document.getElementsByClassName("event-close-" + i)[0];
 
-    eventSpan.onclick = function eventModalClose()
-    {
-        eventModal.style.display = "none";
-    }
+        eventBtn.onclick = function eventModalOpen()
+        {
+            eventModal.style.display = "block";
+        }
 
-    window.onclick = function eventModalCloseOuter(event)
-    {
-        if (event.target == eventModal)
+        eventSpan.onclick = function eventModalClose()
         {
             eventModal.style.display = "none";
         }
-        if (event.target == modal)
+
+        window.onclick = function eventModalCloseOuter(event)
         {
-            modal.style.display = "none";
+            if (event.target == eventModal)
+            {
+                eventModal.style.display = "none";
+            }
+            if (event.target == modal)
+            {
+                modal.style.display = "none";
+            }
         }
     }
 }

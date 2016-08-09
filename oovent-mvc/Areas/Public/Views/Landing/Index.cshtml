@@ -15,11 +15,11 @@
         @{
             foreach (Oovent.Models.Ef.EfEvent Event in Oovent.Mvc.Areas.Public.Models.Events.CrudEvents.GetEvents())
             {
-                <div id="event-modal" class="event-modal">
+                <div id="event-modal-@Event.Id" class="event-modal">
                     <div class="row event-modal-content">
                         <div class="row event-modal-header twelve columns">
                             <div class="event-close-div">
-                                <span class="event-close">X</span>
+                                <span class="event-close-@Event.Id">X</span>
                             </div>
                             <div class="event-modal-header ten columns">
                                 <h2>@Event.Title</h2>
@@ -277,7 +277,7 @@
                         @{
                             foreach (Oovent.Models.Ef.EfEvent Event in Oovent.Mvc.Areas.Public.Models.Events.CrudEvents.GetEvents())
                             {
-                                <span id="event-modal-btn event-type-@Event.EventTypeId event-@Event.Id">
+                                <span id="event-modal-btn-@Event.Id event-type-@Event.EventTypeId event-@Event.Id">
                                     <div class="event-box four columns">
                                         <div class="cost five columns">
                                             <div class="type-title">
