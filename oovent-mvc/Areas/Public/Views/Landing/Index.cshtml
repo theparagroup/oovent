@@ -110,21 +110,21 @@
                         <div class="twelve columns">
                             <div class="filter-type twelve columns">
                                 <label>
-                                    <input id="filter-type-happening" name="type" type="checkbox" checked><span>Happenings</span>
+                                    <input class="filter-type" data-type="happening" name="type" type="checkbox" checked><span>Events</span>
                                 </label>
                             </div>
                         </div>
                         <div class="twelve columns">
                             <div class="filter-type twelve columns">
                                 <label>
-                                    <input id="filter-type-discount" name="type" type="checkbox" checked><span>Discounts</span>
+                                    <input class="filter-type" data-type="discount" name="type" type="checkbox" checked><span>Discounts</span>
                                 </label>
                             </div>
                         </div>
                         <div class="twelve columns">
                             <div class="filter-type twelve columns">
                                 <label>
-                                    <input id="filter-type-discount" name="type" type="checkbox" checked><span>Foodtrucks</span>
+                                    <input class="filter-type" data-type="foodtruck" name="type" type="checkbox" checked><span>Foodtrucks</span>
                                 </label>
                             </div>
                         </div>
@@ -277,7 +277,7 @@
                         @{
                             foreach (Oovent.Models.Ef.EfEvent Event in Oovent.Mvc.Areas.Public.Models.Events.CrudEvents.GetEvents())
                             {
-                                <span id="event-modal-btn-@Event.Id event-type-@Event.EventTypeId event-@Event.Id">
+                                <span class="event-modal-btn-@Event.Id event-type-@Event.EventTypeId" id="event-@Event.Id">
                                     <div class="event-box four columns">
                                         <div class="cost five columns">
                                             <div class="type-title">
