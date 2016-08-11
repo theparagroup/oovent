@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Oovent.Mvc.Areas.Public.Models.Events;
+using System.Web.Script.Serialization;
+using Newtonsoft.Json;
 
 namespace Oovent.Mvc.Areas.Public.Controllers
 {
@@ -17,9 +16,10 @@ namespace Oovent.Mvc.Areas.Public.Controllers
         }
 
         [Route("~/LoadEvents")]
+        [HttpPost]
         public string LoadEvents()
         {
-            return "Test";
+            return JsonConvert.SerializeObject(CrudEvents.GetFirstEvent());
         }
 
         [Route("~/Unauthorized")]
