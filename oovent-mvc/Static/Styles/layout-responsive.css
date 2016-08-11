@@ -1,0 +1,90 @@
+﻿@media only screen and (max-width: 550px) 
+{
+    .top-bar 
+    {
+        display: none !important;
+        z-index: -5 !important;
+    }
+
+    .top-bar-max-550 
+    {
+        display: block;
+    }
+
+    .top-button-image:hover 
+    {
+        background-color: #1a7ada;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 0px;
+    }
+
+    .top-button-dropdown:hover .dropbtn 
+    {
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+
+    .top-button-dropdown-content 
+    {
+        position: relative;
+        float: right;
+    }
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 550px)
+{
+    .top-bar 
+    {
+        display: none !important;
+        z-index: -5 !important;
+    }
+
+    .top-button-image
+    {
+        border-top-right-radius: 10px;
+    }
+
+    .top-bar-max-550
+    {
+        display: none !important;
+        z-index: -5 !important;
+    }
+
+    .top-bar-max-740 
+    {
+        display: block;
+    }
+
+    .top-button-login
+    {
+        width: 33.333% !important;
+    }
+
+    .top-button-create
+    {
+        width: 33.333% !important;
+    }
+
+    .top-button-create button
+    {
+        border-bottom-left-radius: 10px;
+    }
+
+    .top-button-dropdown
+    {
+        width: 33.333% !important;
+    }
+
+    .top-button-dropdown button
+    {
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px !important;
+    }
+
+    .top-button-dropdown-content 
+    {
+        position: relative;
+        float: right;
+    }
+}
