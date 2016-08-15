@@ -357,11 +357,22 @@
     background-color: #fffeff;
 	width: 30%;
     margin-top: 22px;
-	height: 780px;
+	height: auto;
 	border-style: solid;
 	border-width: 1px;
 	border-color: #646769;
     border-radius: 10px;
+}
+
+.filter-title
+{
+    padding-top: 10px;
+}
+
+.filter-title-tags
+{
+    padding-left: 6%;
+    padding-right: 6%;
 }
 
 .filter-type-header-top
@@ -381,7 +392,7 @@
 
 .filter-type-header
 {
-    margin-bottom: 10px;
+    margin-bottom: 0px;
     font-size: 130%;
 	color: #26282a;
     background-color: #0080ff;
@@ -396,13 +407,16 @@
 .filter-type label
 {
     float: left;
-    margin-left: 25%;
+    padding-left: 20%;
+    padding-right: 20%;
 }
 
 .filter-tag-div
 {
     width: 90%;
     margin-left: 0px;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
 }
 
 #filter-tag

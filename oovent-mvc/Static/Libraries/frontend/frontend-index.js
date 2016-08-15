@@ -20,6 +20,59 @@ window.onload = function ()
         modal.style.display = "none";
     }
 
+    //Javascript for the filter box format changes
+
+    document.getElementById("filter-type-checkbox-event").onclick = function ()
+    {
+        if (this.checked)
+        {
+            document.getElementById('filter-format-discount').style.display = "none";
+            document.getElementById('filter-format-foodtruck').style.display = "none";
+            document.getElementById('filter-format-event').style.display = "block";
+        }
+    }
+
+    document.getElementById("filter-type-checkbox-discount").onclick = function ()
+    {
+        if (this.checked)
+        {
+            document.getElementById('filter-format-foodtruck').style.display = "none";
+            document.getElementById('filter-format-event').style.display = "none";
+            document.getElementById('filter-format-discount').style.display = "block";
+        }
+    }
+
+    document.getElementById("filter-type-checkbox-foodtruck").onclick = function ()
+    {
+        if (this.checked)
+        {
+            document.getElementById('filter-format-discount').style.display = "none";
+            document.getElementById('filter-format-event').style.display = "none";
+            document.getElementById('filter-format-foodtruck').style.display = "block";
+        }
+    }
+
+    //Javascript for the date filter in Index.cshtml
+
+    if (document.getElementById('date-dropdown').value == 1)
+    {
+        document.getElementById('date-info-text-month').style.display = "none";
+        document.getElementById('date-info-text-week').style.display = "none";
+        document.getElementById('date-info-text-day').style.display = "block";
+    } 
+    else if (document.getElementById('date-dropdown').value == 2)
+    {
+        document.getElementById('date-info-text-month').style.display = "none";
+        document.getElementById('date-info-text-day').style.display = "none";
+        document.getElementById('date-info-text-week').style.display = "block";
+    }
+    else if (document.getElementById('date-dropdown').value == 3)
+    {
+        document.getElementById('date-info-text-day').style.display = "none";
+        document.getElementById('date-info-text-week').style.display = "none";
+        document.getElementById('date-info-text-month').style.display = "block";
+    }
+
     //Javascript for the event modal in Index.cshtml
 
 
