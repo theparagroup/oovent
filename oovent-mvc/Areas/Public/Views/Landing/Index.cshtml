@@ -10,6 +10,7 @@
         <title>Index</title>
         <script type="text/javascript" src="~/Static/Libraries/frontend/frontend-index.js"></script>
         <script type="text/javascript" src="~/Static/Libraries/frontend/index-filter.js"></script>
+        <link rel="stylesheet" type="text/css" href="~/Static/Styles/index-responsive.css"/>
     </head>
     <body>
         @{
@@ -105,57 +106,35 @@
         <div class="row body">
             <div class="row filter three columns">
                 <div class="filter-contents">
+                    <p class="filter-type-header-top twelve columns">Type</p>    
                     <div class="row filter-title-type twelve columns">
-                        <p class="filter-type-header-top twelve columns">Type</p>                  
+                                      
                         <div class="twelve columns">
                             <div class="filter-type twelve columns">
                                 <label>
-                                    <input class="filter-type" data-type="happening" name="type" type="checkbox" checked><span>Events</span>
+                                    <input id="filter-type-checkbox-event" class="filter-type" data-type="happening" name="type" type="radio" checked><span>Events</span>
                                 </label>
                             </div>
                         </div>
                         <div class="twelve columns">
                             <div class="filter-type twelve columns">
                                 <label>
-                                    <input class="filter-type" data-type="discount" name="type" type="checkbox" checked><span>Discounts</span>
+                                    <input id="filter-type-checkbox-discount" class="filter-type" data-type="discount" name="type" type="radio"><span>Discounts</span>
                                 </label>
                             </div>
                         </div>
                         <div class="twelve columns">
                             <div class="filter-type twelve columns">
                                 <label>
-                                    <input class="filter-type" data-type="foodtruck" name="type" type="checkbox" checked><span>Foodtrucks</span>
+                                    <input id="filter-type-checkbox-foodtruck" class="filter-type" data-type="foodtruck" name="type" type="radio"><span>Foodtrucks</span>
                                 </label>
                             </div>
                         </div>
                     </div>
-                    <div class="row filter-title twelve columns">
+                    <div id="filter-format-event">
                         <p class="filter-type-header twelve columns">Price</p>
-                        <div class="twelve columns">
-                            <div class="filter-type twelve columns">
-                                <label>
-                                    <input name="type" type="checkbox" checked><span>All</span>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="twelve columns">
-                            <div class="filter-type twelve columns">
-                                <label>
-                                    <input name="type" type="checkbox"><span>Free</span>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="twelve columns">
-                            <div class="filter-type twelve columns">
-                                <label>
-                                    <input name="type" type="checkbox"><span>Paid</span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row filter-title twelve columns">
-                        <div class="row filter-title-type twelve columns">
-                            <p class="filter-type-header twelve columns">What</p>
+                        <div class="row filter-title twelve columns">
+                            
                             <div class="twelve columns">
                                 <div class="filter-type twelve columns">
                                     <label>
@@ -166,66 +145,231 @@
                             <div class="twelve columns">
                                 <div class="filter-type twelve columns">
                                     <label>
-                                        <input name="type" type="checkbox"><span>Music</span>
+                                        <input name="type" type="checkbox"><span>Free</span>
                                     </label>
                                 </div>
                             </div>
                             <div class="twelve columns">
                                 <div class="filter-type twelve columns">
                                     <label>
-                                        <input name="type" type="checkbox"><span>Social</span>
+                                        <input name="type" type="checkbox"><span>Paid</span>
                                     </label>
                                 </div>
                             </div>
-                            <div class="twelve columns">
-                                <div class="filter-type twelve columns">
-                                    <label>
-                                        <input name="type" type="checkbox"><span>Physical</span>
-                                    </label>
+                        </div>
+                        <p class="filter-type-header twelve columns">What</p>
+                        <div class="row filter-title twelve columns">
+                            
+                            <div class="row filter-title-type twelve columns">
+                                
+                                <div class="twelve columns">
+                                    <div class="filter-type twelve columns">
+                                        <label>
+                                            <input name="type" type="checkbox" checked><span>All</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="twelve columns">
+                                    <div class="filter-type twelve columns">
+                                        <label>
+                                            <input name="type" type="checkbox"><span>Music</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="twelve columns">
+                                    <div class="filter-type twelve columns">
+                                        <label>
+                                            <input name="type" type="checkbox"><span>Social</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="twelve columns">
+                                    <div class="filter-type twelve columns">
+                                        <label>
+                                            <input name="type" type="checkbox"><span>Physical</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="twelve columns">
+                                    <div class="filter-type twelve columns">
+                                        <label>
+                                            <input name="type" type="checkbox"><span>Educational</span>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="twelve columns">
-                                <div class="filter-type twelve columns">
-                                    <label>
-                                        <input name="type" type="checkbox"><span>Educational</span>
-                                    </label>
-                                </div>
+                        </div>
+                        <p class="filter-type-header twelve columns">Tags</p>
+                        <div class="row filter-title-tags twelve columns">
+                            <div class="filter-tag-div twelve columns">
+                                <label id="filter-tag" class="filter-tag"><input name="tag" type="checkbox" checked><span>all</span></label>
+
+                                <label id="filter-tag" class="filter-tag"><input name="tag" type="checkbox"><span>bluegrass</span></label>
+
+                                <label id="filter-tag" class="filter-tag"><input name="tag" type="checkbox"><span>country</span></label>
+
+                                <label id="filter-tag" class="filter-tag"><input name="tag" type="checkbox"><span>rock</span></label>
+
+                                <label id="filter-tag" class="filter-tag"><input name="tag" type="checkbox"><span>jazz</span></label>
+
+                                <label id="filter-tag" class="filter-tag"><input name="tag" type="checkbox"><span>folk</span></label>
+
+                                <label id="filter-tag" class="filter-tag"><input name="tag" type="checkbox"><span>metal</span></label>
+
+                                <label id="filter-tag" class="filter-tag"><input name="tag" type="checkbox"><span>orchestra</span></label>
+
+                                <label id="filter-tag" class="filter-tag"><input name="tag" type="checkbox"><span>local bands</span></label>
+
+                                <label id="filter-tag" class="filter-tag"><input name="tag" type="checkbox"><span>capone's</span></label>
+
+                                <label id="filter-tag" class="filter-tag"><input name="tag" type="checkbox"><span>acoustic coffee house</span></label>
                             </div>
                         </div>
                     </div>
-                    <div class="row filter-title twelve columns">
+                    <div id="filter-format-discount" class="display-none">
+                        <p class="filter-type-header twelve columns">What</p>
+                        <div class="row filter-title twelve columns">
+                            <div class="row filter-title-type twelve columns">                               
+                                <div class="twelve columns">
+                                    <div class="filter-type twelve columns">
+                                        <label>
+                                            <input name="type" type="checkbox" checked><span>All</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="twelve columns">
+                                    <div class="filter-type twelve columns">
+                                        <label>
+                                            <input name="type" type="checkbox"><span>Food</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="twelve columns">
+                                    <div class="filter-type twelve columns">
+                                        <label>
+                                            <input name="type" type="checkbox"><span>Drink</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="twelve columns">
+                                    <div class="filter-type twelve columns">
+                                        <label>
+                                            <input name="type" type="checkbox"><span>Entertainment</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="twelve columns">
+                                    <div class="filter-type twelve columns">
+                                        <label>
+                                            <input name="type" type="checkbox"><span>Local Store</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <p class="filter-type-header twelve columns">Tags</p>
-                        <div class="one column">
-                            <p></p>
+                        <div class="row filter-title-tags twelve columns">                          
+                            <div class="one column">
+                                <p></p>
+                            </div>
+                            <div class="filter-tag-div ten columns">
+                                <label id="filter-tag" class="filter-tag"><input name="tag" type="checkbox" checked><span>all</span></label>
+
+                                <label id="filter-tag" class="filter-tag"><input name="tag" type="checkbox"><span>half-off</span></label>
+
+                                <label id="filter-tag" class="filter-tag"><input name="tag" type="checkbox"><span>weekly deal</span></label>
+
+                                <label id="filter-tag" class="filter-tag"><input name="tag" type="checkbox"><span>for two</span></label>
+
+                                <label id="filter-tag" class="filter-tag"><input name="tag" type="checkbox"><span>music with food</span></label>
+
+                                <label id="filter-tag" class="filter-tag"><input name="tag" type="checkbox"><span>bar</span></label>
+
+                                <label id="filter-tag" class="filter-tag"><input name="tag" type="checkbox"><span>johnny bruscos</span></label>
+
+                                <label id="filter-tag" class="filter-tag"><input name="tag" type="checkbox"><span>pizza</span></label>
+
+                                <label id="filter-tag" class="filter-tag"><input name="tag" type="checkbox"><span>mexican</span></label>
+
+                                <label id="filter-tag" class="filter-tag"><input name="tag" type="checkbox"><span>reel to real</span></label>
+
+                                <label id="filter-tag" class="filter-tag"><input name="tag" type="checkbox"><span>bbq</span></label>
+                            </div>
+                            <div class="one column">
+                                <p></p>
+                            </div>
                         </div>
-                        <div class="filter-tag-div ten columns">
-                            <label id="filter-tag" class="filter-tag"><input name="tag" type="checkbox" checked><span>all</span></label>
-
-                            <label id="filter-tag" class="filter-tag"><input name="tag" type="checkbox"><span>bluegrass</span></label>
-                            
-                            <label id="filter-tag" class="filter-tag"><input name="tag" type="checkbox"><span>country</span></label>
-
-                            <label id="filter-tag" class="filter-tag"><input name="tag" type="checkbox"><span>rock</span></label>
-
-                            <label id="filter-tag" class="filter-tag"><input name="tag" type="checkbox"><span>jazz</span></label>
-
-                            <label id="filter-tag" class="filter-tag"><input name="tag" type="checkbox"><span>folk</span></label>
-
-                            <label id="filter-tag" class="filter-tag"><input name="tag" type="checkbox"><span>metal</span></label>
-
-                            <label id="filter-tag" class="filter-tag"><input name="tag" type="checkbox"><span>orchestra</span></label>
-
-                            <label id="filter-tag" class="filter-tag"><input name="tag" type="checkbox"><span>local bands</span></label>
-
-                            <label id="filter-tag" class="filter-tag"><input name="tag" type="checkbox"><span>capone's</span></label>
-
-                            <label id="filter-tag" class="filter-tag"><input name="tag" type="checkbox"><span>acoustic coffee house</span></label>
+                    </div>
+                    <div id="filter-format-foodtruck" class="display-none">
+                        <p class="filter-type-header twelve columns">What</p>
+                        <div class="row filter-title twelve columns">                           
+                            <div class="row filter-title-type twelve columns">                             
+                                <div class="twelve columns">
+                                    <div class="filter-type twelve columns">
+                                        <label>
+                                            <input name="type" type="checkbox" checked><span>All</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="twelve columns">
+                                    <div class="filter-type twelve columns">
+                                        <label>
+                                            <input name="type" type="checkbox"><span>Carribean Grill</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="twelve columns">
+                                    <div class="filter-type twelve columns">
+                                        <label>
+                                            <input name="type" type="checkbox"><span>Foodie Fiction</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="twelve columns">
+                                    <div class="filter-type twelve columns">
+                                        <label>
+                                            <input name="type" type="checkbox"><span>Street Eats</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="twelve columns">
+                                    <div class="filter-type twelve columns">
+                                        <label>
+                                            <input name="type" type="checkbox"><span>Hell Ya!</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="one column">
-                            <p></p>
+                        <p class="filter-type-header twelve columns">Tags</p>
+                        <div class="row filter-title-tags twelve columns">                           
+                            <div class="one column">
+                                <p></p>
+                            </div>
+                            <div class="filter-tag-div ten columns">
+                                <label id="filter-tag" class="filter-tag"><input name="tag" type="checkbox" checked><span>all</span></label>
+
+                                <label id="filter-tag" class="filter-tag"><input name="tag" type="checkbox"><span>grill</span></label>
+
+                                <label id="filter-tag" class="filter-tag"><input name="tag" type="checkbox"><span>seasonal</span></label>
+
+                                <label id="filter-tag" class="filter-tag"><input name="tag" type="checkbox"><span>sandwiches</span></label>
+
+                                <label id="filter-tag" class="filter-tag"><input name="tag" type="checkbox"><span>one spot truck</span></label>
+
+                                <label id="filter-tag" class="filter-tag"><input name="tag" type="checkbox"><span>bbq</span></label>
+
+                                <label id="filter-tag" class="filter-tag"><input name="tag" type="checkbox"><span>late hours</span></label>
+
+                                <label id="filter-tag" class="filter-tag"><input name="tag" type="checkbox"><span>early hours</span></label>
+                            </div>
+                            <div class="one column">
+                                <p></p>
+                            </div>
                         </div>
                     </div>
                 </div>
+
             </div>
             <div class="row events nine columns">
                 <div class="row search-div twelve columns">
@@ -257,17 +401,19 @@
                         <img src="http://puu.sh/pEIly.png">
                     </div>
                     <div class="date-info three columns">
-                        <p>May 30th</p>
+                        <p id="date-info-text-day" class="date-info-text">August 7th</p>
+                        <p id="date-info-text-week" class="date-info-text">August 7th - 13th</p>
+                        <p id="date-info-text-month" class="date-info-text">August</p>
                     </div>
                     <div class="date-arrow-right one column">
                         <img src="http://puu.sh/pEIka.png">
                     </div>
                     <div class="date-dropdown two columns">
                         <form>
-                            <select>
-                                <option value="day">Day</option>
-                                <option value="week">Week</option>
-                                <option value="month">Month</option>
+                            <select id="date-dropdown">
+                                <option value="1">Day</option>
+                                <option value="2">Week</option>
+                                <option value="3">Month</option>
                             </select>
                         </form>
                     </div>

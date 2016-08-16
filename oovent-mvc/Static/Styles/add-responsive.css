@@ -1,0 +1,44 @@
+﻿@media only screen and (max-width: 990px) and (min-width: 550px)
+{
+    #type-select-compact
+    {
+        display: block;
+        margin-top: 30px;
+        margin-bottom: -20px;
+    }
+
+    .type-select-compact-div
+    {
+        padding-bottom: 5px;
+    }
+
+    .type-select
+    {
+        display: none;
+    }
+
+    #create-link-buttons-compact
+    {
+        display: block;
+    }
+
+    .create-event-link-buttons
+    {
+        display: none;
+    }
+
+    .create-discount-link-buttons
+    {
+        display: none;
+    }
+
+    .create-foodtruck-link-buttons
+    {
+        display: none;
+    }
+
+    .create-links-row
+    {
+        padding-bottom: 5px;
+    }
+}

@@ -1,0 +1,92 @@
+﻿/*CSS for making the filter bar responsive on index.cshtml*/
+
+@media only screen and (max-width: 1200px) and (min-width: 550px)
+{
+    .filter-type label
+    {
+        float: left;
+        padding-left: 15% !important;
+        padding-right: 15% !important;
+        color: green;
+    }
+}
+
+@media only screen and (max-width: 1000px) and (min-width: 870px)
+{
+
+    .filter-type label
+    {
+        float: left;
+        padding-left: 15% !important;
+        padding-right: 15% !important;
+        font-size: 80% !important;
+        color: blue;
+    }
+
+    #filter-tag
+    {
+        font-size: 100% !important;
+    }
+}
+
+@media only screen and (max-width: 875px)
+{
+    .filter
+    {
+        width: 25% !important;
+    }
+
+    .filter-type label
+    {
+        float: left;
+        font-size: 80% !important;
+        color: red;
+        padding-left: 15% !important;
+        padding-right: 15% !important;
+    }
+
+    #filter-tag
+    {
+        font-size: 100% !important;
+    }
+
+
+}
+
+@media only screen and (max-width: 760px)
+{
+    .filter
+    {
+        width: 30% !important;
+    }
+
+
+}
+
+@media only screen and (max-width: 640px)
+{
+    .filter
+    {
+        width: 35% !important;
+    }
+
+    .filter-type label
+    {
+        padding-left: 15% !important;
+        padding-right: 15% !important;
+    }
+}
+
+@media only screen and (max-width: 565px)
+{
+    .filter
+    {
+        width: 40% !important;
+    }
+
+    .filter-type label
+    {
+        padding-left: 8% !important;
+        padding-right: 8% !important;
+    }
+}

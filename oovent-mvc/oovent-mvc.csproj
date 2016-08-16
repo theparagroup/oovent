@@ -108,6 +108,7 @@
     <Content Include="Static\Libraries\frontend\frontend-add.js" />
     <Content Include="Static\Libraries\frontend\frontend-index.js" />
     <Content Include="Static\Libraries\frontend\index-filter.js" />
+    <Content Include="Static\Styles\index-responsive.css" />
     <Content Include="Static\Libraries\jquery-ui-1-12\jquery-ui.js" />
     <Content Include="Static\Libraries\jquery-ui-1-12\jquery-ui.min.js" />
     <Content Include="Static\Libraries\jquery-ui-1-12\themes\base\images\ui-icons_444444_256x240.png" />
@@ -186,6 +187,7 @@
     <Content Include="Static\Libraries\frontend\moment.js" />
     <Content Include="Static\Libraries\ms-unobstrusive\jquery.unobtrusive-ajax-3.2.3.js" />
     <Content Include="Static\Libraries\ms-unobstrusive\jquery.validate.unobtrusive-3.2.3.js" />
+    <Content Include="Static\Styles\layout-responsive.css" />
     <Content Include="Static\Styles\OoventStyleSheet.css" />
     <Content Include="Static\Styles\skeleton.css" />
     <Content Include="Views\Web.config" />
