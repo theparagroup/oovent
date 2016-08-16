@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Linq;
 using System.Web.Mvc;
 using Oovent.Mvc.Areas.Public.Models.Events;
 using System.Web.Script.Serialization;
-using Newtonsoft.Json;
+using Utils = com.paralib.Utils;
+using Oovent.Models.Ef;
 
 namespace Oovent.Mvc.Areas.Public.Controllers
 {
@@ -17,9 +19,15 @@ namespace Oovent.Mvc.Areas.Public.Controllers
 
         [Route("~/LoadEvents")]
         [HttpPost]
-        public string LoadEvents()
+        public JsonResult LoadEvents()
         {
-            return JsonConvert.SerializeObject(CrudEvents.GetFirstEvent());
+            using (DbContext db = new DbContext())
+            {
+                var query = from e in db.Events
+                            select new { Id = e.Id };
+
+                return Json(query.ToList());
+            }            
         }
 
         [Route("~/Unauthorized")]
