@@ -10,6 +10,7 @@
         <script type="text/javascript" src="~/Static/Libraries/frontend/frontend-add.js"></script>
         <script type="text/javascript" src="~/Static/Libraries/frontend/moment.js"></script>
         <script type="text/javascript" src="~/Static/Libraries/frontend/combodate.js"></script>
+        <link rel="stylesheet" type="text/css" href="~/Static/Styles/add-responsive.css" />
     </head>
     <body>
         <center>
@@ -40,6 +41,39 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div id="type-select-compact" class="row display-none twelve columns">
+                        <div class="row type-select-compact-div twelve columns">
+                            <div class="six columns">
+                                <div class="create-type-button twelve columns" id="check-button">
+                                    <label>
+                                        <input id="create-type-button-event-compact" name="type-compact" type="radio" checked><span>Create Happening</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="six columns">
+                                <div class="create-type-button twelve columns" id="check-button">
+                                    <label>
+                                        <input id="create-type-button-discount-compact" name="type-compact" type="radio"><span>Create Discount</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row type-select-compact-div twelve columns">
+                            <div class="three columns">
+                                <p></p>
+                            </div>
+                            <div class="six columns">
+                                <div class="create-type-button twelve columns" id="check-button">
+                                    <label>
+                                        <input id="create-type-button-foodtruck-compact" name="type-compact" type="radio"><span>Create Foodtruck</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="three columns">
+                                <p></p>
+                            </div>
+                        </div>                       
                     </div>
                     <div id="create-event-form" class="create-event-form">
                         <div class="row create-left six columns">
@@ -140,6 +174,42 @@
                                         <input id="create-event-button-youtube" class="create-event-input" name="event-link" type="radio"><span>Youtube</span>
                                     </label>
                                 </div>
+                            </div>
+                            <div id="create-link-buttons-compact" class="row display-none twelve columns">
+                                <div class="row create-links-row twelve columns">
+                                    <div class="create-type-button four columns" id="check-button">
+                                        <label>
+                                            <input id="create-event-button-website" class="create-event-input" name="event-link" type="radio" checked><span>Website</span>
+                                        </label>
+                                    </div>
+                                    <div class="create-type-button four columns" id="check-button">
+                                        <label>
+                                            <input id="create-event-button-twitter" class="create-event-input" name="event-link" type="radio"><span>Twitter</span>
+                                        </label>
+                                    </div>
+                                    <div class="create-type-button four columns" id="check-button">
+                                        <label>
+                                            <input id="create-event-button-facebook" class="create-event-input" name="event-link" type="radio"><span>Facebook</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row create-links-row twelve columns">
+                                    <div class="create-type-button four columns" id="check-button">
+                                        <label>
+                                            <input id="create-event-button-instagram" class="create-event-input" name="event-link" type="radio"><span>Instagram</span>
+                                        </label>
+                                    </div>
+                                    <div class="create-type-button four columns" id="check-button">
+                                        <label>
+                                            <input id="create-event-button-pintrest" class="create-event-input" name="event-link" type="radio"><span>Pintrest</span>
+                                        </label>
+                                    </div>
+                                    <div class="create-type-button four columns" id="check-button">
+                                        <label>
+                                            <input id="create-event-button-youtube" class="create-event-input" name="event-link" type="radio"><span>Youtube</span>
+                                        </label>
+                                    </div>
+                                </div>                                                          
                             </div>
                             <div id="create-event-input-link-website" class="create-event-link-inputs">
                                 <div class="two columns">

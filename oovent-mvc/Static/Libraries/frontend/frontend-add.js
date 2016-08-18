@@ -36,6 +36,30 @@ window.onload = function ()
         }
     }
 
+    //Javascript for responsive form type selection in Index.cshtmnl
+
+    document.getElementById("create-type-button-event-compact").onclick = function () {
+        if (this.checked) {
+            document.getElementById('create-foodtruck-form').style.display = "none";
+            document.getElementById('create-discount-form').style.display = "none";
+            document.getElementById('create-event-form').style.display = "block";
+        }
+    }
+    document.getElementById("create-type-button-discount-compact").onclick = function () {
+        if (this.checked) {
+            document.getElementById('create-event-form').style.display = "none";
+            document.getElementById('create-foodtruck-form').style.display = "none";
+            document.getElementById('create-discount-form').style.display = "block";
+        }
+    }
+    document.getElementById("create-type-button-foodtruck-compact").onclick = function () {
+        if (this.checked) {
+            document.getElementById('create-discount-form').style.display = "none";
+            document.getElementById('create-event-form').style.display = "none";
+            document.getElementById('create-foodtruck-form').style.display = "block";
+        }
+    }
+
     //Javascript for event recurring or onetime selection in Add.cshtml
 
     document.getElementById("create-event-button-recurring").onclick = function ()
