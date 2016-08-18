@@ -19,7 +19,7 @@ namespace Oovent.Mvc.Areas.Public.Controllers
         [HttpPost]
         public string LoadEvents()
         {
-            return JsonConvert.SerializeObject(CrudEvents.GetFirstEvent());
+            return JsonConvert.SerializeObject(CrudEvents.GetEvents());
         }
 
         [Route("~/Unauthorized")]

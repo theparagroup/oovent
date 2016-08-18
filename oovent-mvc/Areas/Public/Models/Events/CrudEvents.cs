@@ -18,27 +18,5 @@ namespace Oovent.Mvc.Areas.Public.Models.Events
                 return query.ToList();
             }
         }
-
-        public static EfEvent GetFirstEvent()
-        {
-            using (DbContext db = new DbContext())
-            {
-                var query = from e in db.Events
-                            select e;
-
-                return query.FirstOrDefault();
-            }
-        }
-
-        public static List<string> GetEventNames()
-        {
-            using (DbContext db = new DbContext())
-            {
-                var query = from e in db.Events
-                            select e.Title;
-
-                return query.ToList();
-            }
-        }
     }
 }
