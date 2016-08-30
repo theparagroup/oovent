@@ -1,4 +1,5 @@
-﻿
+﻿@model Oovent.Models.Ef.EfEvent
+
 @{
     Layout = "~/Areas/Public/Views/Shared/_Layout.cshtml";
 }
@@ -13,96 +14,9 @@
         <link rel="stylesheet" type="text/css" href="~/Static/Styles/index-responsive.css"/>
     </head>
     <body>
-        @{
-            foreach (Oovent.Models.Ef.EfEvent Event in Oovent.Mvc.Areas.Public.Models.Events.CrudEvents.GetEvents())
-            {
-                <div id="event-modal-@Event.Id" class="event-modal">
-                    <div class="row event-modal-content">
-                        <div class="row event-modal-header twelve columns">
-                            <div class="event-close-div">
-                                <span class="event-close-@Event.Id">X</span>
-                            </div>
-                            <div class="event-modal-header ten columns">
-                                <h2>@Event.Title</h2>
-                            </div>
-                        </div>
-                        <div class="row event-modal-body">
-                            <div class="row event-modal-top-body-info">
-                                <div class="event-modal-type four columns">
-                                    <p></p>
-                                </div>
-                                <div class="event-modal-category four columns">
-                                    <p></p>
-                                </div>
-                                <div class="event-modal-tags four columns">
-                                    <p></p>
-                                </div>
-                            </div>
-                            <div class="row event-modal-top-body">
-                                <div class="one column">
-                                    <p></p>
-                                </div>
-                                <div class="event-modal-date five columns">
-                                    <div class="event-modal-date-box twelve columns"><p></p></div>
-                                    <div class="event-modal-date-box twelve columns"><p>When: @Event.Start - @Event.End</p></div>
-                                    <div class="event-modal-date-box twelve columns"><p>What: @Event.EventTypeId</p></div>
-                                    <div class="event-modal-date-box twelve columns"><p>Where: ???</p></div>
-                                    <div class="event-modal-date-box twelve columns"><p>Price: @Event.Price</p></div>
-                                </div>
-                                <div class="event-modal-image five columns">
-                                    <img class="event-modal-img" src="http://puu.sh/oXZ0l/e779a551db.jpg" />
-                                </div>
-                                <div class="one column">
-                                    <p></p>
-                                </div>
-                            </div>
-                            <div class="row event-modal-modal-middle-body">
-                                <div class="event-modal-description twelve columns">
-                                    <p>@Event.Description</p>
-                                </div>
-                            </div>
-                            <div class="row event-modal-bottom-body">
-                                <div class="one column">
-                                    <p></p>
-                                </div>
-                                <div class="event-modal-links ten columns">
-                                    <div class="row profile-links-title twelve columns">
-                                        <p class="p-title">Links</p>
-                                    </div>
-                                    <div class="row profile-links twelve columns">
-                                        <div class="profile-link-left four columns">
-                                            <a href="http://www.jcpl.net/">
-                                                <div class="profile-link-button">
-                                                    <button id="p-link-button-left">Website</button>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="profile-link-middle four columns">
-                                            <a href="https://www.facebook.com/JohnsonCityPublicLibrary/">
-                                                <div class="profile-link-button">
-                                                    <button id="p-link-button-middle">Facebook</button>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="profile-link-right four columns">
-                                            <a href="https://twitter.com/JCPublicLibrary">
-                                                <div class="profile-link-button">
-                                                    <button id="p-link-button-right">Twitter</button>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="one column">
-                                    <p></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            }
-        }
-        
+       <div class="event-render">
+
+       </div>       
         <div class="row body">
             <div class="row filter three columns">
                 <div class="filter-contents">

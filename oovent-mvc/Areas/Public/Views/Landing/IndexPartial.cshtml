@@ -1,0 +1,95 @@
+﻿@model Oovent.Models.Ef.EfEvent
+
+@{
+    foreach (var happening in Model.Events)
+    {
+        <div id="event-modal-@happening.Id" class="event-modal">
+            <div class="row event-modal-content">
+                <div class="row event-modal-header twelve columns">
+                    <div class="event-close-div">
+                        <span class="event-close-@happening.Id">X</span>
+                    </div>
+                    <div class="event-modal-header ten columns">
+                        <h2>@happening.Title</h2>
+                    </div>
+                </div>
+                <div class="row event-modal-body">
+                    <div class="row event-modal-top-body-info">
+                        <div class="event-modal-type four columns">
+                            <p></p>
+                        </div>
+                        <div class="event-modal-category four columns">
+                            <p></p>
+                        </div>
+                        <div class="event-modal-tags four columns">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="row event-modal-top-body">
+                        <div class="one column">
+                            <p></p>
+                        </div>
+                        <div class="event-modal-date five columns">
+                            <div class="event-modal-date-box twelve columns"><p></p></div>
+                            <div class="event-modal-date-box twelve columns"><p>When: @happening.Start - @happening.End</p></div>
+                            <div class="event-modal-date-box twelve columns"><p>What: @happening.EventType.Name</p></div>
+                            <div class="event-modal-date-box twelve columns"><p>Where: ???</p></div>
+                            <div class="event-modal-date-box twelve columns"><p>Price: @happening.Price</p></div>
+                        </div>
+                        <div class="event-modal-image five columns">
+                            <img class="event-modal-img" src="http://puu.sh/oXZ0l/e779a551db.jpg" />
+                        </div>
+                        <div class="one column">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="row event-modal-modal-middle-body">
+                        <div class="event-modal-description twelve columns">
+                            <p>@happening.Description</p>
+                        </div>
+                    </div>
+                    <div class="row event-modal-bottom-body">
+                        <div class="one column">
+                            <p></p>
+                        </div>
+                        <div class="event-modal-links ten columns">
+                            <div class="row profile-links-title twelve columns">
+                                <p class="p-title">Links</p>
+                            </div>
+                            <div class="row profile-links twelve columns">
+                                <div class="profile-link-left four columns">
+                                    <a href="http://www.jcpl.net/">
+                                        <div class="profile-link-button">
+                                            <button id="p-link-button-left">Website</button>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="profile-link-middle four columns">
+                                    <a href="https://www.facebook.com/JohnsonCityPublicLibrary/">
+                                        <div class="profile-link-button">
+                                            <button id="p-link-button-middle">Facebook</button>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="profile-link-right four columns">
+                                    <a href="https://twitter.com/JCPublicLibrary">
+                                        <div class="profile-link-button">
+                                            <button id="p-link-button-right">Twitter</button>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="one column">
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    }
+
+
+}
