@@ -1,6 +1,8 @@
 ﻿
-$("#filter-type-happening").click(function ()
-{
-    alert("Test");
-    $("#event-type-1").hide("slow");
+$(document).ready(function()
+{ 
+    $("#filter-type-checkbox-event".change(function ()
+    {
+        $(".event-render").load('/GetEvents', 1);
+    }));
 });

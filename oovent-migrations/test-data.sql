@@ -1,6 +1,6 @@
 DELETE FROM entity_user_info;
-DELETE FROM entities;
 DELETE FROM event_entity_relationships;
+DELETE FROM entities;
 DELETE FROM events;
 
 SET IDENTITY_INSERT entities ON;
@@ -22,9 +22,17 @@ SET IDENTITY_INSERT entity_user_info OFF;
 SET IDENTITY_INSERT events ON;
 INSERT INTO events (id, event_type_id, title, description, start, [end], ordinal, m, t, w, th, f, s, su)
 VALUES (1, 1, 'McDonalds McHealthweek', 'Come down to your local McDonalds and get a free burger to support being healthy.', '8/8/2016', '8/16/2016', 0, 1, 1, 1, 1, 1, 1, 1);
+INSERT INTO events (id, event_type_id, title, description, start, [end], ordinal, m, t, w, th, f, s, su)
+VALUES (2, 2, 'McDonalds One Dollar Fish', 'Come down to your local McDonalds and get entire live fish for a dollar.', '8/8/2016', '8/16/2016', 0, 1, 1, 1, 1, 1, 1, 1);
+INSERT INTO events (id, event_type_id, title, description, start, [end], ordinal, m, t, w, th, f, s, su)
+VALUES (3, 3, 'McDonalds Foodtruck', 'Come down to your local McDonalds Foodtruck.', '8/8/2016', '8/16/2016', 0, 1, 1, 1, 1, 1, 1, 1);
 SET IDENTITY_INSERT events OFF;
 
 SET IDENTITY_INSERT event_entity_relationships ON;
 INSERT INTO event_entity_relationships (id, event_id, event_entity_relationship_type_id, entity_id)
 VALUES (1, 1, 3, 2);
+INSERT INTO event_entity_relationships (id, event_id, event_entity_relationship_type_id, entity_id)
+VALUES (2, 2, 3, 2);
+INSERT INTO event_entity_relationships (id, event_id, event_entity_relationship_type_id, entity_id)
+VALUES (3, 3, 3, 2);
 SET IDENTITY_INSERT event_entity_relationships OFF;

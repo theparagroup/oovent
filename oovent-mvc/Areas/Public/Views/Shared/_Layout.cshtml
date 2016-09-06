@@ -8,32 +8,85 @@
         <link rel="stylesheet" type="text/css" href="~/Static/Styles/skeleton.css" />
         <link rel="stylesheet" type="text/css" href="~/Static/Styles/OoventStyleSheet.css" />
         <script type="text/javascript" src="~/Static/Libraries/frontend/jquery.js"></script>
+        <link rel="stylesheet" type="text/css" href="~/Static/Styles/layout-responsive.css" />
     </head>
     <body class="body-whole">
         <div class="container">
             <center>
                 <div class="row top-bar twelve columns">
-                    <div class="dropdown two columns">
-                        <button class="dropbtn">Profile</button>
-                        <div class="dropdown-content">
-                            <a href="/ExampleModels/Profile">My Profile</a>
-                            <a href="/ExampleModels/MyEvents">My Events</a>
-                            <a href="/ExampleModels/EditProfile">Edit Profile</a>
-                        </div>
-                    </div>
-                    <div class="top-button-login two columns" id="top-button">
-                        <a href="login" id="login-button">Login</a>
-                    </div>
-                    <a href="/ExampleModels/Form">
-                        <div class="top-button-check two columns">
-                           <button id="top-button">Create</button>
-                        </div>
-                    </a>
                     <a href="/Index">
                         <div class="top-button-image three columns">
                             <img class="logo" src="http://puu.sh/pDqvZ.png" alt="Home" title="Home" />
                         </div>
                     </a>
+                    <div class="top-button-dropdown two columns">
+                        <button class="dropbtn">Profile</button>
+                        <div class="top-button-dropdown-content">
+                            <a href="/ExampleModels/Profile">My Profile</a>
+                            <a href="/ExampleModels/MyEvents">My Events</a>
+                            <a href="/ExampleModels/EditProfile">Edit Profile</a>
+                        </div>
+                    </div>    
+                    <a href="~/login">
+                        <div class="top-button-login two columns" id="top-button">
+                            <button href="login" id="login-button">Login</button>
+                        </div>
+                    </a>                             
+                    <a href="/ExampleModels/Form">
+                        <div class="top-button-create two columns">
+                            <button id="top-button">Create</button>
+                        </div>
+                    </a>                                                   
+                </div>
+                <div class="row top-bar-max-740 twelve columns">
+                    <a href="/Index">
+                        <div class="top-button-image twelve columns">
+                            <img class="logo" src="http://puu.sh/pDqvZ.png" alt="Home" title="Home" />
+                        </div>
+                    </a>
+                    <div class="top-button-dropdown four columns">
+                        <button class="dropbtn">Profile</button>
+                        <div class="top-button-dropdown-content">
+                            <a href="/ExampleModels/Profile">My Profile</a>
+                            <a href="/ExampleModels/MyEvents">My Events</a>
+                            <a href="/ExampleModels/EditProfile">Edit Profile</a>
+                        </div>
+                    </div>
+                    <a href="~/login">
+                        <div class="top-button-login four columns" id="top-button">
+                            <button href="login" id="login-button">Login</button>
+                        </div>
+                    </a>
+                    <a href="/ExampleModels/Form">
+                        <div class="top-button-create four columns">
+                            <button id="top-button">Create</button>
+                        </div>
+                    </a>
+                </div>
+                <div class="row top-bar-max-550 twelve columns">
+                    <a href="/Index">
+                        <div class="top-button-image three columns">
+                            <img class="logo" src="http://puu.sh/pDqvZ.png" alt="Home" title="Home" />
+                        </div>
+                    </a>
+                    <a href="/ExampleModels/Form">
+                        <div class="top-button-create two columns">
+                            <button id="top-button">Create</button>
+                        </div>
+                    </a>
+                    <a href="~/login">
+                        <div class="top-button-login two columns" id="top-button">
+                            <button href="login" id="login-button">Login</button>
+                        </div>
+                    </a>
+                    <div class="top-button-dropdown two columns">
+                        <button class="dropbtn">Profile</button>
+                        <div class="top-button-dropdown-content">
+                            <a href="/ExampleModels/Profile">My Profile</a>
+                            <a href="/ExampleModels/MyEvents">My Events</a>
+                            <a href="/ExampleModels/EditProfile">Edit Profile</a>
+                        </div>
+                    </div>                                       
                 </div>
                 <div id="login-modal" class="login-modal">
                     <div class="login-modal-content">

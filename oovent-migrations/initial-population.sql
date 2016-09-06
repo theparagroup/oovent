@@ -6,13 +6,13 @@ DELETE FROM entity_entity_relationship_types;
 DELETE FROM event_entity_relationship_types;
 DELETE FROM url_types;
 
-
+--Acoustic Coffe House
 INSERT INTO entity_types (id, name) VALUES (1, 'User');
 INSERT INTO entity_types (id, parent_entity_type_id, name) VALUES (2, 1, 'Ooventer');
 INSERT INTO entity_types (id, name) VALUES (3, 'What');
 INSERT INTO entity_types (id, name) VALUES (4, 'Where');
 INSERT INTO entity_types (id, name) VALUES (5, 'Source');
-
+---------------------------------------------------------------------------
 INSERT INTO url_types(id, name) VALUES (1, 'Web');
 INSERT INTO url_types(id, name) VALUES (2, 'Facebook');
 INSERT INTO url_types(id, name) VALUES (3, 'Twitter');
