@@ -80,7 +80,7 @@ namespace Oovent.Migrations
                 .WithColumn("parent_event_id").AsParaType(ParaTypes.Key).Nullable().ForeignKey("events", "id")
                 .WithColumn("event_type_id").AsParaType(ParaTypes.Key).NotNullable().ForeignKey("event_types", "id")
                 .WithColumn("title").AsParaType(ParaTypes.Description).NotNullable()
-                .WithColumn("description").AsParaType(ParaTypes.Text).NotNullable()
+                .WithColumn("description").AsParaType(ParaTypes.LongText).NotNullable()
                 .WithColumn("phone").AsParaType(ParaTypes.Phone).Nullable()
                 .WithColumn("email").AsParaType(ParaTypes.Email).Nullable()
                 .WithColumn("price").AsParaType(ParaTypes.Currency).Nullable()
