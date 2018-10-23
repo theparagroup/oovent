@@ -22,4 +22,4 @@ It should look like this:
 			
 And you need to ensure all NuGet packages exist for both solutions.
 
-master
+
